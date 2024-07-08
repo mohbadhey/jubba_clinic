@@ -1,0 +1,840 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\doctor.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\register.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\register.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\medication_report.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\medication_report.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\assignmed.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\assignmed.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\add_doctor.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\add_doctor.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\test_details.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\test_details.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\test_details.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\test_details.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\labtest.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\labtest.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\labtest.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\labtest.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assingxray.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\assingxray.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_lab.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\add_lab.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_lab.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\add_lab.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_processed.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\lap_processed.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_operation.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\lap_operation.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_operation.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\lap_operation.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\lab_waiting_list.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\lab_waiting_list.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\doctor.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\assignmed.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\assignmed.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\waitingpatients.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\waitingpatients.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\add_doctor.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\add_doctor.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_xray.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\pending_xray.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_processed.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\lap_processed.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_lap.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\pending_lap.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\add_job_title.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\add_job_title.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\dashbourd.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\dashbourd.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lab_waiting_list.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\lab_waiting_list.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor_inpatient.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\doctor_inpatient.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\patient_in.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\patient_in.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor_inpatient.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\doctor_inpatient.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\waitingpatients.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\waitingpatients.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_patients.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\add_patients.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\patient_details.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\patient_details.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\patient_details.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\patient_details.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\add_registre.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\add_registre.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\add_registre.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\add_registre.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\admin.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\admin.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\xray.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\xray.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\add_xray.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\add_xray.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\xray_processed.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\xray_processed.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|c:\\users\\hp\\music\\juba_hospital\\juba_hospital\\juba_hospital\\medication_report.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\medication_report.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\take_lab_test.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\take_lab_test.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\homepage.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\homepage.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\patient_operation.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\patient_operation.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_xray.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\pending_xray.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_lap.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\pending_lap.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assets\\css\\kaiadmin.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7B5DA687-2DDD-420F-BAEF-B081229BBD07}|juba_hospital\\juba_hospital.csproj|solutionrelative:juba_hospital\\assets\\css\\kaiadmin.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "login.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\login.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\login.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\login.aspx",
+              "RelativeToolTip": "juba_hospital\\login.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-08T12:24:57.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "doctor.Master",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor.Master",
+              "RelativeDocumentMoniker": "juba_hospital\\doctor.Master",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor.Master",
+              "RelativeToolTip": "juba_hospital\\doctor.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-02T19:41:23.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "add_doctor.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_doctor.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\add_doctor.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_doctor.aspx",
+              "RelativeToolTip": "juba_hospital\\add_doctor.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T14:13:02.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "assignmed.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assignmed.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\assignmed.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assignmed.aspx",
+              "RelativeToolTip": "juba_hospital\\assignmed.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-04T20:54:45.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "medication_report.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\medication_report.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\medication_report.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\medication_report.aspx",
+              "RelativeToolTip": "juba_hospital\\medication_report.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T12:23:24.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "register.Master",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\register.Master",
+              "RelativeDocumentMoniker": "juba_hospital\\register.Master",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\register.Master",
+              "RelativeToolTip": "juba_hospital\\register.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T19:06:48.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "test_details.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\test_details.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\test_details.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\test_details.aspx",
+              "RelativeToolTip": "juba_hospital\\test_details.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-03T07:50:23.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "test_details.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\test_details.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\test_details.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\test_details.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\test_details.aspx.cs",
+              "ViewState": "AQIAAEYBAAAAAAAAAAAmwBQBAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T18:28:48.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "login.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\login.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\login.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\login.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\login.aspx.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAgwFUAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:40:08.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "labtest.Master",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\labtest.Master",
+              "RelativeDocumentMoniker": "juba_hospital\\labtest.Master",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\labtest.Master",
+              "RelativeToolTip": "juba_hospital\\labtest.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-08T12:41:47.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "labtest.Master.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\labtest.Master.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\labtest.Master.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\labtest.Master.cs",
+              "RelativeToolTip": "juba_hospital\\labtest.Master.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAQwBMAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T12:19:19.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "assingxray.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assingxray.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\assingxray.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assingxray.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\assingxray.aspx.cs",
+              "ViewState": "AQIAAJsAAAAAAAAAAAAAAK0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T20:26:51.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "add_lab.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_lab.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\add_lab.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_lab.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\add_lab.aspx.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA4AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T18:15:16.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "add_lab.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_lab.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\add_lab.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_lab.aspx",
+              "RelativeToolTip": "juba_hospital\\add_lab.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-04T18:56:09.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "lap_processed.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_processed.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\lap_processed.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_processed.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\lap_processed.aspx.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAwDsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T19:19:46.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "lap_operation.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_operation.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\lap_operation.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_operation.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\lap_operation.aspx.cs",
+              "ViewState": "AQIAALUAAAAAAAAAAAAYwLcBAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T21:53:17.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "lap_operation.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_operation.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\lap_operation.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_operation.aspx",
+              "RelativeToolTip": "juba_hospital\\lap_operation.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-02T21:49:33.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "lab_waiting_list.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lab_waiting_list.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\lab_waiting_list.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lab_waiting_list.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\lab_waiting_list.aspx.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwCAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T12:21:14.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "doctor.Master.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor.Master.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\doctor.Master.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor.Master.cs",
+              "RelativeToolTip": "juba_hospital\\doctor.Master.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T17:06:35.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "assignmed.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assignmed.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\assignmed.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assignmed.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\assignmed.aspx.cs",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAkwKsAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T14:31:12.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "waitingpatients.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\waitingpatients.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\waitingpatients.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\waitingpatients.aspx",
+              "RelativeToolTip": "juba_hospital\\waitingpatients.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-08T11:22:02.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "add_doctor.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_doctor.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\add_doctor.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_doctor.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\add_doctor.aspx.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwD4AAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-08T11:38:05.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "pending_xray.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_xray.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\pending_xray.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_xray.aspx",
+              "RelativeToolTip": "juba_hospital\\pending_xray.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-02T19:48:50.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "lap_processed.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_processed.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\lap_processed.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lap_processed.aspx",
+              "RelativeToolTip": "juba_hospital\\lap_processed.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-02T19:19:04.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "pending_lap.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_lap.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\pending_lap.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_lap.aspx",
+              "RelativeToolTip": "juba_hospital\\pending_lap.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-02T19:12:24.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "add_job_title.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_job_title.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\add_job_title.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_job_title.aspx",
+              "RelativeToolTip": "juba_hospital\\add_job_title.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-08T11:22:38.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Dashbourd.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Dashbourd.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\Dashbourd.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Dashbourd.aspx",
+              "RelativeToolTip": "juba_hospital\\Dashbourd.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-04T09:12:28.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "lab_waiting_list.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lab_waiting_list.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\lab_waiting_list.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\lab_waiting_list.aspx",
+              "RelativeToolTip": "juba_hospital\\lab_waiting_list.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-03T07:29:56.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "doctor_inpatient.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor_inpatient.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\doctor_inpatient.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor_inpatient.aspx",
+              "RelativeToolTip": "juba_hospital\\doctor_inpatient.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T19:59:37.251Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "patient_in.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\patient_in.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\patient_in.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\patient_in.aspx",
+              "RelativeToolTip": "juba_hospital\\patient_in.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T18:55:05.445Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "doctor_inpatient.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor_inpatient.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\doctor_inpatient.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\doctor_inpatient.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\doctor_inpatient.aspx.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAYwDAAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T20:00:10.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "waitingpatients.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\waitingpatients.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\waitingpatients.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\waitingpatients.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\waitingpatients.aspx.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAswCQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T18:57:01.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Add_patients.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Add_patients.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\Add_patients.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Add_patients.aspx",
+              "RelativeToolTip": "juba_hospital\\Add_patients.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-30T20:03:59.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Patient_details.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Patient_details.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\Patient_details.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Patient_details.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\Patient_details.aspx.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAkwCEAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T18:23:31.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Patient_details.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Patient_details.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\Patient_details.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Patient_details.aspx",
+              "RelativeToolTip": "juba_hospital\\Patient_details.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T18:23:28.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "add_registre.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_registre.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\add_registre.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_registre.aspx",
+              "RelativeToolTip": "juba_hospital\\add_registre.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T17:59:26.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "add_registre.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_registre.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\add_registre.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_registre.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\add_registre.aspx.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAkwDYAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T18:03:47.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Admin.Master",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Admin.Master",
+              "RelativeDocumentMoniker": "juba_hospital\\Admin.Master",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Admin.Master",
+              "RelativeToolTip": "juba_hospital\\Admin.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T14:03:10.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "xray.Master",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\xray.Master",
+              "RelativeDocumentMoniker": "juba_hospital\\xray.Master",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\xray.Master",
+              "RelativeToolTip": "juba_hospital\\xray.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T16:49:52.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "add_xray.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_xray.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\add_xray.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\add_xray.aspx",
+              "RelativeToolTip": "juba_hospital\\add_xray.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T16:50:11.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "xray_processed.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\xray_processed.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\xray_processed.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\xray_processed.aspx",
+              "RelativeToolTip": "juba_hospital\\xray_processed.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-07T16:38:36.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "medication_report.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\medication_report.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\medication_report.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\medication_report.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\medication_report.aspx.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwB0AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-07T12:26:42.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "take_lab_test.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\take_lab_test.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\take_lab_test.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\take_lab_test.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\take_lab_test.aspx.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T16:48:27.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "homepage.master",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\homepage.master",
+              "RelativeDocumentMoniker": "juba_hospital\\homepage.master",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\homepage.master",
+              "RelativeToolTip": "juba_hospital\\homepage.master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-07-04T09:20:22.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Patient_Operation.aspx",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Patient_Operation.aspx",
+              "RelativeDocumentMoniker": "juba_hospital\\Patient_Operation.aspx",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\Patient_Operation.aspx",
+              "RelativeToolTip": "juba_hospital\\Patient_Operation.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2024-06-27T05:33:59.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "pending_xray.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_xray.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\pending_xray.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_xray.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\pending_xray.aspx.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAADwvzYAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T19:54:01.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "pending_lap.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_lap.aspx.cs",
+              "RelativeDocumentMoniker": "juba_hospital\\pending_lap.aspx.cs",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\pending_lap.aspx.cs",
+              "RelativeToolTip": "juba_hospital\\pending_lap.aspx.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAIBZwAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-02T19:13:16.572Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "kaiadmin.min.css",
+              "DocumentMoniker": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assets\\css\\kaiadmin.min.css",
+              "RelativeDocumentMoniker": "juba_hospital\\assets\\css\\kaiadmin.min.css",
+              "ToolTip": "C:\\Users\\hp\\Music\\juba_hospital\\juba_hospital\\juba_hospital\\assets\\css\\kaiadmin.min.css",
+              "RelativeToolTip": "juba_hospital\\assets\\css\\kaiadmin.min.css",
+              "ViewState": "AQIAABwAAAAAAAAAAAASwCQAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-06-29T18:10:00.161Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

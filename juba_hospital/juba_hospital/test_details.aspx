@@ -1,0 +1,1395 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/labtest.Master" AutoEventWireup="true" CodeBehind="test_details.aspx.cs" Inherits="juba_hospital.test_details" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+      
+            <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel1">Lab Tests</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <input style="display:none" id="id111" />
+                   <input style="display:none"  id="medid" />
+          
+          <div class="row">
+              <div class="col-12">
+                  <h1>Lab Test Details</h1>
+
+         <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="radio2" value="0">
+        <label class="form-check-label" for="radio2">Show Lab Tests</label>
+    </div>
+
+<div id="additionalTests" class="hidden">
+    <div class="row">
+            <div class="col-4">
+                                                          <div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckLDL">
+    <label class="form-check-label" for="flexCheckLDL">
+        Low-density lipoprotein (LDL)
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckHDL">
+    <label class="form-check-label" for="flexCheckHDL">
+        High-density lipoprotein (HDL)
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckTotalCholesterol">
+    <label class="form-check-label" for="flexCheckTotalCholesterol">
+        Total cholesterol
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckTriglycerides">
+    <label class="form-check-label" for="flexCheckTriglycerides">
+        Triglycerides
+    </label>
+</div>  
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckSodium">
+        <label class="form-check-label" for="flexCheckSodium">
+            Sodium
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckPotassium">
+        <label class="form-check-label" for="flexCheckPotassium">
+            Potassium
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckChloride">
+        <label class="form-check-label" for="flexCheckChloride">
+            Chloride
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckCalcium">
+        <label class="form-check-label" for="flexCheckCalcium">
+            Calcium
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckPhosphorous">
+        <label class="form-check-label" for="flexCheckPhosphorous">
+            Phosphorous
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckMagnesium">
+        <label class="form-check-label" for="flexCheckMagnesium">
+            Magnesium
+        </label>
+    </div>
+                <div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckCreatinine">
+    <label class="form-check-label" for="flexCheckCreatinine">
+        Creatinine
+    </label>
+</div>
+   
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckAmylase">
+        <label class="form-check-label" for="flexCheckAmylase">
+            Amylase
+        </label>
+    </div>
+                
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckProgesteroneFemale">
+        <label class="form-check-label" for="flexCheckProgesteroneFemale">
+            Progesterone (Female)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckFSH">
+        <label class="form-check-label" for="flexCheckFSH">
+            Follicle stimulating hormone (FSH)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckEstradiol">
+        <label class="form-check-label" for="flexCheckEstradiol">
+            Estradiol
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckLH">
+        <label class="form-check-label" for="flexCheckLH">
+            Luteinizing hormone (LH)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckTestosteroneMale">
+        <label class="form-check-label" for="flexCheckTestosteroneMale">
+            Testosterone (Male)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckProlactin">
+        <label class="form-check-label" for="flexCheckProlactin">
+            Prolactin
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckSeminalFluidAnalysis">
+        <label class="form-check-label" for="flexCheckSeminalFluidAnalysis">
+            Seminal Fluid Analysis (Male)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckBHCG">
+        <label class="form-check-label" for="flexCheckBHCG">
+            B-HCG
+        </label>
+    </div>
+ 
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckUrineExamination">
+        <label class="form-check-label" for="flexCheckUrineExamination">
+            Urine examination
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckStoolExamination">
+        <label class="form-check-label" for="flexCheckStoolExamination">
+            Stool examination
+        </label>
+    </div>
+
+    </div>
+
+
+
+        <div class="col-4">
+                             
+
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckUricAcid">
+    <label class="form-check-label" for="flexCheckUricAcid">
+        Uric acid
+    </label>
+</div>
+    
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckBrucellaAbortus">
+        <label class="form-check-label" for="flexCheckBrucellaAbortus">
+            Brucella abortus
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckCRP">
+        <label class="form-check-label" for="flexCheckCRP">
+            C-reactive protein (CRP)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckRF">
+        <label class="form-check-label" for="flexCheckRF">
+            Rheumatoid factor (RF)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckASO">
+        <label class="form-check-label" for="flexCheckASO">
+            Antistreptolysin O (ASO)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckToxoplasmosis">
+        <label class="form-check-label" for="flexCheckToxoplasmosis">
+            Toxoplasmosis
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckTyphoid">
+        <label class="form-check-label" for="flexCheckTyphoid">
+            Typhoid (hCG)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckHpyloriAntibody">
+        <label class="form-check-label" for="flexCheckHpyloriAntibody">
+            H.pylori antibody
+        </label>
+    </div>
+  
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckStoolOccultBlood">
+        <label class="form-check-label" for="flexCheckStoolOccultBlood">
+            Stool occult blood
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckGeneralStoolExamination">
+        <label class="form-check-label" for="flexCheckGeneralStoolExamination">
+            General stool examination
+        </label>
+    </div>
+  
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckThyroidProfile">
+        <label class="form-check-label" for="flexCheckThyroidProfile">
+            Thyroid profile
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckT3">
+        <label class="form-check-label" for="flexCheckT3">
+            Triiodothyronine (T3)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckT4">
+        <label class="form-check-label" for="flexCheckT4">
+            Thyroxine (T4)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckTSH">
+        <label class="form-check-label" for="flexCheckTSH">
+            Thyroid stimulating hormone (TSH)
+        </label>
+    </div>
+  
+
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckSpermExamination">
+        <label class="form-check-label" for="flexCheckSpermExamination">
+            Sperm examination
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckVirginalSwab">
+        <label class="form-check-label" for="flexCheckVirginalSwab">
+            Virginal swab
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckTrichomonasVirginals">
+        <label class="form-check-label" for="flexCheckTrichomonasVirginals">
+            Trichomonas virginals
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckHCG">
+        <label class="form-check-label" for="flexCheckHCG">
+            Human chorionic gonadotropin (hCG)
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckHpyloriAgStool">
+        <label class="form-check-label" for="flexCheckHpyloriAgStool">
+            H.pylori Ag (stool)
+        </label>
+    </div>
+   
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckFastingBloodSugar">
+        <label class="form-check-label" for="flexCheckFastingBloodSugar">
+            Fasting blood sugar
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckHemoglobinA1c">
+        <label class="form-check-label" for="flexCheckHemoglobinA1c">
+            Hemoglobin A1c
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckGeneralUrineExamination">
+        <label class="form-check-label" for="flexCheckGeneralUrineExamination">
+            General urine examination
+        </label>
+    </div>
+    </div>
+
+       <div class="col-4">
+
+                                          
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckLiverFunctionTest">
+    <label class="form-check-label" for="flexCheckLiverFunctionTest">
+        Liver function test
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckSGPTALT">
+    <label class="form-check-label" for="flexCheckSGPTALT">
+        SGPT (ALT)
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckSGOTAST">
+    <label class="form-check-label" for="flexCheckSGOTAST">
+        SGOT (AST)
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckAlkalinePhosphatesALP">
+    <label class="form-check-label" for="flexCheckAlkalinePhosphatesALP">
+        Alkaline phosphates (ALP)
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckTotalBilirubin">
+    <label class="form-check-label" for="flexCheckTotalBilirubin">
+        Total bilirubin
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckDirectBilirubin">
+    <label class="form-check-label" for="flexCheckDirectBilirubin">
+        Direct bilirubin
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckAlbumin">
+    <label class="form-check-label" for="flexCheckAlbumin">
+        Albumin
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckJGlobulin">
+    <label class="form-check-label" for="flexCheckJGlobulin">
+        JGlobulin
+    </label>
+</div>
+   
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckUrea">
+    <label class="form-check-label" for="flexCheckUrea">
+        Urea
+    </label>
+</div>
+
+                       <div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckHemoglobin">
+    <label class="form-check-label" for="flexCheckHemoglobin">
+        Hemoglobin
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckMalaria">
+    <label class="form-check-label" for="flexCheckMalaria">
+        Malaria
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckESR">
+    <label class="form-check-label" for="flexCheckESR">
+        ESR
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckBloodGrouping">
+    <label class="form-check-label" for="flexCheckBloodGrouping">
+        Blood grouping
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckBloodSugar">
+    <label class="form-check-label" for="flexCheckBloodSugar">
+        Blood sugar
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckCBC">
+    <label class="form-check-label" for="flexCheckCBC">
+        CBC
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckCrossMatching">
+    <label class="form-check-label" for="flexCheckCrossMatching">
+        Cross matching
+    </label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckTPHA">
+    <label class="form-check-label" for="flexCheckTPHA">
+        TPHA
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckHIV">
+    <label class="form-check-label" for="flexCheckHIV">
+        Human immune deficiency (HIV)
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckHBV">
+    <label class="form-check-label" for="flexCheckHBV">
+        Hepatitis B virus (HBV)
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckHCV">
+    <label class="form-check-label" for="flexCheckHCV">
+        Hepatitis C virus (HCV)
+    </label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="checkbox" value="" id="flexCheckBrucellaMelitensis">
+    <label class="form-check-label" for="flexCheckBrucellaMelitensis">
+        Brucella melitensis
+    </label>
+</div>
+       </div>
+    </div>
+
+    
+
+    
+
+</div>
+
+              </div>
+         
+                  
+             
+        
+  
+          </div>
+
+ <div class="row">
+ 
+             <div class="col-12">
+    <h1>Lab Test Inputs Data</h1>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="radio21" value="0">
+        <label class="form-check-label" for="radio2">Show Lab Tests</label>
+    </div>
+
+    <div id="additionalTests1" class="hidden">
+        <div class="row">
+            <div class="col-4">
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckLDL1">
+                    <label class="form-check-label" for="flexCheckLDL">Low-density lipoprotein (LDL)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckHDL1">
+                    <label class="form-check-label" for="flexCheckHDL">High-density lipoprotein (HDL)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckTotalCholesterol1">
+                    <label class="form-check-label" for="flexCheckTotalCholesterol">Total cholesterol</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckTriglycerides1">
+                    <label class="form-check-label" for="flexCheckTriglycerides">Triglycerides</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckSodium1">
+                    <label class="form-check-label" for="flexCheckSodium">Sodium</label>
+                </div>
+                <div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckTrichomonasVirginals1">
+    <label class="form-check-label" for="flexCheckTrichomonasVirginals1">TrichomonasVirginals</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckHCG1">
+    <label class="form-check-label" for="flexCheckHCG1">HCG1</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckFastingBloodSugar1">
+    <label class="form-check-label" for="flexCheckFastingBloodSugar1">FastingBloodSugar</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckHpyloriAgStool1">
+    <label class="form-check-label" for="flexCheckHpyloriAgStool1">CheckHpyloriAgStool</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckDirectBilirubin1">
+    <label class="form-check-label" for="flexCheckDirectBilirubin1">DirectBilirubin</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckUrea1">
+    <label class="form-check-label" for="flexCheckUrea1">Urea</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckLiverFunctionTest1">
+    <label class="form-check-label" for="flexCheckLiverFunctionTest1">LiverFunctionTest</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckHBV1">
+    <label class="form-check-label" for="flexCheckHBV1">HBV1</label>
+</div>
+                <div class="form-check">
+    <input class="custom-control-input" type="text" id="Hepatitis_C_virus_HCV1">
+    <label class="form-check-label" for="flexCheckHBV1">Hepatitis_C_virus_HCV</label>
+</div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckPotassium1">
+                    <label class="form-check-label" for="flexCheckPotassium">Potassium</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckChloride1">
+                    <label class="form-check-label" for="flexCheckChloride">Chloride</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckCalcium1">
+                    <label class="form-check-label" for="flexCheckCalcium">Calcium</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckPhosphorous1">
+                    <label class="form-check-label" for="flexCheckPhosphorous">Phosphorous</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckMagnesium1">
+                    <label class="form-check-label" for="flexCheckMagnesium">Magnesium</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckCreatinine1">
+                    <label class="form-check-label" for="flexCheckCreatinine">Creatinine</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckAmylase1">
+                    <label class="form-check-label" for="flexCheckAmylase">Amylase</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckProgesteroneFemale1">
+                    <label class="form-check-label" for="flexCheckProgesteroneFemale">Progesterone (Female)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckFSH1">
+                    <label class="form-check-label" for="flexCheckFSH">Follicle stimulating hormone (FSH)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckEstradiol1">
+                    <label class="form-check-label" for="flexCheckEstradiol">Estradiol</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckLH1">
+                    <label class="form-check-label" for="flexCheckLH">Luteinizing hormone (LH)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckTestosteroneMale1">
+                    <label class="form-check-label" for="flexCheckTestosteroneMale">Testosterone (Male)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckProlactin1">
+                    <label class="form-check-label" for="flexCheckProlactin">Prolactin</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckSeminalFluidAnalysis1">
+                    <label class="form-check-label" for="flexCheckSeminalFluidAnalysis">Seminal Fluid Analysis (Male)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckBHCG1">
+                    <label class="form-check-label" for="flexCheckBHCG">B-HCG</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckUrineExamination1">
+                    <label class="form-check-label" for="flexCheckUrineExamination">Urine examination</label>
+                </div>
+             
+                                                        <div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckMalaria1">
+    <label class="form-check-label" for="flexCheckTroponinI">Malaria</label>
+</div>
+
+            </div>
+
+            <div class="col-4">
+               <div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckThyroidProfile1">
+    <label class="form-check-label" for="flexCheckThyroidProfile1">ThyroidProfile</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckT31">
+    <label class="form-check-label" for="flexCheckT31">T31</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckT41">
+    <label class="form-check-label" for="flexCheckT41">T41</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckTSH1">
+    <label class="form-check-label" for="flexCheckTSH1">TSH1</label>
+</div>
+   <div class="form-check">
+       <input class="custom-control-input custom-checkbox" type="text" id="flexCheckStoolExamination1">
+       <label class="form-check-label" for="flexCheckStoolExamination">Stool examination</label>
+   </div>
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckSpermExamination1">
+    <label class="form-check-label" for="flexCheckSpermExamination1">SpermExamination</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckVirginalSwab1">
+    <label class="form-check-label" for="flexCheckVirginalSwab1">VirginalSwab</label>
+</div>
+
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckTyphoid1">
+                    <label class="form-check-label" for="flexCheckTyphoid">Typhoid (hCG)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckHpyloriAntibody1">
+                    <label class="form-check-label" for="flexCheckHpyloriAntibody">H.pylori antibody</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckStoolOccultBlood1">
+                    <label class="form-check-label" for="flexCheckStoolOccultBlood">Stool occult blood</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckGeneralStoolExamination1">
+                    <label class="form-check-label" for="flexCheckGeneralStoolExamination">General stool examination</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckCalciumBlood1">
+                    <label class="form-check-label" for="flexCheckCalciumBlood">Calcium in blood</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckG6PD">
+                    <label class="form-check-label" for="flexCheckG6PD">G6PD</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckAlkalinePhosphatase">
+                    <label class="form-check-label" for="flexCheckAlkalinePhosphatase">Alkaline phosphatase</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckSGOTAST1">
+                    <label class="form-check-label" for="flexCheckSGOTAST">SGOT/AST</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckSGPTALT1">
+                    <label class="form-check-label" for="flexCheckSGPTALT">SGPT/ALT</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckGammaGlutamylTransferase">
+                    <label class="form-check-label" for="flexCheckGammaGlutamylTransferase">Gamma-glutamyl transferase (GGT)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckTotalProtein">
+                    <label class="form-check-label" for="flexCheckTotalProtein">Total protein</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckAlbumin1">
+                    <label class="form-check-label" for="flexCheckAlbumin">Albumin</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckJGlobulin1">
+                    <label class="form-check-label" for="flexCheckGlobulin">Globulin</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckBilirubinTotal">
+                    <label class="form-check-label" for="flexCheckBilirubinTotal">Bilirubin (Total)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckBilirubinDirect">
+                    <label class="form-check-label" for="flexCheckBilirubinDirect">Bilirubin (Direct)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckCreatineKinaseTotal">
+                    <label class="form-check-label" for="flexCheckCreatineKinaseTotal">Creatine kinase (Total)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckCKMB">
+                    <label class="form-check-label" for="flexCheckCKMB">CK-MB</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckLactateDehydrogenase">
+                    <label class="form-check-label" for="flexCheckLactateDehydrogenase">Lactate dehydrogenase</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckLipase">
+                    <label class="form-check-label" for="flexCheckLipase">Lipase</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckPhosphataseAcid">
+                    <label class="form-check-label" for="flexCheckPhosphataseAcid">Phosphatase (Acid)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckAlkalinePhosphatesALP1">
+                    <label class="form-check-label" for="flexCheckPhosphataseAlkaline">Phosphatase (Alkaline)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckTroponinI">
+                    <label class="form-check-label" for="flexCheckTroponinI">Troponin I</label>
+                </div>
+                 <div class="form-check">
+       <input class="custom-control-input custom-checkbox" type="text" id="flexCheckGeneralUrineExamination1">
+       <label class="form-check-label" for="flexCheckTroponinI">GeneralUrineExamination</label>
+   </div>
+                              <div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckHemoglobinA1c1">
+    <label class="form-check-label" for="flexCheckTroponinI">HemoglobinA1c</label>
+</div>
+          
+        
+                
+            </div>
+
+            <div class="col-4">
+                  <div class="form-check">
+      <input class="custom-control-input custom-checkbox" type="text" id="flexCheckTroponinT">
+      <label class="form-check-label" for="flexCheckTroponinT">Troponin T</label>
+  </div>
+                                <div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckUricAcid1">
+    <label class="form-check-label" for="flexCheckUricAcid">Uric acid</label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckBrucellaAbortus1">
+    <label class="form-check-label" for="flexCheckBrucellaAbortus">Brucella abortus</label>
+</div>
+<div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckCRP1">
+    <label class="form-check-label" for="flexCheckCRP">C-reactive protein (CRP)</label>
+</div>
+                 <div class="form-check">
+     <input class="custom-control-input custom-checkbox" type="text" id="flexCheckRF1">
+     <label class="form-check-label" for="flexCheckRF">Rheumatoid factor (RF)</label>
+ </div>
+ <div class="form-check">
+     <input class="custom-control-input custom-checkbox" type="text" id="flexCheckASO1">
+     <label class="form-check-label" for="flexCheckASO">Antistreptolysin O (ASO)</label>
+ </div>
+ <div class="form-check">
+     <input class="custom-control-input custom-checkbox" type="text" id="flexCheckToxoplasmosis1">
+     <label class="form-check-label" for="flexCheckToxoplasmosis">Toxoplasmosis</label>
+ </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckHBsAg">
+                    <label class="form-check-label" for="flexCheckHBsAg">HBsAg</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckAntiHCV">
+                    <label class="form-check-label" for="flexCheckAntiHCV">Anti-HCV</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckHIVAb1and2">
+                    <label class="form-check-label" for="flexCheckHIVAb1and2">HIV Ab 1&2</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckCMV">
+                    <label class="form-check-label" for="flexCheckCMV">CMV (IgG & IgM)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckEBVIgM">
+                    <label class="form-check-label" for="flexCheckEBVIgM">EBV (IgM)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckRubella">
+                    <label class="form-check-label" for="flexCheckRubella">Rubella (IgG & IgM)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckAntiHAVIgMandIgG">
+                    <label class="form-check-label" for="flexCheckAntiHAVIgMandIgG">Anti-HAV (IgM & IgG)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckSalmonellaParatyphiAH">
+                    <label class="form-check-label" for="flexCheckSalmonellaParatyphiAH">Salmonella Paratyphi A (H)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckSalmonellaParatyphiBH">
+                    <label class="form-check-label" for="flexCheckSalmonellaParatyphiBH">Salmonella Paratyphi B (H)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckSalmonellaTyphiOH">
+                    <label class="form-check-label" for="flexCheckSalmonellaTyphiOH">Salmonella Typhi (O&H)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckRPRSyphillis">
+                    <label class="form-check-label" for="flexCheckRPRSyphillis">RPR (Syphilis)</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckTPHA1">
+                    <label class="form-check-label" for="flexCheckTPHA">TPHA</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckHIV1">
+                    <label class="form-check-label" for="flexCheckHIV1">HIV 1</label>
+                </div>
+                <div class="form-check">
+                    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckHIV2">
+                    <label class="form-check-label" for="flexCheckHIV2">HIV 2</label>
+                            <div class="form-check">
+    <input class="custom-control-input custom-checkbox" type="text" id="flexCheckESR1">
+    <label class="form-check-label" for="flexCheckESR1">ESR</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckBloodGrouping1">
+    <label class="form-check-label" for="flexCheckBloodGrouping1">BloodGrouping</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckBloodSugar1">
+    <label class="form-check-label" for="flexCheckBloodSugar1">BloodSugar</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckCBC1">
+    <label class="form-check-label" for="flexCheckCBC1">CBC</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckCrossMatching1">
+    <label class="form-check-label" for="flexCheckCrossMatching1">CrossMatching</label>
+</div>
+
+<div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckBrucellaMelitensis1">
+    <label class="form-check-label" for="flexCheckBrucellaMelitensis1">BrucellaMelitensis</label>
+</div>
+
+
+                    <div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckTotalBilirubin1">
+    <label class="form-check-label" for="flexCheckBrucellaMelitensis1">TotalBilirubin</label>
+</div>
+
+
+                    <div class="form-check">
+    <input class="custom-control-input" type="text" id="flexCheckHemoglobin1">
+    <label class="form-check-label" for="flexCheckBrucellaMelitensis1">Hemoglobin</label>
+</div>
+
+
+                </div>
+            </div>
+
+     
+      
+
+
+
+                   
+        </div>
+    </div>
+
+   
+          </div>
+ </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" onclick="callAjaxFunction()" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+         <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="d-flex align-items-center">
+                      <h4 class="card-title"> Pending Lap Operation</h4>
+                   
+                    </div>
+                  </div>
+                  <div class="card-body">
+            
+
+                    <div class="table-responsive">
+                      <table
+                        id="datatable"
+                        class="display table table-striped table-hover"
+                      >
+                        <thead>
+                          <tr>
+                             <th>Name</th>
+ <th>Sex</th>
+ <th>Location</th>
+ <th>Phone</th>
+                                        <th>Amount</th>
+                               <th>D.O.B</th>
+ <th>Date Registered</th>
+ <th>Doctor Title</th>
+                                   <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tfoot>
+                          <tr>
+                          <th>Name</th>
+ <th>Sex</th>
+ <th>Location</th>
+ <th>Phone</th>
+                               <th>Amount</th>
+                              
+                               <th>D.O.B</th>
+ <th>Date Registered</th>
+ <th>Doctor Title</th>
+                               <th>Actions</th>
+                          </tr>
+                        </tfoot>
+            <tbody>
+
+            </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+      <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script>
+
+        function callAjaxFunction() {
+
+
+            
+            var flexCheckHCV1 = $("#Hepatitis_C_virus_HCV1").val();
+            var flexCheckGeneralUrineExamination1 = $("#flexCheckGeneralUrineExamination1").val();
+            var flexCheckProgesteroneFemale1 = $("#flexCheckProgesteroneFemale1").val();
+            var flexCheckAmylase1 = $("#flexCheckAmylase1").val();
+            var flexCheckMagnesium1 = $("#flexCheckMagnesium1").val();
+            var flexCheckPhosphorous1 = $("#flexCheckPhosphorous1").val();
+            var flexCheckCalcium1 = $("#flexCheckCalcium1").val();
+            var flexCheckChloride1 = $("#flexCheckChloride1").val();
+            var flexCheckPotassium1 = $("#flexCheckPotassium1").val();
+            var flexCheckSodium1 = $("#flexCheckSodium1").val();
+            var flexCheckUricAcid1 = $("#flexCheckUricAcid1").val();
+            var flexCheckCreatinine1 = $("#flexCheckCreatinine1").val();
+            var flexCheckUrea1 = $("#flexCheckUrea1").val();
+            var flexCheckJGlobulin1 = $("#flexCheckJGlobulin1").val();
+            var flexCheckAlbumin1 = $("#flexCheckAlbumin1").val();
+            var flexCheckTotalBilirubin1 = $("#flexCheckTotalBilirubin1").val();
+            var flexCheckAlkalinePhosphatesALP1 = $("#flexCheckAlkalinePhosphatesALP1").val();
+            var flexCheckSGOTAST1 = $("#flexCheckSGOTAST1").val();
+            var flexCheckSGPTALT1 = $("#flexCheckSGPTALT1").val();
+            var flexCheckLiverFunctionTest1 = $("#flexCheckLiverFunctionTest1").val();
+            var flexCheckTriglycerides1 = $("#flexCheckTriglycerides1").val();
+            var flexCheckTotalCholesterol1 = $("#flexCheckTotalCholesterol1").val();
+            var flexCheckHemoglobinA1c1 = $("#flexCheckHemoglobinA1c1").val();
+            var flexCheckHDL1 = $("#flexCheckHDL1").val();
+            var flexCheckLDL1 = $("#flexCheckLDL1").val();
+            var flexCheckFSH1 = $("#flexCheckFSH1").val();
+            var flexCheckEstradiol1 = $("#flexCheckEstradiol1").val();
+            var flexCheckLH1 = $("#flexCheckLH1").val();
+            var flexCheckTestosteroneMale1 = $("#flexCheckTestosteroneMale1").val();
+            var flexCheckProlactin1 = $("#flexCheckProlactin1").val();
+            var flexCheckSeminalFluidAnalysis1 = $("#flexCheckSeminalFluidAnalysis1").val();
+            var flexCheckBHCG1 = $("#flexCheckBHCG1").val();
+            var flexCheckUrineExamination1 = $("#flexCheckUrineExamination1").val();
+            var flexCheckStoolExamination1 = $("#flexCheckStoolExamination1").val();
+            var flexCheckHemoglobin1 = $("#flexCheckHemoglobin1").val();
+            var flexCheckMalaria1 = $("#flexCheckMalaria1").val();
+            var flexCheckESR1 = $("#flexCheckESR1").val();
+            var flexCheckBloodGrouping1 = $("#flexCheckBloodGrouping1").val();
+            var flexCheckBloodSugar1 = $("#flexCheckBloodSugar1").val();
+            var flexCheckCBC1 = $("#flexCheckCBC1").val();
+            var flexCheckCrossMatching1 = $("#flexCheckCrossMatching1").val();
+            var flexCheckTPHA1 = $("#flexCheckTPHA1").val();
+            var flexCheckHIV1 = $("#flexCheckHIV1").val();
+            var flexCheckHBV1 = $("#flexCheckHBV1").val();
+       var flexCheckBrucellaMelitensis1 = $("#flexCheckBrucellaMelitensis1").val();
+            var flexCheckBrucellaAbortus1 = $("#flexCheckBrucellaAbortus1").val();
+            var flexCheckCRP1 = $("#flexCheckCRP1").val();
+            var flexCheckRF1 = $("#flexCheckRF1").val();
+            var flexCheckASO1 = $("#flexCheckASO1").val();
+            var flexCheckToxoplasmosis1 = $("#flexCheckToxoplasmosis1").val();
+            var flexCheckTyphoid1 = $("#flexCheckTyphoid1").val();
+            var flexCheckHpyloriAntibody1 = $("#flexCheckHpyloriAntibody1").val();
+            var flexCheckStoolOccultBlood1 = $("#flexCheckStoolOccultBlood1").val();
+            var flexCheckGeneralStoolExamination1 = $("#flexCheckGeneralStoolExamination1").val();
+            var flexCheckThyroidProfile1 = $("#flexCheckThyroidProfile1").val();
+            var flexCheckT31 = $("#flexCheckT31").val();
+            var flexCheckT41 = $("#flexCheckT41").val();
+            var flexCheckTSH1 = $("#flexCheckTSH1").val();
+            var flexCheckSpermExamination1 = $("#flexCheckSpermExamination1").val();
+            var flexCheckVirginalSwab1 = $("#flexCheckVirginalSwab1").val();
+            var flexCheckTrichomonasVirginals1 = $("#flexCheckTrichomonasVirginals1").val();
+            var flexCheckHCG1 = $("#flexCheckHCG1").val();
+            var flexCheckHpyloriAgStool1 = $("#flexCheckHpyloriAgStool1").val();
+            var flexCheckFastingBloodSugar1 = $("#flexCheckFastingBloodSugar1").val();
+            var flexCheckDirectBilirubin1 = $("#flexCheckDirectBilirubin1").val();
+            
+            var id = $("#medid").val();
+            var prescid = $("#id111").val();
+        
+            $.ajax({
+                url: 'test_details.aspx/submitdata',
+                data: "{'id':'" + id + "'," +
+                    "'prescid':'" + prescid + "'," +
+                "'flexCheckLiverFunctionTest1':'" + flexCheckLiverFunctionTest1 + "'," +
+                    "'flexCheckBloodGrouping1':'" + flexCheckBloodGrouping1 + "'," +
+                    "'flexCheckMalaria1':'" + flexCheckMalaria1 + "'," +
+                    "'flexCheckHemoglobin1':'" + flexCheckHemoglobin1 + "'," +
+                    "'flexCheckHemoglobinA1c1':'" + flexCheckHemoglobinA1c1 + "'," +
+                    "'flexCheckFastingBloodSugar1':'" + flexCheckFastingBloodSugar1 + "'," +
+                    "'flexCheckHpyloriAgStool1':'" + flexCheckHpyloriAgStool1 + "'," +
+                    "'flexCheckTrichomonasVirginals1':'" + flexCheckTrichomonasVirginals1 + "'," +
+                    "'flexCheckVirginalSwab1':'" + flexCheckVirginalSwab1 + "'," +
+                    "'flexCheckSpermExamination1':'" + flexCheckSpermExamination1 + "'," +
+                    "'flexCheckTSH1':'" + flexCheckTSH1 + "'," +
+                    "'flexCheckT41':'" + flexCheckT41 + "'," +
+                    "'flexCheckHCG1':'" + flexCheckHCG1 + "'," +
+                    "'flexCheckUrea1':'" + flexCheckUrea1 + "'," +
+                    "'flexCheckT31':'" + flexCheckT31 + "'," +
+                    "'flexCheckThyroidProfile1':'" + flexCheckThyroidProfile1 + "'," +
+                    "'flexCheckBrucellaMelitensis1':'" + flexCheckBrucellaMelitensis1 + "'," +
+                    "'flexCheckCrossMatching1':'" + flexCheckCrossMatching1 + "'," +
+                    "'flexCheckCBC1':'" + flexCheckCBC1 + "'," +
+                    "'flexCheckBloodSugar1':'" + flexCheckBloodSugar1 + "'," +
+                    "'flexCheckUrea1':'" + flexCheckUrea1 + "'," +
+                    "'flexCheckUrea1':'" + flexCheckUrea1 + "'," +
+                    "'flexCheckESR1':'" + flexCheckESR1 + "'," +
+                    "'flexCheckLDL1':'" + flexCheckLDL1 + "'," +
+                    "'flexCheckHDL1':'" + flexCheckHDL1 + "'," +
+                    "'flexCheckGeneralUrineExamination1':'" + flexCheckGeneralUrineExamination1 + "'," +
+                    "'flexCheckTotalCholesterol1':'" + flexCheckTotalCholesterol1 + "'," +
+                    "'flexCheckTriglycerides1':'" + flexCheckTriglycerides1 + "'," +
+                    "'flexCheckSodium1':'" + flexCheckSodium1 + "'," +
+                    "'flexCheckPotassium1':'" + flexCheckPotassium1 + "'," +
+                    "'flexCheckChloride1':'" + flexCheckChloride1 + "'," +
+                    "'flexCheckCalcium1':'" + flexCheckCalcium1 + "'," +
+                    "'flexCheckPhosphorous1':'" + flexCheckPhosphorous1 + "'," +
+                    "'flexCheckMagnesium1':'" + flexCheckMagnesium1 + "'," +
+                    "'flexCheckCreatinine1':'" + flexCheckCreatinine1 + "'," +
+                    "'flexCheckAmylase1':'" + flexCheckAmylase1 + "'," +
+                    "'flexCheckProgesteroneFemale1':'" + flexCheckProgesteroneFemale1 + "'," +
+                    "'flexCheckFSH1':'" + flexCheckFSH1 + "'," +
+                    "'flexCheckEstradiol1':'" + flexCheckEstradiol1 + "'," +
+                    "'flexCheckLH1':'" + flexCheckLH1 + "'," +
+                    "'flexCheckTestosteroneMale1':'" + flexCheckTestosteroneMale1 + "'," +
+                    "'flexCheckProlactin1':'" + flexCheckProlactin1 + "'," +
+                    "'flexCheckSeminalFluidAnalysis1':'" + flexCheckSeminalFluidAnalysis1 + "'," +
+                    "'flexCheckBHCG1':'" + flexCheckBHCG1 + "'," +
+                    "'flexCheckUrineExamination1':'" + flexCheckUrineExamination1 + "'," +
+                    "'flexCheckStoolExamination1':'" + flexCheckStoolExamination1 + "'," +
+                    "'flexCheckTyphoid1':'" + flexCheckTyphoid1 + "'," +
+                    "'flexCheckHpyloriAntibody1':'" + flexCheckHpyloriAntibody1 + "'," +
+                    "'flexCheckStoolOccultBlood1':'" + flexCheckStoolOccultBlood1 + "'," +
+                    "'flexCheckGeneralStoolExamination1':'" + flexCheckGeneralStoolExamination1 + "'," +
+                    "'flexCheckCalciumBlood1':'" + flexCheckCalcium1 + "'," +
+                    "'flexCheckG6PD':'" + flexCheckG6PD + "'," +
+                    "'flexCheckAlkalinePhosphatesALP1':'" + flexCheckAlkalinePhosphatesALP1 + "'," +
+                    "'flexCheckSGOTAST1':'" + flexCheckSGOTAST1 + "'," +
+                    "'flexCheckSGPTALT1':'" + flexCheckSGPTALT1 + "'," +
+                    "'flexCheckGammaGlutamylTransferase':'" + flexCheckGammaGlutamylTransferase + "'," +
+                    "'flexCheckTotalProtein':'" + flexCheckTotalProtein + "'," +
+                    "'flexCheckAlbumin1':'" + flexCheckAlbumin1 + "'," +
+                    "'flexCheckJGlobulin1':'" + flexCheckJGlobulin1 + "'," +
+                    "'flexCheckTotalBilirubin1':'" + flexCheckTotalBilirubin1 + "'," +
+                    "'flexCheckDirectBilirubin1':'" + flexCheckDirectBilirubin1 + "'," +
+                    "'flexCheckCreatineKinaseTotal':'" + flexCheckCreatineKinaseTotal + "'," +
+                    "'flexCheckCKMB':'" + flexCheckCKMB + "'," +
+                    "'flexCheckLactateDehydrogenase':'" + flexCheckLactateDehydrogenase + "'," +
+                    "'flexCheckLipase':'" + flexCheckLipase + "'," +
+                    "'flexCheckPhosphataseAcid':'" + flexCheckPhosphataseAcid + "'," +
+                       "'flexCheckTroponinI':'" + flexCheckTroponinI + "'," +
+                    "'flexCheckTroponinT':'" + flexCheckTroponinT + "'," +
+                    "'flexCheckUricAcid1':'" + flexCheckUricAcid1 + "'," +
+                    "'flexCheckBrucellaAbortus1':'" + flexCheckBrucellaAbortus1 + "'," +
+                    "'flexCheckCRP1':'" + flexCheckCRP1 + "'," +
+                    "'flexCheckRF1':'" + flexCheckRF1 + "'," +
+                    "'flexCheckASO1':'" + flexCheckASO1 + "'," +
+                    "'flexCheckToxoplasmosis1':'" + flexCheckToxoplasmosis1 + "'," +
+                    "'flexCheckHBV1':'" + flexCheckHBV1 + "'," +
+                    "'flexCheckHCV1':'" + flexCheckHCV1 + "'," +
+                    "'flexCheckHIVAb1and2':'" + flexCheckHIV1 + "'," +
+                    "'flexCheckCMV':'" + flexCheckCMV + "'," +
+                    "'flexCheckEBVIgM':'" + flexCheckEBVIgM + "'," +
+                    "'flexCheckRubella':'" + flexCheckRubella + "'," +
+                    "'flexCheckAntiHAVIgMandIgG':'" + flexCheckAntiHAVIgMandIgG + "'," +
+                    "'flexCheckSalmonellaParatyphiAH':'" + flexCheckSalmonellaParatyphiAH + "'," +
+                    "'flexCheckSalmonellaParatyphiBH':'" + flexCheckSalmonellaParatyphiBH + "'," +
+                    "'flexCheckSalmonellaTyphiOH':'" + flexCheckSalmonellaTyphiOH + "'," +
+                    "'flexCheckRPRSyphillis':'" + flexCheckRPRSyphillis + "'," +
+                    "'flexCheckTPHA1':'" + flexCheckTPHA1 + "'," +
+                    "'flexCheckHIV1':'" + flexCheckHIV1 + "'," +
+                    "'flexCheckHIV2':'" + flexCheckHIV2 + "'}",
+
+                  contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                type: 'POST',
+                success: function (response) {
+                    console.log(response);
+                    if (response.d === 'true') {
+                        Swal.fire(
+                            'Successfully Saved!',
+                            'You added a new Patient!',
+                            'success'
+                        );
+                        $('#staticBackdrop').modal('hide');
+                    } else {
+                        // Handle errors in the response
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Data Insertion Failed',
+                            text: 'There was an error while inserting the data.',
+                        });
+                    }
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+        }
+
+        // Delegate click events for edit and delete buttons to the table
+        $("#datatable").on("click", ".edit-btn", function (event) {
+            event.preventDefault(); // Prevent default behavior
+            var row = $(this).closest("tr");
+            var prescid = $(this).data("id");
+            var search = parseInt($("#label2").html());
+      
+            $("#id111").val(prescid);
+
+            alert(prescid);
+            $.ajax({
+                type: "POST",
+                url: "test_details.aspx/getlapprocessed",
+                data: JSON.stringify({ prescid: prescid }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+           
+                    // Uncheck all checkboxes and hide them before processing the new data
+                    uncheckAndHideAllCheckboxes();
+
+                    // Access the nested data
+                    var data = response.d[0];
+                    document.getElementById('medid').value = data.med_id;
+                    // Iterate over each property in the data
+                    for (var key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            var checkboxId = getCheckboxId(key);
+                            var isChecked = data[key] !== "not checked";
+
+                            // Find the checkbox element by id
+                            var checkbox = document.getElementById(checkboxId);
+                            if (checkbox) {
+                                checkbox.checked = isChecked;
+
+                                // Show the checkbox if it is checked, otherwise hide it
+                                var checkboxLabel = checkbox.parentNode; // Assuming the label is the parent element
+                                if (isChecked) {
+                                    checkboxLabel.style.display = "block";
+                                } else {
+                                    checkboxLabel.style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+            // Function to uncheck all checkboxes and hide them
+            function uncheckAndHideAllCheckboxes() {
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(function (checkbox) {
+                    checkbox.checked = false;
+                    var checkboxLabel = checkbox.parentNode; // Assuming the label is the parent element
+                    checkboxLabel.style.display = "none";
+                });
+            }
+
+
+            // Function to map data keys to checkbox IDs
+            function getCheckboxId(dataKey) {
+                switch (dataKey) {
+                    case "Albumin": return "flexCheckAlbumin";
+                    case "Alkaline_phosphates_ALP": return "flexCheckAlkalinePhosphatesALP";
+                    case "Amylase": return "flexCheckAmylase";
+                    case "Antistreptolysin_O_ASO": return "flexCheckASO";
+                    case "Blood_grouping": return "flexCheckBloodGrouping";
+                    case "Blood_sugar": return "flexCheckBloodSugar";
+                    case "Brucella_abortus": return "flexCheckBrucellaAbortus";
+                    case "Brucella_melitensis": return "flexCheckBrucellaMelitensis";
+                    case "CBC": return "flexCheckCBC";
+                    case "C_reactive_protein_CRP": return "flexCheckCRP";
+                    case "Calcium": return "flexCheckCalcium";
+                    case "Chloride": return "flexCheckChloride";
+                    case "Creatinine": return "flexCheckCreatinine";
+                    case "Cross_matching": return "flexCheckCrossMatching";
+                    case "Direct_bilirubin": return "flexCheckDirectBilirubin";
+                    case "ESR": return "flexCheckESR";
+                    case "Estradiol": return "flexCheckEstradiol";
+                    case "Fasting_blood_sugar": return "flexCheckFastingBloodSugar";
+                    case "Follicle_stimulating_hormone_FSH": return "flexCheckFSH";
+                    case "General_stool_examination": return "flexCheckGeneralStoolExamination";
+                    case "General_urine_examination": return "flexCheckGeneralUrineExamination";
+                    case "Hemoglobin": return "flexCheckHemoglobin";
+                    case "Hemoglobin_A1c": return "flexCheckHemoglobinA1c";
+                    case "Hepatitis_B_virus_HBV": return "flexCheckHBV";
+                    case "Hepatitis_C_virus_HCV": return "flexCheckHCV";
+                    case "High_density_lipoprotein_HDL": return "flexCheckHDL";
+                    case "Hpylori_Ag_stool": return "flexCheckHpyloriAgStool";
+                    case "Hpylori_antibody": return "flexCheckHpyloriAntibody";
+                    case "Human_chorionic_gonadotropin_hCG": return "flexCheckHCG";
+                    case "Human_immune_deficiency_HIV": return "flexCheckHIV";
+                    case "JGlobulin": return "flexCheckJGlobulin";
+                    case "Low_density_lipoprotein_LDL": return "flexCheckLDL";
+                    case "Luteinizing_hormone_LH": return "flexCheckLH";
+                    case "Magnesium": return "flexCheckMagnesium";
+                    case "Malaria": return "flexCheckMalaria";
+                    case "Phosphorous": return "flexCheckPhosphorous";
+                    case "Potassium": return "flexCheckPotassium";
+                    case "Progesterone_Female": return "flexCheckProgesteroneFemale";
+                    case "Prolactin": return "flexCheckProlactin";
+                    case "Rheumatoid_factor_RF": return "flexCheckRF";
+                    case "SGOT_AST": return "flexCheckSGOTAST";
+                    case "SGPT_ALT": return "flexCheckSGPTALT";
+                    case "Seminal_Fluid_Analysis_Male_B_HCG": return "flexCheckSeminalFluidAnalysis";
+                    case "Sodium": return "flexCheckSodium";
+                    case "Sperm_examination": return "flexCheckSpermExamination";
+                    case "Stool_examination": return "flexCheckStoolExamination";
+                    case "Stool_occult_blood": return "flexCheckStoolOccultBlood";
+                    case "TPHA": return "flexCheckTPHA";
+                    case "Testosterone_Male": return "flexCheckTestosteroneMale";
+                    case "Thyroid_profile": return "flexCheckThyroidProfile";
+                    case "Thyroid_stimulating_hormone_TSH": return "flexCheckTSH";
+                    case "Thyroxine_T4": return "flexCheckT4";
+                    case "Total_bilirubin": return "flexCheckTotalBilirubin";
+                    case "Total_cholesterol": return "flexCheckTotalCholesterol";
+                    case "Toxoplasmosis": return "flexCheckToxoplasmosis";
+                    case "Triglycerides": return "flexCheckTriglycerides";
+                    case "Triiodothyronine_T3": return "flexCheckT3";
+                    case "Typhoid_hCG": return "flexCheckTyphoid";
+                    case "Urea": return "flexCheckUrea";
+                    case "Uric_acid": return "flexCheckUricAcid";
+                    case "Urine_examination": return "flexCheckUrineExamination";
+                    case "Virginal_swab_trichomonas_virginals": return "flexCheckTrichomonasVirginals";
+                    // Add more mappings as needed
+                    default: return null;
+                }
+            }
+
+
+
+            // Show the modal
+            $('#staticBackdrop').modal('show');
+        });
+
+
+        // Delegate click events for edit and delete buttons to the table
+        $("#datatable").on("click", ".edit-btn", function (event) {
+            event.preventDefault(); // Prevent default behavior
+            var row = $(this).closest("tr");
+            var doctorid = $(this).data("id");
+            document.getElementById("id1").value = doctorid;
+            var name = row.find("td:nth-child(2)").text(); 
+            var sex = row.find("td:nth-child(3)").text(); 
+            var location = row.find("td:nth-child(4)").text();
+            var phone = row.find("td:nth-child(5)").text();
+            var amount = row.find("td:nth-child(6)").text();
+            var dob = row.find("td:nth-child(7)").text();
+            var patientid = row.find("td:nth-child(10)").text();
+            $("#name").val(name);
+            $("#sex").val(sex);
+            $("#location").val(location);
+            $("#phone").val(phone);
+            $("#amount").val(amount);
+            $("#dob").val(dob);
+            $("#pid").val(patientid);
+     
+            $.ajax({
+                type: "POST",
+                url: "Patient_Operation.aspx/getdoctors",
+                data: JSON.stringify({ doctorid: doctorid }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+
+                    var doctorSelect = $("[id*=doctor]"); // Assuming you have a select element for doctors
+
+                    doctorSelect.empty(); // Clear existing options for doctors
+
+                    // Populate the doctor select element with all doctors
+                    $.each(response.d.doctorList, function () {
+                        doctorSelect.append($("<option></option>").val(this.Value).html(this.Text));
+                    });
+
+                    // Set the selected doctor
+                    if (response.d.selectedDoctorId) {
+                        doctorSelect.val(response.d.selectedDoctorId);
+                    }
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+            // Show the modal
+            $('#editmodal').modal('show');
+        });
+        $(document).ready(function () {
+            $("#datatable").DataTable({});
+        });
+
+
+
+        $(document).ready(function () {
+
+
+
+
+
+
+       
+
+            $.ajax({
+                url: 'lab_waiting_list.aspx/pendlap',
+            
+                dataType: "json",
+                type: 'POST',
+                contentType: "application/json",
+                success: function (response) {
+                    console.log(response);
+
+                    $("#datatable tbody").empty();
+
+                    for (var i = 0; i < response.d.length; i++) {
+                        $("#datatable tbody").append(
+                            "<tr style='cursor:pointer' onclick='passValue(this)'>"
+                            + "<td style='display:none'>" + response.d[i].doctorid + "</td>"
+                            + "<td>" + response.d[i].full_name + "</td>"
+                            + "<td>" + response.d[i].sex + "</td>"
+                            + "<td>" + response.d[i].location + "</td>"
+                            + "<td>" + response.d[i].phone + "</td>"
+                            + "<td>" + response.d[i].amount + "</td>"
+                            + "<td>" + response.d[i].dob + "</td>"
+                            + "<td>" + response.d[i].date_registered + "</td>"
+                            + "<td style='display:none'>" + response.d[i].prescid + "</td>"
+                            + "<td><button style='background-color:red; curser:off;   color:white; border:none; padding:5px 10px;  border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
+                            + "<td>"
+                            + "<button type='button' class='edit-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit Task'><i class='fa fa-edit'></i></button>"
+                    
+                            + "</td>"
+
+                            + "</tr>"
+                        );
+                    }
+
+
+
+
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+
+    </script>
+</asp:Content>

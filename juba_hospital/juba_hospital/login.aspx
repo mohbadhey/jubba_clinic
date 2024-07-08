@@ -33,7 +33,7 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
             <div class="mb-md-5 mt-md-4 pb-5">
 
               <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-              <p class="text-white-50 mb-5">Please enter your login and password!</p>
+              <p class="text-white-50 mb-5">Please enter your login !</p>
 
               <div data-mdb-input-init class="form-outline form-white mb-4">
                     <asp:TextBox ID="TextBoxUsername"  type="text"  class="form-control form-control-lg"  runat="server"></asp:TextBox>

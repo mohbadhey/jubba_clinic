@@ -19,6 +19,81 @@ namespace juba_hospital
         }
 
         [WebMethod]
+        public static string deleteJob(string id)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+
+                    // Delete job from jobs table
+                    string jobQuery = "DELETE FROM [registre] WHERE [userid] = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(jobQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                return "true";
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                throw new Exception("Error deleting job", ex);
+            }
+        }
+
+        [WebMethod]
+        public static string updateJob(string id, string name, string pass, string phone, string username)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+
+                    // Update jobs table
+                    string jobQuery = "UPDATE [registre] SET " +
+                          "[fullname] = @fullname," +
+                            "[phone] = @phone," +
+                               "[username] = @username," +
+                           "[password] = @password" +
+                        " WHERE [userid] = @id";
+
+
+                
+
+
+                    using (SqlCommand cmd = new SqlCommand(jobQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@fullname", name);
+                        cmd.Parameters.AddWithValue("@password", pass);
+                        cmd.Parameters.AddWithValue("@phone", phone);
+                        cmd.Parameters.AddWithValue("@username", username);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                return "true";
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                return "Error in updating method: " + ex.Message;
+            }
+        }
+
+        [WebMethod]
         public static rt[] datadisplay()
         {
             List<rt> details = new List<rt>();
@@ -40,6 +115,7 @@ namespace juba_hospital
                     field.phone = dr["phone"].ToString();
                     field.username = dr["username"].ToString();
                     field.password = dr["password"].ToString();
+                    field.userid = dr["userid"].ToString();
 
                     details.Add(field);
                 }
@@ -56,7 +132,9 @@ namespace juba_hospital
             public string phone;
             public string username;
             public string password;
-  
+            public string userid;
+
+
 
         }
 

@@ -112,6 +112,7 @@
     <Content Include="Add_patients.aspx" />
     <Content Include="add_registre.aspx" />
     <Content Include="add_xray.aspx" />
+    <Content Include="admin_dashbourd.aspx" />
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\demo.css" />
     <Content Include="assets\css\fonts.css" />
@@ -507,6 +508,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Dashbourd.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="delete_medic.aspx" />
     <Content Include="doctor_inpatient.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -551,6 +553,7 @@
     <Content Include="Patient_details.aspx" />
     <Content Include="patient_in.aspx" />
     <Content Include="Patient_Operation.aspx" />
+    <Content Include="patient_report.aspx" />
     <Content Include="pending_lap.aspx" />
     <Content Include="pending_xray.aspx" />
     <Content Include="register.Master" />
@@ -648,6 +651,13 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="admin_dashbourd.aspx.cs">
+      <DependentUpon>admin_dashbourd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_dashbourd.aspx.designer.cs">
+      <DependentUpon>admin_dashbourd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -691,6 +701,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="delete_medic.aspx.cs">
+      <DependentUpon>delete_medic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="delete_medic.aspx.designer.cs">
+      <DependentUpon>delete_medic.aspx</DependentUpon>
     </Compile>
     <Compile Include="doctor.Master.cs">
       <DependentUpon>doctor.Master</DependentUpon>
@@ -778,6 +795,13 @@
     </Compile>
     <Compile Include="Patient_Operation.aspx.designer.cs">
       <DependentUpon>Patient_Operation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="patient_report.aspx.cs">
+      <DependentUpon>patient_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="patient_report.aspx.designer.cs">
+      <DependentUpon>patient_report.aspx</DependentUpon>
     </Compile>
     <Compile Include="pending_lap.aspx.cs">
       <DependentUpon>pending_lap.aspx</DependentUpon>

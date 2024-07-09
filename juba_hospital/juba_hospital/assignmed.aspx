@@ -267,6 +267,7 @@ body {
             <input style="display:none" id="id11" />
                <input style="display:none" id="pid" />
                 <h1>Assign Medication</h1>
+          <button class="btn btn-success" onclick="showmedic()"> show medication report</button>
           <div class="row justify-content-between">
               <div class="col-3">
                      <div class="mb-3">
@@ -311,74 +312,70 @@ body {
               </div>
               
               <div class="col-6">
-        <h1>Lab Test Results</h1>
-        <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">
-           
-                  </div>
-                  <div class="card-body p-0">
-
-             <div class="report-content">
-  <div class="report-header">
-
-      <img src="assets/zfsdfg.png" />
-  </div>
-  <div class="patient-details ">
-    <hr>
-    <table border="0">
-      <tr>
-        <td>Patient Name:  <span class="h5" id="ptname"></span></td>
-        <td class="align-left">Referred By:</td>
-      </tr>
-      <tr>
-        <td>Sex: <span class="h5" id="sex"></span></td>
-        <td class="align-left">Date: <span id="date" class="h5"></span></td>
-      </tr>
-      <tr>
-        <td>Age: <span class="h5" id="DOB"></span>years</td>
-        <td class="align-left">Doctor: <span class="h5" id="doctor"></span> </td>
-      </tr>
-            <tr>
-      <td>Phone:  <span class="h5" id="phone"></span></td>
-      <td class="align-left">Location:  <span class="h5" id="location"></span></td>
-    </tr>
-    </table>
-    <hr>
-  </div>
-  <div class="report-body p-0">
-    <table id="datatable1" class="patient-details  table-bordered">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Result</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Table rows will be dynamically added here -->
-      </tbody>
-    </table>
-  </div>
-<%--  <div class="report-sign">
-    <div class="lab-incharge-sign">
-
-      <figcaption>Mr. Sachin Sharma</figcaption>
-    </div>
-    <div class="lab-doctor-sign">
- 
-      <figcaption>Dr. A.K. Asthana</figcaption>
-    </div>
-  </div>--%>
+                  
+    <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="radio2" value="0" onchange="toggleRow()">
+    <label class="form-check-label" for="radio2">Show Lab Tests</label>
 </div>
-<button id="print-button">Print Report</button>
-              
-                  </div>
+<h1>Lab Test Results</h1>
+<div class="row" id="lab-test-row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body p-0">
+                <div class="report-content">
+                    <div class="report-header">
+                        <img src="assets/zfsdfg.png" />
+                    </div>
+                    <div class="patient-details ">
+                        <hr>
+                        <table border="0">
+                            <tr>
+                                <td>Patient Name:  <span class="h5" id="ptname"></span></td>
+                                <td class="align-left">Referred By:</td>
+                            </tr>
+                            <tr>
+                                <td>Sex: <span class="h5" id="sex"></span></td>
+                                <td class="align-left">Date: <span id="date" class="h5"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Age: <span class="h5" id="DOB"></span> years</td>
+                                <td class="align-left">Doctor: <span class="h5" id="doctor"></span></td>
+                            </tr>
+                            <tr>
+                                <td>Phone:  <span class="h5" id="phone"></span></td>
+                                <td class="align-left">Location:  <span class="h5" id="location"></span></td>
+                            </tr>
+                        </table>
+                        <hr>
+                    </div>
+                    <div class="report-body p-0">
+                        <table id="datatable1" class="patient-details table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Table rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="report-sign">
+                        <div class="lab-incharge-sign">
+                            <figcaption>Mr. Sachin Sharma</figcaption>
+                        </div>
+                        <div class="lab-doctor-sign">
+                            <figcaption>Dr. A.K. Asthana</figcaption>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-        
+                <button id="print-button">Print Report</button>
             </div>
+        </div>
+    </div>
+</div>
     </div>
     <div class="col-3">
         <h1>X-ray Results</h1>
@@ -407,37 +404,37 @@ body {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 <div class="modal-body">
-<%--    <input style="display:none" id="id11" />
+    <input style="display:none" id="id1111" />
 
     <div class="mb-3">
         <label for="name" class="form-label">Medication Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter Name">
-        <small id="nameError" class="text-danger"></small>
+        <input type="text" class="form-control" id="name1" placeholder="Enter Name">
+        <small id="nameError1" class="text-danger"></small>
     </div>
 
     <div class="mb-3">
         <label for="dosage" class="form-label">Dosage</label>
-        <input type="text" class="form-control" id="dosage" placeholder="Enter Dosage">
-        <small id="dosageError" class="text-danger"></small>
+        <input type="text" class="form-control" id="dosage1" placeholder="Enter Dosage">
+        <small id="dosageError1" class="text-danger"></small>
     </div>
 
     <div class="mb-3">
         <label for="frequency" class="form-label">Frequency</label>
-        <input type="text" class="form-control" id="frequency" placeholder="Enter Frequency">
-        <small id="frequencyError" class="text-danger"></small>
+        <input type="text" class="form-control" id="frequency1" placeholder="Enter Frequency">
+        <small id="frequencyError1" class="text-danger"></small>
     </div>
 
     <div class="mb-3">
         <label for="duration" class="form-label">Duration</label>
-        <input type="text" class="form-control" id="duration" placeholder="Enter Duration">
-        <small id="durationError" class="text-danger"></small>
+        <input type="text" class="form-control" id="duration1" placeholder="Enter Duration">
+        <small id="durationError11" class="text-danger"></small>
     </div>
 
     <div class="mb-3">
         <label for="inst" class="form-label">Special Instruction</label>
-        <textarea class="form-control" id="inst" rows="3"></textarea>
-        <small id="instError" class="text-danger"></small>
-    </div>--%>
+        <textarea class="form-control" id="inst1" rows="3"></textarea>
+        <small id="instError1" class="text-danger"></small>
+    </div>
 </div>
 
 
@@ -446,7 +443,9 @@ body {
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" onclick="submitInfo()" class="btn btn-primary">Submot</button>
+             <button type="button" onclick="deletejob()" class="btn btn-danger">delete</button>
+        <button type="button" onclick="update()" class="btn btn-primary">update</button>
+          
       </div>
     </div>
   </div>
@@ -496,11 +495,119 @@ body {
 
         
             </div>
+
+
+        
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel11">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <input style="display:none" id="id111" />
+                <h1> Medication Report</h1>
+          <div class="row">
+      
+              
+              <div class="col-12">
+   
+       
+             <div class="report-content">
+  <div class="report-header">
+      <img src="assets/zfsdfg.png" />
+  </div>
+  <div class="patient-details ">
+    <hr>
+    <table border="0">
+      <tr>
+        <td>Patient Name:  <span class="h5" id="ptname1"></span></td>
+        <td class="align-left">Referred By:</td>
+      </tr>
+      <tr>
+        <td>Sex: <span class="h5" id="sex1"></span></td>
+        <td class="align-left">Date: <span id="date1" class="h5"></span></td>
+      </tr>
+      <tr>
+        <td>Age: <span class="h5" id="DOB1"></span>years</td>
+        <td class="align-left">Doctor: <span class="h5" id="doctor1"></span> </td>
+      </tr>
+            <tr>
+      <td>Phone:  <span class="h5" id="phone1"></span></td>
+      <td class="align-left">Location:  <span class="h5" id="location1"></span></td>
+    </tr>
+    </table>
+    <hr>
+  </div>
+  <div class="report-body p-0">
+    <table id="datatable11" class="patient-details  table-bordered">
+      <thead>
+        <tr>
+          <th>Medication Name</th>
+          <th>Dosage</th>
+              <th>Frequency</th>
+  <th>Duration</th>
+              <th>Special Instrcution</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Table rows will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+       <br />
+                     <br />
+                     <br />
+                     <br />
+                     <br />
+                     <br />
+                     <br />
+                     <br />
+<%--  <div class="report-sign">
+    <div class="lab-incharge-sign">
+
+      <figcaption>Mr. Sachin Sharma</figcaption>
+    </div>
+    <div class="lab-doctor-sign">
+ 
+      <figcaption>Dr. A.K. Asthana</figcaption>
+    </div>
+  </div>--%>
+</div>
+<button id="print-button1">Print Report</button>
+    </div>
+
+          </div>
+
+ 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" onclick="submitInfo()" class ="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
          <script src="assets/js/plugin/datatables/datatables.min.js"></script>
    <script src="Scripts/jquery-3.4.1.min.js"></script>
 <script>
+    function toggleRow() {
+        var checkbox = document.getElementById("radio2");
+        var row = document.getElementById("lab-test-row");
+        if (checkbox.checked) {
+            row.style.display = "block";
+        } else {
+            row.style.display = "none";
+        }
+    }
 
-  
+    // Initialize the row visibility based on the checkbox state
+    document.addEventListener("DOMContentLoaded", function () {
+        toggleRow();
+    });
 
 
 
@@ -511,15 +618,159 @@ body {
     });
 
 
+    function deletejob() {
+        var medid = $("#id1111").val();
+        $.ajax({
+            type: "POST",
+            url: "assignmed.aspx/deleteJob",
+            data: JSON.stringify({ medid: medid }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                $('#medmodal').modal('hide');
+                if (response.d === 'true') {
+                    Swal.fire(
+                        'Successfully updated !',
+                        'You Added a new job title!',
+                        'success'
+                    )
+
+        
+                } else {
+                    // Handle errors in the response
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Data Insertion Failed',
+                        text: 'There was an error while inserting the data.',
+                    });
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Error: " + xhr.responseText);
+            }
+        });
+
+    }
+
+
+    function update() {
+        var medid = $("#id1111").val();
+    var med_name = $("#name1").val();
+        var dosage = $("#dosage1").val();
+        var frequency = $("#frequency1").val();
+        var duration = $("#duration1").val();
+        var special_inst = $("#inst1").val();
+    
+    
+
+
+
+
+        $.ajax({
+            url: 'assignmed.aspx/updateJob',
+            data: "{  'medid':'" + medid + "','med_name':'" + med_name + "', 'dosage':'" + dosage + "', 'frequency':'" + frequency + "', 'duration':'" + duration + "' , 'special_inst':'" + special_inst + "'  }",
+
+            dataType: "json",
+            type: 'POST',
+            contentType: "application/json",
+            success: function (response) {
+                console.log(response);
+                $('#medmodal').modal('hide');
+                Swal.fire(
+                    'Successfully Updated !',
+                    'You Updated a new Customer!',
+                    'success'
+                )
+                DataBind();
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
+
+
+
+    // Delegate click events for edit and delete buttons to the table
+    $("#datatable11").on("click", ".edit1-btn", function (event) {
+        event.preventDefault(); // Prevent default behavior
+        var row = $(this).closest("tr");
+        var medid = $(this).data("id");
+
+        var med_name = row.find("td:nth-child(1)").text(); 
+        var dosage = row.find("td:nth-child(2)").text(); 
+        var frequency = row.find("td:nth-child(3)").text();
+   
+        var duration = row.find("td:nth-child(5)").text();
+        var special_inst = row.find("td:nth-child(4)").text();
+  
+
+        
+
+        $("#id1111").val(medid);
+        $("#name1").val(med_name);
+
+        $("#dosage1").val(dosage);
+        $("#frequency1").val(frequency);
+        $("#duration1").val(duration);
+        $("#inst1").val(special_inst);
+
+        $('#staticBackdrop1').modal('hide');
+        $('#medmodal').modal('show');
+        $('#staticBackdrop1').modal('show');
+   
+    });
 
 
 
 
 
+    function showmedic() {
+
+        var prescid = $("#id111").val();
+
+        event.preventDefault()
+
+        $.ajax({
+            url: 'medication_report.aspx/medicdata',
+            data: "{'prescid':'" + prescid + "'}",
+            dataType: "json",
+            type: 'POST',
+            contentType: "application/json",
+            success: function (response) {
+                console.log(response);
+
+                $("#datatable11 tbody").empty();
+
+                for (var i = 0; i < response.d.length; i++) {
+                    $("#datatable11 tbody").append(
+                        "<tr>"
+
+                        + "<td>" + response.d[i].med_name + "</td>"
+                        + "<td>" + response.d[i].dosage + "</td>"
+                        + "<td>" + response.d[i].frequency + "</td>"
+                        + "<td>" + response.d[i].duration + "</td>"
+                        + "<td>" + response.d[i].special_inst + "</td>"
+                        + "<td><button class='edit1-btn btn btn-success' data-id='" + response.d[i].medid + "'>edit</button></td>"
+
+
+                        + "</tr>"
+                    );
+                }
 
 
 
 
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+
+        // Show the modal
+        $('#staticBackdrop1').modal('show');
+
+    }
 
 
 
@@ -682,7 +933,12 @@ body {
         $("#phone").text(phone);
         $("#location").text(location);
         $("#sex").text(sex);
-        $("#id11").val(prescid);
+        $("#ptname1").text(name);
+
+        $("#phone1").text(phone);
+        $("#location1").text(location);
+        $("#sex1").text(sex);
+        $("#id111").val(prescid);
 
     
 

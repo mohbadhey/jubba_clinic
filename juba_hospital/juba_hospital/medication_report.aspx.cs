@@ -45,7 +45,8 @@ namespace juba_hospital
                         field.frequency = dr["frequency"].ToString();
                         field.duration = dr["duration"].ToString();
                        field.special_inst = dr["special_inst"].ToString();
-                       
+                        field.medid = dr["medid"].ToString();
+
 
                         details.Add(field);
                     }
@@ -62,6 +63,7 @@ namespace juba_hospital
             public string frequency;
             public string duration;
             public string special_inst;
+            public string medid;
 
         }
 

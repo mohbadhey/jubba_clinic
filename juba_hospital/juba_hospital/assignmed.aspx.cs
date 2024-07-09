@@ -17,6 +17,96 @@ namespace juba_hospital
         {
 
         }
+        [WebMethod]
+        public static string deleteJob(string medid)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+
+                    // Delete job from jobs table
+                    string jobQuery = "DELETE FROM [medication] WHERE [medid] = @medid";
+
+                    using (SqlCommand cmd = new SqlCommand(jobQuery, con))
+                    {
+                        cmd.Parameters.AddWithValue("@medid", medid);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                return "true";
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                throw new Exception("Error deleting job", ex);
+            }
+        }
+
+
+        [WebMethod]
+        public static string updateJob(string medid, string med_name, string dosage, string frequency, string duration, string special_inst)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+
+                    // Update jobs table
+                    string jobQuery = "UPDATE [medication] SET " +
+                          "[med_name] = @med_name," +
+                            "[dosage] = @dosage," +
+                            "[frequency] = @frequency," +
+                        "[duration] = @duration," +
+                           "[special_inst] = @special_inst" +
+                        " WHERE [medid] = @medid";
+
+                    using (SqlCommand cmd = new SqlCommand(jobQuery, con))
+                    {
+
+                        cmd.Parameters.AddWithValue("@med_name", med_name);
+                        cmd.Parameters.AddWithValue("@dosage", dosage);
+                        cmd.Parameters.AddWithValue("@frequency", frequency);
+                        cmd.Parameters.AddWithValue("@duration", duration);
+                        cmd.Parameters.AddWithValue("@special_inst", special_inst);
+                        cmd.Parameters.AddWithValue("@medid", medid);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                return "true";
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                throw new Exception("Error updating job information", ex);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         [WebMethod]
         public static string submitdata(string status,string id, string med_name, string dosage, string frequency, string duration, string special_inst, string prescid)

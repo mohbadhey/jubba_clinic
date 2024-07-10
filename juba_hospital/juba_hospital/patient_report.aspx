@@ -19,6 +19,42 @@
         }
 
     </style>
+    <style>
+        /* Add your CSS styles here */
+
+       
+        @media print {
+            body, html {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            .report-content {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .report-header, .patient-details, .report-body {
+                width: 100%;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+            }
+        }
+    </style>
 
 <style>
     .report-content {
@@ -269,7 +305,7 @@ body {
                 <h1>Assign Medication</h1>
           <button class="btn btn-success" onclick="showmedic()"> show medication report</button>
           <div class="row justify-content-between">
-              <div class="col-2">
+              <div class="col-1">
 
                   <h1> Amount For the Patent</h1>
                 <div class="col-sm-6 col-md-3">
@@ -295,7 +331,7 @@ body {
        </div>
               </div>
               
-              <div class="col-6">
+              <div class="col-8">
                   
     <div class="form-check form-switch">
     <input class="form-check-input" type="checkbox" id="radio2" value="0" onchange="toggleRow()">
@@ -361,7 +397,7 @@ body {
     </div>
 </div>
     </div>
-    <div class="col-4">
+    <div class="col-3">
         <h1>X-ray Results</h1>
     <%--    <img src="assets/img/lab.png" alt="X-ray Results"/>--%>
     </div>
@@ -496,7 +532,7 @@ body {
               <div class="col-12">
    
        
-             <div class="report-content">
+             <div class="report-content col-12" id="report">
   <div class="report-header">
       <img src="assets/zfsdfg.png" />
   </div>
@@ -591,8 +627,24 @@ body {
     });
 
 
+    document.getElementById('print-button1').addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent the default button behavior
 
-
+        var reportContent = document.getElementById('report').innerHTML;
+        var printWindow = window.open('', '_blank', 'height=600,width=800');
+        printWindow.document.write('<html><head><title>Print Report</title>');
+        // Add styles here if needed
+        printWindow.document.write('<style>body{font-family: Arial, sans-serif;} .report-content{width: 100%;} .patient-details{width: 100%;} table{width: 100%; border-collapse: collapse;} table, th, td{border: 1px solid black;} th, td{padding: 8px; text-align: left;} @media print {body, html {width: 100%; margin: 0; padding: 0; overflow: hidden;} .report-content{width: 100%; margin: 0; padding: 0;} .report-header, .patient-details, .report-body{width: 100%;}} </style>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(reportContent);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.onload = function () {
+            printWindow.print();
+            printWindow.close();
+        };
+    });
 
     document.getElementById('print-button').addEventListener('click', function () {
         window.print();

@@ -523,7 +523,7 @@ LEFT JOIN
     lab_test ON prescribtion.prescid = lab_test.prescid
 WHERE 
     doctor.doctorid = @search
-    AND prescribtion.status = 5 
+   
     AND lab_test.prescid = @prescid;
 
 

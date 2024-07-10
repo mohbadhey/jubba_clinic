@@ -11,15 +11,16 @@ using static juba_hospital.waitingpatients;
 
 namespace juba_hospital
 {
-    public partial class patient_in : System.Web.UI.Page
+    public partial class patient_status : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+
         [WebMethod]
-        public static ptclass[] datadisplay()
+        public static ptclass[] inoutpatient( string search)
         {
             List<ptclass> details = new List<ptclass>();
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
@@ -49,8 +50,11 @@ namespace juba_hospital
    INNER JOIN 
        prescribtion ON patient.patientid = prescribtion.patientid
    INNER JOIN 
-       doctor ON prescribtion.doctorid = doctor.doctorid;
+       doctor ON prescribtion.doctorid = doctor.doctorid
+where patient.patient_status = @search;
         ", con);
+
+                cmd.Parameters.AddWithValue("@search", search);
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

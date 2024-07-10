@@ -554,6 +554,7 @@
     <Content Include="patient_in.aspx" />
     <Content Include="Patient_Operation.aspx" />
     <Content Include="patient_report.aspx" />
+    <Content Include="patient_status.aspx" />
     <Content Include="pending_lap.aspx" />
     <Content Include="pending_xray.aspx" />
     <Content Include="register.Master" />
@@ -802,6 +803,13 @@
     </Compile>
     <Compile Include="patient_report.aspx.designer.cs">
       <DependentUpon>patient_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="patient_status.aspx.cs">
+      <DependentUpon>patient_status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="patient_status.aspx.designer.cs">
+      <DependentUpon>patient_status.aspx</DependentUpon>
     </Compile>
     <Compile Include="pending_lap.aspx.cs">
       <DependentUpon>pending_lap.aspx</DependentUpon>

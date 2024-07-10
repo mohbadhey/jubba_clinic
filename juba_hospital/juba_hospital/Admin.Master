@@ -86,7 +86,7 @@
           <li class="nav-item active">
             <a
            
-              href="#dashboard"
+              href="admin_dashbourd.aspx"
          
             >
               <i class="fas fa-home"></i>
@@ -123,9 +123,18 @@
     <span class="sub-item"> patient report</span>
   </a>
 </li>
-            
+                                             <li class="nav-item">
+  <a href="patient_status.aspx">
+    <span class="sub-item"> patient Status</span>
+  </a>
+</li>   
 
-  
+      
+                                      <li class="nav-item">
+  <a href="delete_medic.aspx">
+    <span class="sub-item"> Delete Operation</span>
+  </a>
+</li>
             
         </ul>
       </div>

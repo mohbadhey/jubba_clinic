@@ -406,7 +406,7 @@ INNER JOIN
     doctor ON prescribtion.doctorid = doctor.doctorid
 WHERE 
     doctor.doctorid = @search
-    AND prescribtion.status  in (0,3,5);
+    AND prescribtion.status  in (0,2,3,4,5);
 
  ", con);
                 cmd.Parameters.AddWithValue("@search", search);

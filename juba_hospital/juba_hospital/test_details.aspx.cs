@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static juba_hospital.assignmed;
 using static juba_hospital.lap_operation;
 
 namespace juba_hospital
@@ -16,6 +17,179 @@ namespace juba_hospital
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        [WebMethod]
+        public static ptclass1[] editlabmedic(string prescid)
+        {
+            List<ptclass1> details = new List<ptclass1>();
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(@"
+
+ SELECT 
+    lab_results.lab_result_id,
+    lab_results.Low_density_lipoprotein_LDL,
+    lab_results.High_density_lipoprotein_HDL,
+    lab_results.Total_cholesterol,
+    lab_results.Triglycerides,
+    lab_results.SGPT_ALT,
+    lab_results.SGOT_AST,
+    lab_results.Alkaline_phosphates_ALP,
+    lab_results.Total_bilirubin,
+    lab_results.Direct_bilirubin,
+    lab_results.Albumin,
+    lab_results.JGlobulin,
+    lab_results.Urea,
+    lab_results.Creatinine,
+    lab_results.Uric_acid,
+    lab_results.Sodium,
+    lab_results.Potassium,
+    lab_results.Chloride,
+    lab_results.Calcium,
+    lab_results.Phosphorous,
+    lab_results.Magnesium,
+    lab_results.Amylase,
+    lab_results.Hemoglobin,
+    lab_results.Malaria,
+    lab_results.ESR,
+    lab_results.Blood_grouping,
+    lab_results.Blood_sugar,
+    lab_results.CBC,
+    lab_results.Cross_matching,
+    lab_results.TPHA,
+    lab_results.Human_immune_deficiency_HIV,
+    lab_results.Hepatitis_B_virus_HBV,
+    lab_results.Hepatitis_C_virus_HCV,
+    lab_results.Brucella_melitensis,
+    lab_results.Brucella_abortus,
+    lab_results.C_reactive_protein_CRP,
+    lab_results.Rheumatoid_factor_RF,
+    lab_results.Antistreptolysin_O_ASO,
+    lab_results.Toxoplasmosis,
+    lab_results.Typhoid_hCG,
+    lab_results.Hpylori_antibody,
+    lab_results.Stool_occult_blood,
+    lab_results.General_stool_examination,
+    lab_results.Thyroid_profile,
+    lab_results.Triiodothyronine_T3,
+    lab_results.Thyroxine_T4,
+    lab_results.Thyroid_stimulating_hormone_TSH,
+    lab_results.Progesterone_Female,
+    lab_results.Follicle_stimulating_hormone_FSH,
+    lab_results.Estradiol,
+    lab_results.Luteinizing_hormone_LH,
+    lab_results.Testosterone_Male,
+    lab_results.Prolactin,
+    lab_results.Seminal_Fluid_Analysis_Male_B_HCG,
+    lab_results.Urine_examination,
+    lab_results.Stool_examination,
+    lab_results.Sperm_examination,
+    lab_results.Virginal_swab_trichomonas_virginals,
+    lab_results.Human_chorionic_gonadotropin_hCG,
+    lab_results.Hpylori_Ag_stool,
+    lab_results.Fasting_blood_sugar,
+    lab_results.Hemoglobin_A1c,
+    lab_results.General_urine_examination,
+    lab_results.prescid
+FROM 
+    patient
+INNER JOIN 
+    prescribtion ON patient.patientid = prescribtion.patientid
+INNER JOIN 
+    doctor ON prescribtion.doctorid = doctor.doctorid
+LEFT JOIN 
+    lab_results ON prescribtion.prescid = lab_results.prescid
+WHERE 
+    lab_results.prescid = @search;
+
+
+ ", con);
+                cmd.Parameters.AddWithValue("@search", prescid);
+
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        ptclass1 field = new ptclass1();
+
+
+                        field.med_id = dr["lab_result_id"].ToString();
+                        field.Low_density_lipoprotein_LDL = dr["Low_density_lipoprotein_LDL"].ToString();
+                        field.High_density_lipoprotein_HDL = dr["High_density_lipoprotein_HDL"].ToString();
+                        field.Total_cholesterol = dr["Total_cholesterol"].ToString();
+                        field.Triglycerides = dr["Triglycerides"].ToString();
+                        field.SGPT_ALT = dr["SGPT_ALT"].ToString();
+                        field.SGOT_AST = dr["SGOT_AST"].ToString();
+                        field.Alkaline_phosphates_ALP = dr["Alkaline_phosphates_ALP"].ToString();
+                        field.Total_bilirubin = dr["Total_bilirubin"].ToString();
+                        field.Direct_bilirubin = dr["Direct_bilirubin"].ToString();
+                        field.Albumin = dr["Albumin"].ToString();
+                        field.JGlobulin = dr["JGlobulin"].ToString();
+                        field.Urea = dr["Urea"].ToString();
+                        field.Creatinine = dr["Creatinine"].ToString();
+                        field.Uric_acid = dr["Uric_acid"].ToString();
+                        field.Sodium = dr["Sodium"].ToString();
+                        field.Potassium = dr["Potassium"].ToString();
+                        field.Chloride = dr["Chloride"].ToString();
+                        field.Calcium = dr["Calcium"].ToString();
+                        field.Phosphorous = dr["Phosphorous"].ToString();
+                        field.Magnesium = dr["Magnesium"].ToString();
+                        field.Amylase = dr["Amylase"].ToString();
+                        field.Hemoglobin = dr["Hemoglobin"].ToString();
+                        field.Malaria = dr["Malaria"].ToString();
+                        field.ESR = dr["ESR"].ToString();
+                        field.Blood_grouping = dr["Blood_grouping"].ToString();
+                        field.Blood_sugar = dr["Blood_sugar"].ToString();
+                        field.CBC = dr["CBC"].ToString();
+                        field.Cross_matching = dr["Cross_matching"].ToString();
+                        field.TPHA = dr["TPHA"].ToString();
+                        field.Human_immune_deficiency_HIV = dr["Human_immune_deficiency_HIV"].ToString();
+                        field.Hepatitis_B_virus_HBV = dr["Hepatitis_B_virus_HBV"].ToString();
+                        field.Hepatitis_C_virus_HCV = dr["Hepatitis_C_virus_HCV"].ToString();
+                        field.Brucella_melitensis = dr["Brucella_melitensis"].ToString();
+                        field.Brucella_abortus = dr["Brucella_abortus"].ToString();
+                        field.C_reactive_protein_CRP = dr["C_reactive_protein_CRP"].ToString();
+                        field.Rheumatoid_factor_RF = dr["Rheumatoid_factor_RF"].ToString();
+                        field.Antistreptolysin_O_ASO = dr["Antistreptolysin_O_ASO"].ToString();
+                        field.Toxoplasmosis = dr["Toxoplasmosis"].ToString();
+                        field.Typhoid_hCG = dr["Typhoid_hCG"].ToString();
+                        field.Hpylori_antibody = dr["Hpylori_antibody"].ToString();
+                        field.Stool_occult_blood = dr["Stool_occult_blood"].ToString();
+                        field.General_stool_examination = dr["General_stool_examination"].ToString();
+                        field.Thyroid_profile = dr["Thyroid_profile"].ToString();
+                        field.Triiodothyronine_T3 = dr["Triiodothyronine_T3"].ToString();
+                        field.Thyroxine_T4 = dr["Thyroxine_T4"].ToString();
+                        field.Thyroid_stimulating_hormone_TSH = dr["Thyroid_stimulating_hormone_TSH"].ToString();
+                        field.Progesterone_Female = dr["Progesterone_Female"].ToString();
+                        field.Follicle_stimulating_hormone_FSH = dr["Follicle_stimulating_hormone_FSH"].ToString();
+                        field.Estradiol = dr["Estradiol"].ToString();
+                        field.Luteinizing_hormone_LH = dr["Luteinizing_hormone_LH"].ToString();
+                        field.Testosterone_Male = dr["Testosterone_Male"].ToString();
+                        field.Prolactin = dr["Prolactin"].ToString();
+                        field.Seminal_Fluid_Analysis_Male_B_HCG = dr["Seminal_Fluid_Analysis_Male_B_HCG"].ToString();
+                        field.Urine_examination = dr["Urine_examination"].ToString();
+                        field.Stool_examination = dr["Stool_examination"].ToString();
+                        field.Sperm_examination = dr["Sperm_examination"].ToString();
+                        field.Virginal_swab_trichomonas_virginals = dr["Virginal_swab_trichomonas_virginals"].ToString();
+                        field.Human_chorionic_gonadotropin_hCG = dr["Human_chorionic_gonadotropin_hCG"].ToString();
+                        field.Hpylori_Ag_stool = dr["Hpylori_Ag_stool"].ToString();
+                        field.Fasting_blood_sugar = dr["Fasting_blood_sugar"].ToString();
+                        field.Hemoglobin_A1c = dr["Hemoglobin_A1c"].ToString();
+                        field.General_urine_examination = dr["General_urine_examination"].ToString();
+
+
+
+                        details.Add(field);
+                    }
+                }
+            }
+
+            return details.ToArray();
         }
 
         [WebMethod]

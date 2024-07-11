@@ -15,7 +15,7 @@
             <input style="display:none" id="id111" />
                    <input style="display:none"  id="medid" />
           
-          <div class="row">
+          <div class="row" id="chk1">
               <div class="col-12">
                   <h1>Lab Test Details</h1>
 
@@ -1149,8 +1149,9 @@
             var search = parseInt($("#label2").html());
       
             $("#id111").val(prescid);
+            $("#id6").val(prescid);
 
-            alert(prescid);
+   
             $.ajax({
                 type: "POST",
                 url: "test_details.aspx/getlapprocessed",
@@ -1281,6 +1282,255 @@
         });
 
 
+
+
+
+
+
+
+        // Delegate click events for edit and delete buttons to the table
+        $("#datatable").on("click", ".edit1-btn", function (event) {
+            event.preventDefault(); // Prevent default behavior
+            var row = $(this).closest("tr");
+            var prescid = $(this).data("id");
+            alert(prescid);
+            var search = parseInt($("#label2").html());
+
+            $("#id111").val(prescid);
+            $("#id6").val(prescid);
+
+
+            $.ajax({
+                type: "POST",
+                url: "test_details.aspx/getlapprocessed",
+                data: JSON.stringify({ prescid: prescid }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    console.log(response);
+
+                    // Uncheck all checkboxes and hide them before processing the new data
+                    uncheckAndHideAllCheckboxes();
+
+                    // Access the nested data
+                    var data = response.d[0];
+                    document.getElementById('medid').value = data.med_id;
+                    // Iterate over each property in the data
+                    for (var key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            var checkboxId = getCheckboxId(key);
+                            var isChecked = data[key] !== "not checked";
+
+                            // Find the checkbox element by id
+                            var checkbox = document.getElementById(checkboxId);
+                            if (checkbox) {
+                                checkbox.checked = isChecked;
+
+                                // Show the checkbox if it is checked, otherwise hide it
+                                var checkboxLabel = checkbox.parentNode; // Assuming the label is the parent element
+                                if (isChecked) {
+                                    checkboxLabel.style.display = "block";
+                                } else {
+                                    checkboxLabel.style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+            // Function to uncheck all checkboxes and hide them
+            function uncheckAndHideAllCheckboxes() {
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(function (checkbox) {
+                    checkbox.checked = false;
+                    var checkboxLabel = checkbox.parentNode; // Assuming the label is the parent element
+                    checkboxLabel.style.display = "none";
+                });
+            }
+
+
+            // Function to map data keys to checkbox IDs
+            function getCheckboxId(dataKey) {
+                switch (dataKey) {
+                    case "Albumin": return "flexCheckAlbumin";
+                    case "Alkaline_phosphates_ALP": return "flexCheckAlkalinePhosphatesALP";
+                    case "Amylase": return "flexCheckAmylase";
+                    case "Antistreptolysin_O_ASO": return "flexCheckASO";
+                    case "Blood_grouping": return "flexCheckBloodGrouping";
+                    case "Blood_sugar": return "flexCheckBloodSugar";
+                    case "Brucella_abortus": return "flexCheckBrucellaAbortus";
+                    case "Brucella_melitensis": return "flexCheckBrucellaMelitensis";
+                    case "CBC": return "flexCheckCBC";
+                    case "C_reactive_protein_CRP": return "flexCheckCRP";
+                    case "Calcium": return "flexCheckCalcium";
+                    case "Chloride": return "flexCheckChloride";
+                    case "Creatinine": return "flexCheckCreatinine";
+                    case "Cross_matching": return "flexCheckCrossMatching";
+                    case "Direct_bilirubin": return "flexCheckDirectBilirubin";
+                    case "ESR": return "flexCheckESR";
+                    case "Estradiol": return "flexCheckEstradiol";
+                    case "Fasting_blood_sugar": return "flexCheckFastingBloodSugar";
+                    case "Follicle_stimulating_hormone_FSH": return "flexCheckFSH";
+                    case "General_stool_examination": return "flexCheckGeneralStoolExamination";
+                    case "General_urine_examination": return "flexCheckGeneralUrineExamination";
+                    case "Hemoglobin": return "flexCheckHemoglobin";
+                    case "Hemoglobin_A1c": return "flexCheckHemoglobinA1c";
+                    case "Hepatitis_B_virus_HBV": return "flexCheckHBV";
+                    case "Hepatitis_C_virus_HCV": return "flexCheckHCV";
+                    case "High_density_lipoprotein_HDL": return "flexCheckHDL";
+                    case "Hpylori_Ag_stool": return "flexCheckHpyloriAgStool";
+                    case "Hpylori_antibody": return "flexCheckHpyloriAntibody";
+                    case "Human_chorionic_gonadotropin_hCG": return "flexCheckHCG";
+                    case "Human_immune_deficiency_HIV": return "flexCheckHIV";
+                    case "JGlobulin": return "flexCheckJGlobulin";
+                    case "Low_density_lipoprotein_LDL": return "flexCheckLDL";
+                    case "Luteinizing_hormone_LH": return "flexCheckLH";
+                    case "Magnesium": return "flexCheckMagnesium";
+                    case "Malaria": return "flexCheckMalaria";
+                    case "Phosphorous": return "flexCheckPhosphorous";
+                    case "Potassium": return "flexCheckPotassium";
+                    case "Progesterone_Female": return "flexCheckProgesteroneFemale";
+                    case "Prolactin": return "flexCheckProlactin";
+                    case "Rheumatoid_factor_RF": return "flexCheckRF";
+                    case "SGOT_AST": return "flexCheckSGOTAST";
+                    case "SGPT_ALT": return "flexCheckSGPTALT";
+                    case "Seminal_Fluid_Analysis_Male_B_HCG": return "flexCheckSeminalFluidAnalysis";
+                    case "Sodium": return "flexCheckSodium";
+                    case "Sperm_examination": return "flexCheckSpermExamination";
+                    case "Stool_examination": return "flexCheckStoolExamination";
+                    case "Stool_occult_blood": return "flexCheckStoolOccultBlood";
+                    case "TPHA": return "flexCheckTPHA";
+                    case "Testosterone_Male": return "flexCheckTestosteroneMale";
+                    case "Thyroid_profile": return "flexCheckThyroidProfile";
+                    case "Thyroid_stimulating_hormone_TSH": return "flexCheckTSH";
+                    case "Thyroxine_T4": return "flexCheckT4";
+                    case "Total_bilirubin": return "flexCheckTotalBilirubin";
+                    case "Total_cholesterol": return "flexCheckTotalCholesterol";
+                    case "Toxoplasmosis": return "flexCheckToxoplasmosis";
+                    case "Triglycerides": return "flexCheckTriglycerides";
+                    case "Triiodothyronine_T3": return "flexCheckT3";
+                    case "Typhoid_hCG": return "flexCheckTyphoid";
+                    case "Urea": return "flexCheckUrea";
+                    case "Uric_acid": return "flexCheckUricAcid";
+                    case "Urine_examination": return "flexCheckUrineExamination";
+                    case "Virginal_swab_trichomonas_virginals": return "flexCheckTrichomonasVirginals";
+                    // Add more mappings as needed
+                    default: return null;
+                }
+            }
+
+
+
+            // Show the modal
+            $('#staticBackdrop').modal('show');
+            $.ajax({
+                url: 'test_details.aspx/editlabmedic',
+                data: "{'prescid':'" + prescid + "'}",
+                dataType: "json",
+                type: 'POST',
+                contentType: "application/json",
+                success: function (response) {
+                    console.log(response);
+       
+
+                    var data = response.d[0];
+                    console.log(data);
+                    // Map the input fields to the server-side field names
+                    var fieldMap = {
+                        Hepatitis_C_virus_HCV1: data.Hepatitis_C_virus_HCV,
+                        flexCheckGeneralUrineExamination1: data.General_urine_examination,
+                        flexCheckProgesteroneFemale1: data.Progesterone_Female,
+                        flexCheckAmylase1: data.Amylase,
+                        flexCheckMagnesium1: data.Magnesium,
+                        flexCheckPhosphorous1: data.Phosphorous,
+                        flexCheckCalcium1: data.Calcium,
+                        flexCheckChloride1: data.Chloride,
+                        flexCheckPotassium1: data.Potassium,
+                        flexCheckSodium1: data.Sodium,
+                        flexCheckUricAcid1: data.Uric_acid,
+                        flexCheckCreatinine1: data.Creatinine,
+                        flexCheckUrea1: data.Urea,
+                        flexCheckJGlobulin1: data.JGlobulin,
+                        flexCheckAlbumin1: data.Albumin,
+                        flexCheckTotalBilirubin1: data.Total_bilirubin,
+                        flexCheckAlkalinePhosphatesALP1: data.Alkaline_phosphates_ALP,
+                        flexCheckSGOTAST1: data.SGOT_AST,
+                        flexCheckSGPTALT1: data.SGPT_ALT,
+                        flexCheckLiverFunctionTest1: data.LiverFunctionTest,
+                        flexCheckTriglycerides1: data.Triglycerides,
+                        flexCheckTotalCholesterol1: data.Total_cholesterol,
+                        flexCheckHemoglobinA1c1: data.Hemoglobin_A1c,
+                        flexCheckHDL1: data.High_density_lipoprotein_HDL,
+                        flexCheckLDL1: data.Low_density_lipoprotein_LDL,
+                        flexCheckFSH1: data.Follicle_stimulating_hormone_FSH,
+                        flexCheckEstradiol1: data.Estradiol,
+                        flexCheckLH1: data.Luteinizing_hormone_LH,
+                        flexCheckTestosteroneMale1: data.Testosterone_Male,
+                        flexCheckProlactin1: data.Prolactin,
+                        flexCheckSeminalFluidAnalysis1: data.Seminal_Fluid_Analysis_Male_B_HCG,
+                        flexCheckBHCG1: data.Typhoid_hCG,
+                        flexCheckUrineExamination1: data.Urine_examination,
+                        flexCheckStoolExamination1: data.Stool_examination,
+                        flexCheckHemoglobin1: data.Hemoglobin,
+                        flexCheckMalaria1: data.Malaria,
+                        flexCheckESR1: data.ESR,
+                        flexCheckBloodGrouping1: data.Blood_grouping,
+                        flexCheckBloodSugar1: data.Blood_sugar,
+                        flexCheckCBC1: data.CBC,
+                        flexCheckCrossMatching1: data.Cross_matching,
+                        flexCheckTPHA1: data.TPHA,
+                        flexCheckHIV1: data.Human_immune_deficiency_HIV,
+                        flexCheckHBV1: data.Hepatitis_B_virus_HBV,
+                        flexCheckBrucellaMelitensis1: data.Brucella_melitensis,
+                        flexCheckBrucellaAbortus1: data.Brucella_abortus,
+                        flexCheckCRP1: data.C_reactive_protein_CRP,
+                        flexCheckRF1: data.Rheumatoid_factor_RF,
+                        flexCheckASO1: data.Antistreptolysin_O_ASO,
+                        flexCheckToxoplasmosis1: data.Toxoplasmosis,
+                        flexCheckTyphoid1: data.Typhoid_hCG,
+                        flexCheckHpyloriAntibody1: data.Hpylori_antibody,
+                        flexCheckStoolOccultBlood1: data.Stool_occult_blood,
+                        flexCheckGeneralStoolExamination1: data.General_stool_examination,
+                        flexCheckThyroidProfile1: data.Thyroid_profile,
+                        flexCheckT31: data.Triiodothyronine_T3,
+                        flexCheckT41: data.Thyroxine_T4,
+                        flexCheckTSH1: data.Thyroid_stimulating_hormone_TSH,
+                        flexCheckSpermExamination1: data.Sperm_examination,
+                        flexCheckVirginalSwab1: data.Virginal_swab_trichomonas_virginals,
+                        flexCheckTrichomonasVirginals1: data.Virginal_swab_trichomonas_virginals,
+                        flexCheckHCG1: data.Human_chorionic_gonadotropin_hCG,
+                        flexCheckHpyloriAgStool1: data.Hpylori_Ag_stool,
+                        flexCheckFastingBloodSugar1: data.Fasting_blood_sugar,
+                        flexCheckDirectBilirubin1: data.Direct_bilirubin
+                    };
+
+                    // Populate the input fields
+                    for (var key in fieldMap) {
+                        if (fieldMap.hasOwnProperty(key)) {
+                            $("#" + key).val(fieldMap[key]);
+                        }
+                    }
+
+
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+            // Show the modal
+            $('#staticBackdrop').modal('show');
+
+        });
+
+
+
+
+
         // Delegate click events for edit and delete buttons to the table
         $("#datatable").on("click", ".edit-btn", function (event) {
             event.preventDefault(); // Prevent default behavior
@@ -1374,6 +1624,8 @@
                             + "<td><button style='background-color:red; curser:off;   color:white; border:none; padding:5px 10px;  border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
                             + "<td>"
                             + "<button type='button' class='edit-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit Task'><i class='fa fa-edit'></i></button>"
+                            + "<button type='button' class='edit1-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit '><i class='fa fa-edit'></i></button>"
+
                     
                             + "</td>"
 

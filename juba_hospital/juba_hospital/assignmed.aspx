@@ -404,6 +404,8 @@ body {
       
         <h1>X-ray Results</h1>
     <%--    <img src="assets/img/lab.png" alt="X-ray Results"/>--%>
+
+        <img src="" id="img"/>
     </div>
           </div>
 
@@ -3757,8 +3759,32 @@ body {
         $("#labid").val(prescid);
         $("#editl").val(prescid);
         $("#id9").val(prescid);
-    
 
+        $.ajax({
+            url: 'assignmed.aspx/xryimage',
+            data: JSON.stringify({ 'prescid': prescid }),
+            dataType: "json",
+            type: 'POST',
+            contentType: "application/json",
+            success: function (response) {
+                console.log(response);
+
+                if (response.d && response.d.length > 0) {
+                    var base64Data = response.d[0].image; // Assuming imageData is base64-encoded
+
+                    // Update image source directly
+                    $("#img").attr('src', 'data:image/jpeg;base64,' + base64Data);
+                } else {
+                    console.log("No image data found for the given prescid.");
+                    // Optionally handle the case where no image data is returned
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching image data:", error);
+                // Handle errors more gracefully, e.g., display an error message to the user
+            }
+        });
+    
 
         $.ajax({
             url: 'assignmed.aspx/lab_test',
@@ -3848,6 +3874,19 @@ body {
 
         });
   
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

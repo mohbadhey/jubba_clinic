@@ -36,24 +36,39 @@
       </div>
 <div class="modal-body">
     <input style="display:none" id="id11" />
-
-
-
-              <div class="col-4">
+    <div class="row">
+              <div class="col-5">
     <h1>Upload Lab Image</h1>
-    <asp:FileUpload ID="FileUpload1" runat="server" />
+     <input type="file" id="FileUpload1" accept="image/*">
 
  <img id="selectedImage22" src="" alt="Selected Image" />
 </div>
+        
+    <div class="col-7">
+         <h1>Patient Details</h1>
+             <div class="table-responsive">
+                         <table id="datatable11" class="display table table-striped table-hover">
+  <thead>
+    <tr>
+      <th> Name</th>
+      <th>describtion</th>
+   
 
-    <div class="col-4">
-         <div class="mb-3">
- <h1>Patient Details</h1>
-               <label for="name" class="form-label">Patient Name</label><br />
-             <label class="form-label"> Mohmed</label>
-
- </div>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Table rows will be dynamically added here -->
+  </tbody>
+</table>
+                 </div>
+    
+   
     </div>
+    </div>
+
+
+    
+
   
 
 </div>
@@ -64,7 +79,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" onclick="updateinfo()" class="btn btn-primary">Update</button>
+        <button type="button" id="btnSave" class="btn btn-primary">Update</button>
       </div>
     </div>
   </div>
@@ -104,6 +119,7 @@
                               <th>Amount</th>
                               <th>D.O.B</th>
  <th>Date Registered</th>
+                             <th>Doctor Title</th>
  <th>Status</th>
                         </tr>
                       </tfoot>
@@ -156,6 +172,67 @@
             });
 
 
+            $("[id*=btnSave]").click(function () {
+                var prescid = $("#id11").val();
+                var im = $("#FileUpload1").val();
+                var byteData = reader.result;
+                // Check if image data is not present
+
+                if (!im) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'No Image Selected',
+                        text: 'Please select an image before saving.'
+                    });
+                    return false;  // Prevent further execution
+                }
+
+            
+                byteData = byteData.split(';')[1].replace("base64,", "");
+
+                var obj = {
+                    Data: byteData,
+                    Name: fileName,
+                    ContentType: contentType,
+                    PrescID: prescid  // Add the prescid to the object
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: "take_xray.aspx/SaveImage",
+                    data: JSON.stringify({ data: obj }),  // Update the data field to include the prescid
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (r) {
+                        // Clear the file input
+                        $("#FileUpload1").val('');  // Replace #fileInput with the actual ID of your file input element
+                        // Optionally, reset reader.result to ensure it doesn't hold old data
+                        reader.result = null;
+                        byteData = null;
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: r.d
+                        })
+                       
+                    },
+                    error: function (r) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: r.responseText
+                        });
+                        console.log(r.responseText);
+                    },
+                    failure: function (r) {
+                        alert(r.responseText);
+                        console.log(r);
+                    }
+                });
+                return false;
+            });
+
         });
 
 
@@ -164,6 +241,7 @@
 
 
 
+        
 
 
 
@@ -179,12 +257,42 @@
             var prescid = $(this).data("id");
 
 
-
+        
 
 
             $("#id11").val(prescid);
 
+            $.ajax({
+                url: 'take_xray.aspx/xrayresults',
+                data: "{'prescid':'" + prescid + "'}",
+                dataType: "json",
+                type: 'POST',
+                contentType: "application/json",
+                success: function (response) {
+                    console.log(response);
 
+                    $("#datatable11 tbody").empty();
+
+                    for (var i = 0; i < response.d.length; i++) {
+                        $("#datatable11 tbody").append(
+                            "<tr style='cursor:pointer' onclick='passValue(this)'>"
+                            + "<td>" + response.d[i].xryname + "</td>"
+                            + "<td>" + response.d[i].xrydescribtion + "</td>"
+                     
+                  
+
+                            + "</tr>"
+                        );
+                    }
+
+
+
+
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
 
             // Show the modal
             $('#medmodal').modal('show');
@@ -201,7 +309,7 @@
             var search = parseInt($("#label2").html());
 
             $.ajax({
-                url: 'lab_waiting_list.aspx/pendlap',
+                url: 'take_xray.aspx/pendlap',
                 data: "{'search':'" + search + "'}",
                 dataType: "json",
                 type: 'POST',
@@ -222,6 +330,7 @@
                             + "<td>" + response.d[i].amount + "</td>"
                             + "<td>" + response.d[i].dob + "</td>"
                             + "<td>" + response.d[i].date_registered + "</td>"
+                            + "<td>" + response.d[i].doctortitle + "</td>"
                             + "<td style='display:none'>" + response.d[i].prescid + "</td>"
                             + "<td><button style='background-color:red; curser:off;   color:white; border:none; padding:5px 10px;  border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
                             + "<td><button class='edit-btn btn btn-success' data-id='" + response.d[i].prescid + "'>Take Test</button></td>"

@@ -440,5 +440,51 @@ WHERE
 
             return details.ToArray();
         }
+
+
+
+
+
+
+        public class xrimg
+        {
+            public string image;
+        }
+
+        [WebMethod]
+        public static xrimg[] xryimage(string prescid)
+        {
+            List<xrimg> details = new List<xrimg>();
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(@"
+            SELECT xryimage FROM xray_results WHERE prescid = @search;
+        ", con);
+                cmd.Parameters.AddWithValue("@search", prescid);
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        xrimg field = new xrimg();
+
+                        // Retrieve binary data as byte array
+                        byte[] imageData = (byte[])dr["xryimage"];
+
+                        // Convert byte array to base64 string
+                        field.image = Convert.ToBase64String(imageData);
+
+                        details.Add(field);
+                    }
+                }
+            }
+
+            return details.ToArray();
+        }
+
+
     }
 }

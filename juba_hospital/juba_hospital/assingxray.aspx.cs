@@ -38,6 +38,10 @@ namespace juba_hospital
                     @xryname, @xrydescribtion, @prescid
                 )";
 
+                    string patientUpdateQuery = "UPDATE [prescribtion] SET " +
+                                                "[xray_status] = 1" +
+                                              "WHERE [prescid] = @id";
+
                     using (SqlCommand cmd = new SqlCommand(medicationQuery, con))
                     {
 
@@ -49,6 +53,14 @@ namespace juba_hospital
                 
 
                         cmd.ExecuteNonQuery();
+                    }
+                    using (SqlCommand cmd1 = new SqlCommand(patientUpdateQuery, con))
+                    {
+
+                        cmd1.Parameters.AddWithValue("@id", id);
+                 
+
+                        cmd1.ExecuteNonQuery();
                     }
                 }
 

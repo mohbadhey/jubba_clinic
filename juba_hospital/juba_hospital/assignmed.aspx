@@ -335,7 +335,8 @@ body {
     <label class="form-check-label" for="radio2">Show Lab Tests</label>
                   <button class="btn btn-success" id="sendlab" onclick="showlab()"> send to lab</button>
           <button class="btn btn-success" id="editlab1" onclick="editlab()"> edit lab</button>
-          <button class="btn btn-success" id="sendxray1" onclick="sendxray()"> send to xray</button>
+          <button class="btn btn-success" id="sendxry" onclick="sendxray()"> send to xray</button>
+                  <button class="btn btn-success" id="editxry" onclick="updatexry()"> edit xray</button>
 
    
 
@@ -498,7 +499,8 @@ body {
                                 <th>Amount</th>
   <th>D.O.B</th>
                             <th>Date Registered</th>
-                            <th>Status</th>
+                             <th>Lap  Status</th>
+                                <th>X-ray Status</th>
                           </tr>
                         </thead>
                         <tfoot>
@@ -510,7 +512,8 @@ body {
                                 <th>Amount</th>
                                 <th>D.O.B</th>
    <th>Date Registered</th>
-   <th>Status</th>
+   <th>Lap  Status</th>
+                                 <th>X-ray Status</th>
                           </tr>
                         </tfoot>
                <tbody></tbody>
@@ -1095,6 +1098,7 @@ body {
       </div>
       <div class="modal-body">
             <input style="display:none" id="id9" />
+               <input style="display:none" id="id99" />
           <div class="row">
 
          
@@ -1130,6 +1134,7 @@ body {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" id="submitButton7" onclick="updatexrysub()" class="btn btn-success">update</button>
         <button type="button" id="submitButton5" class="btn btn-primary">Submit</button>
       </div>
     </div>
@@ -1709,7 +1714,38 @@ body {
         });
     }
 
+    function updatexrysub() {
+        var xryid = $("#id99").val();
+        var xrayname = $("#xrayname").val();
+        var inst = $("#inst").val();
+      
 
+
+
+
+
+        $.ajax({
+            url: 'assignmed.aspx/realxryupdate',
+            data: "{  'xryid':'" + xryid + "','xrayname':'" + xrayname + "', 'inst':'" + inst + "' }",
+
+            dataType: "json",
+            type: 'POST',
+            contentType: "application/json",
+            success: function (response) {
+                console.log(response);
+                $('#staticBackdrop9').modal('hide');
+                Swal.fire(
+                    'Successfully Updated !',
+                    'You Updated a new Customer!',
+                    'success'
+                )
+                DataBind();
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    }
 
     // Delegate click events for edit and delete buttons to the table
     $("#datatable11").on("click", ".edit1-btn", function (event) {
@@ -3162,8 +3198,8 @@ body {
 
         event.preventDefault()
 
-        document.getElementById('submitButton').style.display = 'inline-block';
-        document.getElementById('updateButton').style.display = 'none';
+        document.getElementById('submitButton5').style.display = 'inline-block';
+        document.getElementById('submitButton7').style.display = 'none';
 
   
         // Show the modal
@@ -3172,7 +3208,8 @@ body {
     }
 
     function sendxray() {
-
+        document.getElementById('submitButton5').style.display = 'inline-block';
+        document.getElementById('submitButton7').style.display = 'none';
   
 
         event.preventDefault()
@@ -3183,6 +3220,67 @@ body {
         $('#staticBackdrop9').modal('show');
 
     }
+
+
+
+
+    function updatexry() {
+        var prescid = $("#id9").val();
+        document.getElementById('submitButton7').style.display = 'inline-block';
+        document.getElementById('submitButton5').style.display = 'none';
+
+        event.preventDefault()
+
+        $.ajax({
+            url: 'assignmed.aspx/xrydata',
+            data: JSON.stringify({ prescid: prescid }),
+            dataType: "json",
+            type: 'POST',
+            contentType: "application/json",
+            success: function (response) {
+                console.log(response);
+
+                if (response.d && response.d.length > 0) {
+                    var data = response.d[0];
+                    var xrynameInput = document.getElementById('xrayname');
+                    var xrydescribtionInput = document.getElementById('inst'); // Updated to use the textarea's ID
+
+                    // Ensure elements exist
+                    if (xrynameInput && xrydescribtionInput) {
+                        // Show the hidden elements
+                        $('#xrayDetails').removeClass('hidden');
+                        $('#xraySpecial').removeClass('hidden');
+
+                        // Set their values
+                        xrynameInput.value = data.xryname;
+                        xrydescribtionInput.value = data.xrydescribtion;
+                    } else {
+                        console.log("Elements not found");
+                    }
+                } else {
+                    console.log("No data found in response");
+                }
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+
+
+  
+        // Show the modal
+        $('#staticBackdrop9').modal('show');
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3706,8 +3804,10 @@ body {
 
         var id = row.find("td:nth-child(10)").text();
 
-        var status = row.find("td:nth-child(12)").text().trim();  // Trim whitespace
-
+        var status = row.find("td:nth-child(12)").text().trim();
+        var xrystatus = row.find("td:nth-child(13)").text().trim(); // Trim whitespace
+        var xrayid = row.find("td:nth-child(14)").text().trim();
+  
         if (status === 'pending-lap') {
             document.getElementById('sendlab').disabled = true;
             document.getElementById('editlab1').disabled = false;
@@ -3718,6 +3818,28 @@ body {
             document.getElementById('sendlab').disabled = true;
             document.getElementById('editlab1').disabled = true;
         }
+
+
+
+
+
+        if (xrystatus === 'pending_xray') {
+            document.getElementById('sendxry').disabled = true;
+            document.getElementById('editxry').disabled = false;
+        } else if (xrystatus === 'waiting') {
+            document.getElementById('sendxry').disabled = false;
+            document.getElementById('editxry').disabled = true;
+        } else if (xrystatus === 'xray_processed') {
+            document.getElementById('sendxry').disabled = true;
+            document.getElementById('editxry').disabled = true;
+        }
+
+
+
+
+
+
+
 
         $("#doctor").text(doctor);
         // Parse the DOB into a Date object
@@ -3759,6 +3881,9 @@ body {
         $("#labid").val(prescid);
         $("#editl").val(prescid);
         $("#id9").val(prescid);
+        $("#id99").val(xrayid);
+        
+
 
         $.ajax({
             url: 'assignmed.aspx/xryimage',
@@ -3862,6 +3987,10 @@ body {
                         "<td style='display:none'>" + response.d[i].prescid + "</td>" +
                         "<td style='display:none'>" + response.d[i].patientid + "</td>" +
                         "<td>" + response.d[i].status + "</td>" +
+                        "<td>" + response.d[i].xray_status + "</td>" +
+                        "<td style='display:none'>" + response.d[i].xrayid + "</td>" +
+                        
+
                         "<td><button class='edit-btn btn btn-success' data-id='" + response.d[i].prescid + "'>Assign Medication</button></td>" +
                         "</tr>"
                     );

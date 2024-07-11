@@ -114,8 +114,12 @@ WHERE
             public string doctorid { get; set; }
             public string patientid { get; set; }
             public string prescid { get; set; }
+            public string xray_result_id { get; set; }
+            public string xrayid { get; set; }
             
-                       public string patient_status { get; set; }
+            public string xray_status { get; set; }
+
+            public string patient_status { get; set; }
             public string amount { get; set; }
             public string dob { get; set; }
             public string doctortitle { get; set; }

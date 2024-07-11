@@ -45,6 +45,7 @@
 </div>
         
     <div class="col-7">
+                  <button class="btn btn-success" id="editpic1" onclick="editpic()"> edit Pic</button>
          <h1>Patient Details</h1>
              <div class="table-responsive">
                          <table id="datatable11" class="display table table-striped table-hover">
@@ -85,6 +86,55 @@
   </div>
 </div>
 
+
+
+
+
+
+    <div class="modal fade" id="medmodal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel11">Upload Lab Image Test </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+<div class="modal-body">
+    <input style="display:none" id="id111" />
+    <div class="row">
+              <div class="col-5">
+    <h1>Upload New Image</h1>
+     <input type="file" id="FileUpload11" accept="image/*">
+
+ <img id="selectedImage221" src="" alt="Selected Image" />
+</div>
+        
+    <div class="col-7">
+             
+         <h1>Old Image</h1>
+           <img src="" id="img1" />
+   
+    </div>
+    </div>
+
+
+    
+
+  
+
+</div>
+
+
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="btnupdate" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
         <label id="label2">1</label>
              <div class="row">
             <div class="col-md-12">
@@ -107,7 +157,8 @@
                               <th>Amount</th>
 <th>D.O.B</th>
                           <th>Date Registered</th>
-                          <th>Status</th>
+                                  <th>Doctor Title</th>
+<th>Status</th>
                         </tr>
                       </thead>
                       <tfoot>
@@ -147,36 +198,31 @@
             $('[id*=FileUpload1]').change(function () {
                 if (typeof (FileReader) != "undefined") {
                     var input = this;
+                    if (input.files.length > 0) {
+                        var file = input.files[0];
 
-                    reader.onload = function (e) {
-                        $('#selectedImage22').attr('src', e.target.result);
-                    }
-                    reader.readAsDataURL(input.files[0]);
+                        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                        if (regex.test(file.name.toLowerCase())) {
+                            fileName = file.name;
+                            contentType = file.type;
 
-                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
-                    $($(this)[0].files).each(function () {
-                        var file = $(this);
-                 
-                        if (regex.test(file[0].name.toLowerCase())) {
-                            fileName = file[0].name;
-                            contentType = file[0].type;
-                            reader.readAsDataURL(file[0]);
+                            reader.onload = function (e) {
+                                $('#selectedImage22').attr('src', e.target.result);
+                            }
+
+                            reader.readAsDataURL(file);
                         } else {
-                            alert(file[0].name + " is not a valid image file.");
-                            return false;
+                            alert(file.name + " is not a valid image file.");
                         }
-                    });
+                    }
                 } else {
                     alert("This browser does not support HTML5 FileReader.");
                 }
             });
 
-
             $("[id*=btnSave]").click(function () {
                 var prescid = $("#id11").val();
                 var im = $("#FileUpload1").val();
-                var byteData = reader.result;
-                // Check if image data is not present
 
                 if (!im) {
                     Swal.fire({
@@ -184,38 +230,35 @@
                         title: 'No Image Selected',
                         text: 'Please select an image before saving.'
                     });
-                    return false;  // Prevent further execution
+                    return false; // Prevent further execution
                 }
 
-            
-                byteData = byteData.split(';')[1].replace("base64,", "");
+                var byteData = reader.result.split(';')[1].replace("base64,", "");
 
                 var obj = {
                     Data: byteData,
                     Name: fileName,
                     ContentType: contentType,
-                    PrescID: prescid  // Add the prescid to the object
+                    PrescID: prescid // Add the prescid to the object
                 };
 
                 $.ajax({
                     type: "POST",
                     url: "take_xray.aspx/SaveImage",
-                    data: JSON.stringify({ data: obj }),  // Update the data field to include the prescid
+                    data: JSON.stringify({ data: obj }), // Update the data field to include the prescid
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (r) {
                         // Clear the file input
-                        $("#FileUpload1").val('');  // Replace #fileInput with the actual ID of your file input element
+                        $("#FileUpload1").val(''); // Replace #fileInput with the actual ID of your file input element
                         // Optionally, reset reader.result to ensure it doesn't hold old data
                         reader.result = null;
-                        byteData = null;
 
                         Swal.fire({
                             icon: 'success',
                             title: 'Success',
                             text: r.d
-                        })
-                       
+                        });
                     },
                     error: function (r) {
                         Swal.fire({
@@ -232,16 +275,131 @@
                 });
                 return false;
             });
-
         });
 
+        function editpic() {
+            var prescid = $("#id11").val();
+            event.preventDefault();
+            $.ajax({
+                url: 'assignmed.aspx/xryimage',
+                data: JSON.stringify({ 'prescid': prescid }),
+                dataType: "json",
+                type: 'POST',
+                contentType: "application/json",
+                success: function (response) {
+                    console.log(response);
+                    // Show the modal
+                    if (response.d && response.d.length > 0) {
+                        var base64Data = response.d[0].image; // Assuming imageData is base64-encoded
 
+                        // Update image source directly
+                        $("#img1").attr('src', 'data:image/jpeg;base64,' + base64Data);
+                    } else {
+                        console.log("No image data found for the given prescid.");
+                        // Optionally handle the case where no image data is returned
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error fetching image data:", error);
+                    // Handle errors more gracefully, e.g., display an error message to the user
+                }
+            });
+            $('#medmodal1').modal('show');
 
+            var reader = new FileReader();
+            var fileName;
+            var contentType;
 
+            $('[id*=FileUpload11]').change(function () {
+                if (typeof (FileReader) != "undefined") {
+                    var input = this;
+                    if (input.files.length > 0) {
+                        var file = input.files[0];
 
+                        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                        if (regex.test(file.name.toLowerCase())) {
+                            fileName = file.name;
+                            contentType = file.type;
 
+                            reader.onload = function (e) {
+                                $('#selectedImage221').attr('src', e.target.result);
+                            }
 
-        
+                            reader.readAsDataURL(file);
+                        } else {
+                            alert(file.name + " is not a valid image file.");
+                        }
+                    }
+                } else {
+                    alert("This browser does not support HTML5 FileReader.");
+                }
+            });
+            $("[id*=btnupdate]").click(function () {
+                var id = $("#id111").val(); // Fetch book ID from the span
+
+                // Check if a file is selected and create a FileReader to read the file
+                var fileInput = document.getElementById('FileUpload11'); // Replace 'fileInput' with your actual file input ID
+    
+                   
+             
+                var file = fileInput.files[0];
+                var byteData = "";
+                var fileName = file ? file.name : "";
+
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        byteData = e.target.result.split(';base64,')[1];
+
+                        // Create a JSON object
+                        var jsonData = {
+                            id: id, // Include the book ID in the data
+                            Data: byteData,
+                            Name: fileName
+                        };
+
+                        // Send data to server using AJAX
+                        $.ajax({
+                            type: "POST",
+                            url: "take_xray.aspx/UpdateBook", // Change the URL to your update endpoint
+                            data: JSON.stringify({ data1: jsonData }),
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function (r) {
+                                console.log(r.d);
+                                // Clear the file input
+                                $("#FileUpload11").val(''); // Replace #fileInput with the actual ID of your file input element
+                                // Optionally, reset reader.result to ensure it doesn't hold old data
+                                reader.result = null;
+
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success',
+                                    text: r.d
+                                });
+                            },
+                            error: function (r) {
+                                alert(r.responseText);
+                            },
+                            failure: function (r) {
+                                alert(r.responseText);
+                            }
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'No Image Selected',
+                        text: 'Please select an image before saving.'
+                    });
+
+                }
+
+                return false;
+            });
+    
+        }
 
 
 
@@ -256,11 +414,14 @@
             var row = $(this).closest("tr");
             var prescid = $(this).data("id");
 
-
+            var xryid = row.find("td:nth-child(2)").text();
         
-
+            $("#id111").val(xryid);
+           
 
             $("#id11").val(prescid);
+
+
 
             $.ajax({
                 url: 'take_xray.aspx/xrayresults',
@@ -323,6 +484,7 @@
                         $("#datatable tbody").append(
                             "<tr style='cursor:pointer' onclick='passValue(this)'>"
                             + "<td style='display:none'>" + response.d[i].doctorid + "</td>"
+  /*                          + "<td style='display:none'>" + response.d[i].xray_result_id + "</td>"*/
                             + "<td>" + response.d[i].full_name + "</td>"
                             + "<td>" + response.d[i].sex + "</td>"
                             + "<td>" + response.d[i].location + "</td>"
@@ -331,6 +493,7 @@
                             + "<td>" + response.d[i].dob + "</td>"
                             + "<td>" + response.d[i].date_registered + "</td>"
                             + "<td>" + response.d[i].doctortitle + "</td>"
+                            
                             + "<td style='display:none'>" + response.d[i].prescid + "</td>"
                             + "<td><button style='background-color:red; curser:off;   color:white; border:none; padding:5px 10px;  border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
                             + "<td><button class='edit-btn btn btn-success' data-id='" + response.d[i].prescid + "'>Take Test</button></td>"

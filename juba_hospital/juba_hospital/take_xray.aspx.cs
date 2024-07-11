@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -21,6 +22,39 @@ namespace juba_hospital
         }
 
         [WebMethod]
+        public static string UpdateBook(BookData1 data1)
+        {
+            if (data1.Name != null)
+            {
+                byte[] bytes = Convert.FromBase64String(data1.Data);
+
+                string constr = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(constr))
+                {
+                    string sql = "UPDATE xray_results SET xryimage = @xryimage WHERE xray_result_id = @id";
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", data1.id);
+                        cmd.Parameters.AddWithValue("@xryimage", bytes);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+
+                return "Data Updated Successfully";
+            }
+
+            return "File name is null.";
+        }
+
+        public class BookData1
+        {
+            public string id { get; set; }
+            public string Data { get; set; }
+            public string Name { get; set; }
+        }
+        [WebMethod]
         public static string SaveImage(FileData data)
         {
             // Save image file to server
@@ -39,12 +73,25 @@ namespace juba_hospital
             using (SqlConnection conn = new SqlConnection(constr))
             {
                 string sql = "INSERT INTO xray_results (xryimage, prescid) VALUES (@bookImage, @prescid)";
+                string patientUpdateQuery = "UPDATE [prescribtion] SET " +
+                                              "[xray_status] = 2" +
+                                            "WHERE [prescid] = @id";
+
+
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@bookImage", File.ReadAllBytes(imageFilePath));
                     cmd.Parameters.AddWithValue("@prescid", data.PrescID); // Use data.PrescID to get the prescid value
                     conn.Open();
                     cmd.ExecuteNonQuery();
+                }
+                using (SqlCommand cmd1 = new SqlCommand(patientUpdateQuery, conn))
+                {
+
+                    cmd1.Parameters.AddWithValue("@id", data.PrescID);
+
+
+                    cmd1.ExecuteNonQuery();
                 }
             }
 
@@ -114,7 +161,7 @@ namespace juba_hospital
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"
-            SELECT 
+                              SELECT 
     patient.full_name, 
     patient.sex,
     patient.location,
@@ -124,12 +171,13 @@ namespace juba_hospital
     patient.patientid,
     prescribtion.prescid,
     doctor.doctorid,
+
     patient.amount,
     CONVERT(date, patient.dob) AS dob,
     CASE 
         WHEN prescribtion.xray_status = 0 THEN 'waiting'
         WHEN prescribtion.xray_status = 1 THEN 'pending_xray'
-		    WHEN prescribtion.xray_status = 3 THEN 'xray_processed'
+		    WHEN prescribtion.xray_status = 2 THEN 'xray_processed'
       
     END AS status
 FROM 
@@ -138,9 +186,9 @@ INNER JOIN
     prescribtion ON patient.patientid = prescribtion.patientid
 INNER JOIN 
     doctor ON prescribtion.doctorid = doctor.doctorid
+
 WHERE 
  prescribtion.xray_status = 1;
-
  ", con);
 
 
@@ -164,6 +212,7 @@ WHERE
                         field.amount = dr["amount"].ToString();
                         field.dob = Convert.ToDateTime(dr["dob"]).ToString("yyyy-MM-dd");
                         field.status = dr["status"].ToString();
+                        //field.xray_result_id = dr["xray_result_id"].ToString();
 
                         details.Add(field);
                     }

@@ -17,6 +17,47 @@ namespace juba_hospital
         {
 
         }
+
+        [WebMethod]
+        public static xrydes[] xrydata(string prescid)
+        {
+            List<xrydes> details = new List<xrydes>();
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(@"
+  	select * from xray where prescid = @search;
+
+ ", con);
+                cmd.Parameters.AddWithValue("@search", prescid);
+
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        xrydes field = new xrydes();
+
+
+                        field.xryname = dr["xryname"].ToString();
+                        field.xrydescribtion = dr["xrydescribtion"].ToString();
+                    
+
+                        details.Add(field);
+                    }
+                }
+            }
+
+            return details.ToArray();
+        }
+
+        public class xrydes
+        {
+            public string xryname;
+            public string xrydescribtion;
+        }
         [WebMethod]
         public static string deleteJob(string medid)
         {
@@ -79,6 +120,49 @@ namespace juba_hospital
                         cmd.Parameters.AddWithValue("@special_inst", special_inst);
                         cmd.Parameters.AddWithValue("@medid", medid);
 
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                return "true";
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                throw new Exception("Error updating job information", ex);
+            }
+        }
+
+
+
+
+
+
+        [WebMethod]
+        public static string realxryupdate( string xryid, string xrayname, string inst)
+        {
+            string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    con.Open();
+
+                    // Update jobs table
+                    string jobQuery = "UPDATE [xray] SET " +
+                          "[xryname] = @xryname," +
+                            "[xrydescribtion] = @xrydescribtion" +
+                              " WHERE [xrayid] = @xrayid";
+
+                    using (SqlCommand cmd = new SqlCommand(jobQuery, con))
+                    {
+
+                        cmd.Parameters.AddWithValue("@xryname", xrayname);
+                        cmd.Parameters.AddWithValue("@xrydescribtion", inst);
+                        cmd.Parameters.AddWithValue("@xrayid", xryid);
+                      
+             
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -376,8 +460,11 @@ WHERE TestValue IS NOT NULL AND TestValue != '';
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"
-      SELECT 
-patient.patientid,
+     
+     
+
+       SELECT 
+    patient.patientid,
     patient.full_name, 
     patient.sex,
     patient.location,
@@ -389,24 +476,31 @@ patient.patientid,
     doctor.doctorid,
     doctor.doctortitle,
     patient.amount,
+	xray.xrayid,
     CONVERT(date, patient.dob) AS dob,
     CASE 
         WHEN prescribtion.status = 0 THEN 'waiting'
         WHEN prescribtion.status = 1 THEN 'processed'
-        WHEN prescribtion.status = 2 THEN 'pending-xray'
-        WHEN prescribtion.status = 3 THEN 'X-ray-Processed'
-		 WHEN prescribtion.status = 4 THEN 'pending-lap'
+    	 WHEN prescribtion.status = 4 THEN 'pending-lap'
 	     WHEN prescribtion.status = 5 THEN 'lap-processed'
-    END AS status
+    END AS status,
+	 CASE 
+     WHEN prescribtion.xray_status = 0 THEN 'waiting'
+        WHEN prescribtion.xray_status = 1 THEN 'pending_xray'
+		    WHEN prescribtion.xray_status = 2 THEN 'xray_processed'
+       END AS status_xray
 FROM 
     patient
 INNER JOIN 
     prescribtion ON patient.patientid = prescribtion.patientid
 INNER JOIN 
     doctor ON prescribtion.doctorid = doctor.doctorid
+	left join  xray on prescribtion.prescid = xray.prescid
+	
 WHERE 
-    doctor.doctorid = @search
-    AND prescribtion.status  in (0,2,3,4,5);
+    doctor.doctorid = @search;
+
+
 
  ", con);
                 cmd.Parameters.AddWithValue("@search", search);
@@ -432,6 +526,8 @@ WHERE
                         field.amount = dr["amount"].ToString();
                         field.dob = Convert.ToDateTime(dr["dob"]).ToString("yyyy-MM-dd");
                         field.status = dr["status"].ToString();
+                        field.xray_status = dr["status_xray"].ToString();
+                        field.xrayid = dr["xrayid"].ToString();
                         
                         details.Add(field);
                     }

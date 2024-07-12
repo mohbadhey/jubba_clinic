@@ -35,238 +35,150 @@
         }
 
     </style>
-
 <style>
-    .report-content {
-  border: 3px solid black;
-  padding: 0px;
-  box-shadow: 10px 10px 10px #888888;
-  margin: 5px;
-}
-
-.report-header {
-  border: 0px solid black;
-  height: 150px;
-  width: 100%; /* Ensure the div takes the full width of its container */
-  overflow: hidden; /* Ensures the image doesn't overflow the div */
-  display: flex; /* Center the image horizontally */
-  justify-content: center;
-  align-items: center; /* Center the image vertically */
-}
-
-.report-header img {
-  max-height: 100%;
-  width: auto; /* Maintain aspect ratio */
-}
-
-
-
-.patient-details hr {
-  border: 1px solid black;
-}
-
-.report-body {
-  border: 0px solid black;
-  height: 300px;
-  font-size: 16px;
-  overflow: auto; /* Allow scrolling if content overflows */
-  padding: 0; /* Remove padding to make full use of the space */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-table {
-  width: 100%;
-  max-height: 100%;
-  border-collapse: collapse;
-  table-layout: auto; /* Allows the table to adjust column widths */
-}
-
-th, td {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px; /* Adjust padding for better fit */
-  box-sizing: border-box; /* Include border and padding in the element's width and height */
-}
-
-th {
-  background-color: #f2f2f2;
-  text-transform: uppercase; /* Ensure headers are uppercase */
-}
-
-.report-sign {
-  border: 0px solid black;
-  height: 100px;
-  margin: 30px 30px;
-}
-
-.report-footer {
-  border: 0px solid black;
-  height: 150px;
-}
-
-img {
-  height: 100%;
-  width: 100%;
-}
-
-.lab-doctor-sign {
-  float: right;
-}
-
-.report-sign img {
-  height: 50px;
-  width: 100px;
-  display: inline-block;
-}
-
-.lab-incharge-sign {
-  display: inline-block;
-}
-
-.align-left {
-  text-align: left;
-  padding: 10px;
-}
-
-/* Print styles */
-
-
-
-/*@media print {
-  body * {
-    visibility: hidden;
-  }
-  .report-content, .report-content * {
-    visibility: visible;
-  }
   .report-content {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    margin: 0;
+    border: 3px solid black;
     padding: 0;
-    border: none;
-    box-shadow: none;
+    box-shadow: 10px 10px 10px #888888;
+    margin: 5px;
+    width: 100%;
   }
 
-  img {
-    width: auto;
-    max-width: 100%;
-
-    height: auto;
-
+  .report-header {
+    border: 0;
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .report-header , .report-sign img {
-    width: auto;
-    max-width: 100%;
-    height: auto;
-  }
-  .report-body {
-    height: auto;
+
+  .report-header img {
     max-height: 100%;
-    overflow: visible;
+    width: auto;
   }
-  .col-4 {
-    width: 100%;
-  }
-  #print-button {
-    display: none;
-  }
-}*/
 
+  .patient-details hr {
+    border: 1px solid black;
+  }
 
-
-/* Global print styles */
-/*@media print {
-  body * {
-    visibility: hidden;
-  }
-  .report-content, .report-content * {
-    visibility: visible;
-  }
-  .report-content {
-    position: relative;*/ /* Change to relative to allow normal flow */
-    /*width: 100%;
-    padding: 1rem;*/ /* Add padding for better appearance */
-    /*font-size: 1.5rem;*/ /* Increase font size for all elements */
-  /*}
-  .report-header img, .report-sign img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
   .report-body {
-    margin-top: 1rem;*/ /* Add margin-top to separate from header */
-  /*}
+    border: 0;
+    font-size: 16px;
+    overflow: auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   table {
     width: 100%;
-    margin-bottom: 1rem;*/ /* Add some space between tables */
-    /*font-size: 1.5rem;*/ /* Increase font size for tables */
-  /*}
-  th, td {
-    padding: 1rem;*/ /* Increase padding for better readability */
-  /*}
-  #print-button {
-    display: none;
+    border-collapse: collapse;
+    table-layout: auto;
   }
-}*/
 
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    box-sizing: border-box;
+  }
 
+  th {
+    background-color: #f2f2f2;
+    text-transform: uppercase;
+  }
 
+  .report-sign {
+    border: 0;
+    height: 100px;
+    margin: 30px 30px;
+  }
 
+  .report-footer {
+    border: 0;
+    height: 150px;
+  }
 
+  .lab-doctor-sign {
+    float: right;
+  }
 
+  .report-sign img {
+    height: 50px;
+    width: 100px;
+    display: inline-block;
+  }
+
+  .lab-incharge-sign {
+    display: inline-block;
+  }
+
+  .align-left {
+    text-align: left;
+    padding: 10px;
+  }
 
   /* Global styles */
-body {
-  font-size: 16px; /* Base font size */
-}
-
-.report-content {
-  width: 100%; /* Full width */
-  padding: 1rem; /* Add padding for spacing */
-  font-size: 1rem; /* Base font size for screen display */
-}
-
-@media print {
-  body * {
-    visibility: hidden;
+  body {
+    font-size: 16px;
   }
-  .report-content, .report-content * {
-    visibility: visible;
-  }
+
   .report-content {
-    position: relative; /* Normal flow for printing */
     width: 100%;
-    padding: 1rem; /* Padding for better appearance */
-    font-size: 1.5rem; /* Increase font size for print */
+    padding: 1rem;
+    font-size: 1rem;
   }
-  .report-body {
-    margin-top: 1rem; /* Margin to separate from header */
-  }
-  table {
-    width: 100%;
-    margin-bottom: 1rem; /* Add space between tables */
-  }
-  th, td {
-    padding: 1rem; /* Padding for readability */
-  }
-  .report-header img, .report-sign img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-  #print-button {
-    display: none; /* Hide print button when printing */
-  }
-}
 
+  @media print {
+    @page {
+      size: A4;
+      margin: 10mm;
+    }
+    
+    body * {
+      visibility: hidden;
+    }
+
+    .report-content, .report-content * {
+      visibility: visible;
+    }
+
+    .report-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .report-body {
+      margin-top: 1rem;
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    th, td {
+      padding: 0.5rem;
+    }
+
+    .report-header img, .report-sign img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+
+    #print-button1 {
+      display: none;
+    }
+  }
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -1645,6 +1557,9 @@ body {
         window.print();
     });
 
+    document.getElementById('print-button1').addEventListener('click', function () {
+        window.print();
+    });
 
     function deletejob() {
         var medid = $("#id1111").val();

@@ -19,42 +19,151 @@
         }
 
     </style>
-    <style>
-        /* Add your CSS styles here */
+<style>
+  .report-content {
+    border: 3px solid black;
+    padding: 0;
+    box-shadow: 10px 10px 10px #888888;
+    margin: 5px;
+    width: 100%;
+  }
 
-       
-        @media print {
-            body, html {
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-            }
+  .report-header {
+    border: 0;
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-            .report-content {
-                width: 100%;
-                margin: 0;
-                padding: 0;
-            }
+  .report-header img {
+    max-height: 100%;
+    width: auto;
+  }
 
-            .report-header, .patient-details, .report-body {
-                width: 100%;
-            }
+  .patient-details hr {
+    border: 1px solid black;
+  }
 
-            table {
-                width: 100%;
-                border-collapse: collapse;
-            }
+  .report-body {
+    border: 0;
+    font-size: 16px;
+    overflow: auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-            table, th, td {
-                border: 1px solid black;
-            }
-            th, td {
-                padding: 8px;
-                text-align: left;
-            }
-        }
-    </style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+  }
+
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    text-transform: uppercase;
+  }
+
+  .report-sign {
+    border: 0;
+    height: 100px;
+    margin: 30px 30px;
+  }
+
+  .report-footer {
+    border: 0;
+    height: 150px;
+  }
+
+  .lab-doctor-sign {
+    float: right;
+  }
+
+  .report-sign img {
+    height: 50px;
+    width: 100px;
+    display: inline-block;
+  }
+
+  .lab-incharge-sign {
+    display: inline-block;
+  }
+
+  .align-left {
+    text-align: left;
+    padding: 10px;
+  }
+
+  /* Global styles */
+  body {
+    font-size: 16px;
+  }
+
+  .report-content {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  @media print {
+    @page {
+      size: A4;
+      margin: 10mm;
+    }
+    
+    body * {
+      visibility: hidden;
+    }
+
+    .report-content, .report-content * {
+      visibility: visible;
+    }
+
+    .report-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .report-body {
+      margin-top: 1rem;
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    th, td {
+      padding: 0.5rem;
+    }
+
+    .report-header img, .report-sign img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+
+    #print-button1 {
+      display: none;
+    }
+  }
+</style>
 
 <style>
     .report-content {
@@ -587,6 +696,11 @@ body {
 <script>
 
 
+    document.getElementById('print-button1').addEventListener('click', function () {
+        window.print();
+    });
+
+
     $(document).ready(function () {
         $("#datatable").DataTable({});
     });
@@ -1024,49 +1138,48 @@ body {
           
 
   
-  
-            $.ajax({
-                url: 'patient_report.aspx/patientreport',
-                data: "",
-                dataType: "json",
-                type: 'POST',
-                contentType: "application/json",
-                success: function (response) {
-                    console.log(response);
+        $.ajax({
+            url: 'patient_report.aspx/medic',
+            dataType: "json",
+            type: 'POST',
+            contentType: "application/json",
+            success: function (response) {
+                console.log(response);
 
-                    $("#datatable tbody").empty();
-
-                    for (var i = 0; i < response.d.length; i++) {
-                        $("#datatable tbody").append(
-                            "<tr style='cursor:pointer' onclick='passValue(this)'>"
-                            + "<td style='display:none'>" + response.d[i].doctorid + "</td>"
-                            
-
-                            + "<td>" + response.d[i].full_name + "</td>"
-                            + "<td>" + response.d[i].sex + "</td>"
-                            + "<td>" + response.d[i].location + "</td>"
-                            + "<td>" + response.d[i].phone + "</td>"
-                            + "<td>" + response.d[i].amount + "</td>"
-                            + "<td>" + response.d[i].dob + "</td>"
-                            + "<td>" + response.d[i].date_registered + "</td>"
-                            + "<td style='display:none'>" + response.d[i].doctortitle + "</td>"
-                            + "<td style='display:none'>" + response.d[i].prescid + "</td>"
-                            + "<td style='display:none'>" + response.d[i].patientid + "</td>"
-                            + "<td><button style='background-color:red; curser:off;   color:white; border:none; padding:5px 10px;  border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
-                            + "<td><button class='edit-btn btn btn-success' data-id='" + response.d[i].prescid + "'>View Report</button></td>"
-
-                            + "</tr>"
-                        );
-                    }
+                $("#datatable tbody").empty();
 
 
 
+                for (var i = 0; i < response.d.length; i++) {
 
-                },
-                error: function (response) {
-                    alert(response.responseText);
+
+                    $("#datatable tbody").append(
+                        "<tr style='cursor:pointer' onclick='passValue(this)'>" +
+                        "<td style='display:none'>" + response.d[i].doctorid + "</td>" +
+                        "<td>" + response.d[i].full_name + "</td>" +
+                        "<td>" + response.d[i].sex + "</td>" +
+                        "<td>" + response.d[i].location + "</td>" +
+                        "<td>" + response.d[i].phone + "</td>" +
+                        "<td>" + response.d[i].amount + "</td>" +
+                        "<td>" + response.d[i].dob + "</td>" +
+                        "<td>" + response.d[i].date_registered + "</td>" +
+                        "<td style='display:none'>" + response.d[i].doctortitle + "</td>" +
+                        "<td style='display:none'>" + response.d[i].prescid + "</td>" +
+                        "<td style='display:none'>" + response.d[i].patientid + "</td>" +
+                        "<td>" + response.d[i].status + "</td>" +
+                        "<td>" + response.d[i].xray_status + "</td>" +
+                        "<td style='display:none'>" + response.d[i].xrayid + "</td>" +
+
+
+                        "<td><button class='edit-btn btn btn-success' data-id='" + response.d[i].prescid + "'>View Report</button></td>" +
+                        "</tr>"
+                    );
                 }
-            });
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
         });
   
 

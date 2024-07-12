@@ -106,6 +106,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="addlabuser.aspx" />
+    <Content Include="addxrayuser.aspx" />
     <Content Include="add_doctor.aspx" />
     <Content Include="add_job_title.aspx" />
     <Content Include="add_lab.aspx" />
@@ -566,6 +568,7 @@
     <Content Include="doctor.Master" />
     <Content Include="labtest.Master" />
     <Content Include="take_xray.aspx" />
+    <Content Include="take_xray_lab_test.aspx" />
     <Content Include="test_details.aspx" />
     <Content Include="xray_processed.aspx" />
     <Content Include="Admin.Master" />
@@ -608,6 +611,20 @@
     <Content Include="xray.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addlabuser.aspx.cs">
+      <DependentUpon>addlabuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addlabuser.aspx.designer.cs">
+      <DependentUpon>addlabuser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addxrayuser.aspx.cs">
+      <DependentUpon>addxrayuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addxrayuser.aspx.designer.cs">
+      <DependentUpon>addxrayuser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="add_doctor.aspx.cs">
       <DependentUpon>add_doctor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -886,6 +903,13 @@
     </Compile>
     <Compile Include="take_xray.aspx.designer.cs">
       <DependentUpon>take_xray.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="take_xray_lab_test.aspx.cs">
+      <DependentUpon>take_xray_lab_test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="take_xray_lab_test.aspx.designer.cs">
+      <DependentUpon>take_xray_lab_test.aspx</DependentUpon>
     </Compile>
     <Compile Include="test_details.aspx.cs">
       <DependentUpon>test_details.aspx</DependentUpon>

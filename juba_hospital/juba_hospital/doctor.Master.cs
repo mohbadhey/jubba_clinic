@@ -27,5 +27,15 @@ namespace juba_hospital
 
             }
         }
+
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            // Clear the session
+            Session.Clear();
+            Session.Abandon();
+            // Redirect to login page
+            Response.Redirect("login.aspx");
+        }
+
     }
 }

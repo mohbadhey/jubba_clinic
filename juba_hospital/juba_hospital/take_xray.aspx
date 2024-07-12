@@ -135,7 +135,7 @@
   </div>
 </div>
 
-        <label id="label2">1</label>
+      
              <div class="row">
             <div class="col-md-12">
               <div class="card">

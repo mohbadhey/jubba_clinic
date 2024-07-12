@@ -19,13 +19,22 @@ namespace juba_hospital
             }
             else
             {
-                //// Set the text of Label1 to the value of the std_id session variable
-                //Label1.Text = (string)Session["UserId"];
-                //label2.Text = (string)Session["id"];
-
+                // Set the text of Label1 to the value of the std_id session variable
+                Label1.Text = (string)Session["UserId"];
+           
 
 
             }
         }
+
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            // Clear the session
+            Session.Clear();
+            Session.Abandon();
+            // Redirect to login page
+            Response.Redirect("login.aspx");
+        }
+
     }
 }

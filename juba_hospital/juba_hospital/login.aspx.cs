@@ -97,12 +97,23 @@ namespace juba_hospital
                             nameField = "UserName";
                             redirectUrl = "Add_patients.aspx";
                             break;
+                        case 4: // Xay
+                            query = @"
+                                SELECT username AS UserId, password AS UserName , userid as id
+                                FROM admin 
+                                WHERE username = @username AND password = @password";
+                            userIdField = "UserId";
+                            id = "id";
+                            nameField = "UserName";
+                            redirectUrl = "admin_dashbourd.aspx";
+                            break;
                         case 5: // Xay
                             query = @"
-                                SELECT username AS UserId, password AS UserName 
+                                SELECT username AS UserId, password AS UserName , userid as id
                                 FROM xrayuser 
                                 WHERE username = @username AND password = @password";
                             userIdField = "UserId";
+                            id = "id";
                             nameField = "UserName";
                             redirectUrl = "take_xray.aspx";
                             break;

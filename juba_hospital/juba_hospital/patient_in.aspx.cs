@@ -28,28 +28,30 @@ namespace juba_hospital
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"  
-              SELECT 
-       patient.full_name, 
-       patient.sex,
-       patient.location,
-       patient.phone,
-       CONVERT(date, patient.date_registered) AS date_registered,
-       doctor.doctortitle,
-       patient.patientid,
-      prescribtion.prescid,
-       doctor.doctorid,
-       patient.amount,
-       CONVERT(date, patient.dob) AS dob,
-	     CASE 
-      WHEN patient.patient_status = 0 THEN 'Out Patient'
-         WHEN patient.patient_status = 1 THEN 'In Patient'
-  END AS patient_status
-   FROM 
-       patient
-   INNER JOIN 
-       prescribtion ON patient.patientid = prescribtion.patientid
-   INNER JOIN 
-       doctor ON prescribtion.doctorid = doctor.doctorid;
+    
+	            SELECT 
+     patient.full_name, 
+     patient.sex,
+     patient.location,
+     patient.phone,
+     CONVERT(date, patient.date_registered) AS date_registered,
+     doctor.doctortitle,
+     patient.patientid,
+    prescribtion.prescid,
+     doctor.doctorid,
+     patient.amount,
+     CONVERT(date, patient.dob) AS dob,
+    CASE 
+    WHEN patient.patient_status = 0 THEN 'Out Patient'
+       WHEN patient.patient_status = 1 THEN 'In Patient'
+	     WHEN patient.patient_status = 3 THEN 'Discharged'
+END AS patient_status
+ FROM 
+     patient
+ INNER JOIN 
+     prescribtion ON patient.patientid = prescribtion.patientid
+ INNER JOIN 
+     doctor ON prescribtion.doctorid = doctor.doctorid;
         ", con);
 
                 SqlDataReader dr = cmd.ExecuteReader();

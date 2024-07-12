@@ -167,6 +167,8 @@
           <script src="assets/js/plugin/datatables/datatables.min.js"></script>
 <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script>
+
+
         $(document).ready(function () {
             $("#datatable").DataTable({});
         });

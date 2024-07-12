@@ -4,7 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
              <div class="row">
-                              <select class="form-control" id="patient">
+
+                 <div class="col-3">
+                                                   <select class="form-control" id="patient">
     <option value="0"> Please Select a Week</option>
      
                     <option value="0"> out patient</option>
@@ -12,7 +14,9 @@
                   
                    
 </select>
-            <div class="col-md-12">
+         <br />
+                 </div>
+        <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
                   <h4 class="card-title">Patient Details</h4>

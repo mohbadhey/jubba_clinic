@@ -132,7 +132,17 @@
       
                                       <li class="nav-item">
   <a href="delete_medic.aspx">
-    <span class="sub-item"> Delete Operation</span>
+    <span class="sub-item"> Delete medication</span>
+  </a>
+</li>
+                                                  <li class="nav-item">
+  <a href="delete_xray.aspx">
+    <span class="sub-item"> Delete Xray Info</span>
+  </a>
+</li>
+                                                              <li class="nav-item">
+  <a href="delete_xray_images.aspx">
+    <span class="sub-item"> Delete Xray Images</span>
   </a>
 </li>
             

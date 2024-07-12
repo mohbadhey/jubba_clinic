@@ -13,7 +13,9 @@
       </div>
       <div class="modal-body">
             <input style="display:none" id="id111" />
-                   <input style="display:none"  id="medid" />
+                   <input style="display:none"  id="id67" />
+               <input style="display:none"  id="medid" />
+          
           
           <div class="row" id="chk1">
               <div class="col-12">
@@ -887,7 +889,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" onclick="callAjaxFunction()" class="btn btn-primary">Update</button>
+                  <button type="button" id="update" onclick="updatekabinput()" class="btn btn-primary">Update</button>
+        <button type="button" id="submit" onclick="callAjaxFunction()" class="btn btn-primary">submit</button>
       </div>
     </div>
   </div>
@@ -947,9 +950,187 @@
       <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script>
 
+        function updatekabinput() {
+
+            var flexCheckHCV1 = $("#Hepatitis_C_virus_HCV1").val();
+            var flexCheckGeneralUrineExamination1 = $("#flexCheckGeneralUrineExamination1").val();
+            var flexCheckProgesteroneFemale1 = $("#flexCheckProgesteroneFemale1").val();
+            var flexCheckAmylase1 = $("#flexCheckAmylase1").val();
+            var flexCheckMagnesium1 = $("#flexCheckMagnesium1").val();
+            var flexCheckPhosphorous1 = $("#flexCheckPhosphorous1").val();
+            var flexCheckCalcium1 = $("#flexCheckCalcium1").val();
+            var flexCheckChloride1 = $("#flexCheckChloride1").val();
+            var flexCheckPotassium1 = $("#flexCheckPotassium1").val();
+            var flexCheckSodium1 = $("#flexCheckSodium1").val();
+            var flexCheckUricAcid1 = $("#flexCheckUricAcid1").val();
+            var flexCheckCreatinine1 = $("#flexCheckCreatinine1").val();
+            var flexCheckUrea1 = $("#flexCheckUrea1").val();
+            var flexCheckJGlobulin1 = $("#flexCheckJGlobulin1").val();
+            var flexCheckAlbumin1 = $("#flexCheckAlbumin1").val();
+            var flexCheckTotalBilirubin1 = $("#flexCheckTotalBilirubin1").val();
+            var flexCheckAlkalinePhosphatesALP1 = $("#flexCheckAlkalinePhosphatesALP1").val();
+            var flexCheckSGOTAST1 = $("#flexCheckSGOTAST1").val();
+            var flexCheckSGPTALT1 = $("#flexCheckSGPTALT1").val();
+            var flexCheckLiverFunctionTest1 = $("#flexCheckLiverFunctionTest1").val();
+            var flexCheckTriglycerides1 = $("#flexCheckTriglycerides1").val();
+            var flexCheckTotalCholesterol1 = $("#flexCheckTotalCholesterol1").val();
+            var flexCheckHemoglobinA1c1 = $("#flexCheckHemoglobinA1c1").val();
+            var flexCheckHDL1 = $("#flexCheckHDL1").val();
+            var flexCheckLDL1 = $("#flexCheckLDL1").val();
+            var flexCheckFSH1 = $("#flexCheckFSH1").val();
+            var flexCheckEstradiol1 = $("#flexCheckEstradiol1").val();
+            var flexCheckLH1 = $("#flexCheckLH1").val();
+            var flexCheckTestosteroneMale1 = $("#flexCheckTestosteroneMale1").val();
+            var flexCheckProlactin1 = $("#flexCheckProlactin1").val();
+            var flexCheckSeminalFluidAnalysis1 = $("#flexCheckSeminalFluidAnalysis1").val();
+            var flexCheckBHCG1 = $("#flexCheckBHCG1").val();
+            var flexCheckUrineExamination1 = $("#flexCheckUrineExamination1").val();
+            var flexCheckStoolExamination1 = $("#flexCheckStoolExamination1").val();
+            var flexCheckHemoglobin1 = $("#flexCheckHemoglobin1").val();
+            var flexCheckMalaria1 = $("#flexCheckMalaria1").val();
+            var flexCheckESR1 = $("#flexCheckESR1").val();
+            var flexCheckBloodGrouping1 = $("#flexCheckBloodGrouping1").val();
+            var flexCheckBloodSugar1 = $("#flexCheckBloodSugar1").val();
+            var flexCheckCBC1 = $("#flexCheckCBC1").val();
+            var flexCheckCrossMatching1 = $("#flexCheckCrossMatching1").val();
+            var flexCheckTPHA1 = $("#flexCheckTPHA1").val();
+            var flexCheckHIV1 = $("#flexCheckHIV1").val();
+            var flexCheckHBV1 = $("#flexCheckHBV1").val();
+            var flexCheckBrucellaMelitensis1 = $("#flexCheckBrucellaMelitensis1").val();
+            var flexCheckBrucellaAbortus1 = $("#flexCheckBrucellaAbortus1").val();
+            var flexCheckCRP1 = $("#flexCheckCRP1").val();
+            var flexCheckRF1 = $("#flexCheckRF1").val();
+            var flexCheckASO1 = $("#flexCheckASO1").val();
+            var flexCheckToxoplasmosis1 = $("#flexCheckToxoplasmosis1").val();
+            var flexCheckTyphoid1 = $("#flexCheckTyphoid1").val();
+            var flexCheckHpyloriAntibody1 = $("#flexCheckHpyloriAntibody1").val();
+            var flexCheckStoolOccultBlood1 = $("#flexCheckStoolOccultBlood1").val();
+            var flexCheckGeneralStoolExamination1 = $("#flexCheckGeneralStoolExamination1").val();
+            var flexCheckThyroidProfile1 = $("#flexCheckThyroidProfile1").val();
+            var flexCheckT31 = $("#flexCheckT31").val();
+            var flexCheckT41 = $("#flexCheckT41").val();
+            var flexCheckTSH1 = $("#flexCheckTSH1").val();
+            var flexCheckSpermExamination1 = $("#flexCheckSpermExamination1").val();
+            var flexCheckVirginalSwab1 = $("#flexCheckVirginalSwab1").val();
+            var flexCheckTrichomonasVirginals1 = $("#flexCheckTrichomonasVirginals1").val();
+            var flexCheckHCG1 = $("#flexCheckHCG1").val();
+            var flexCheckHpyloriAgStool1 = $("#flexCheckHpyloriAgStool1").val();
+            var flexCheckFastingBloodSugar1 = $("#flexCheckFastingBloodSugar1").val();
+            var flexCheckDirectBilirubin1 = $("#flexCheckDirectBilirubin1").val();
+            var id = $("#id67").val();
+         
+            alert(id);
+
+            $.ajax({
+                url: 'test_details.aspx/updatetest',
+                data: "{'id':'" + id + "'," +
+                "'flexCheckLiverFunctionTest1':'" + flexCheckLiverFunctionTest1 + "'," +
+                    "'flexCheckBloodGrouping1':'" + flexCheckBloodGrouping1 + "'," +
+                    "'flexCheckMalaria1':'" + flexCheckMalaria1 + "'," +
+                    "'flexCheckHemoglobin1':'" + flexCheckHemoglobin1 + "'," +
+                    "'flexCheckHemoglobinA1c1':'" + flexCheckHemoglobinA1c1 + "'," +
+                    "'flexCheckFastingBloodSugar1':'" + flexCheckFastingBloodSugar1 + "'," +
+                    "'flexCheckHpyloriAgStool1':'" + flexCheckHpyloriAgStool1 + "'," +
+                    "'flexCheckTrichomonasVirginals1':'" + flexCheckTrichomonasVirginals1 + "'," +
+                    "'flexCheckVirginalSwab1':'" + flexCheckVirginalSwab1 + "'," +
+                    "'flexCheckSpermExamination1':'" + flexCheckSpermExamination1 + "'," +
+                    "'flexCheckTSH1':'" + flexCheckTSH1 + "'," +
+                    "'flexCheckT41':'" + flexCheckT41 + "'," +
+                    "'flexCheckHCG1':'" + flexCheckHCG1 + "'," +
+                    "'flexCheckUrea1':'" + flexCheckUrea1 + "'," +
+                    "'flexCheckT31':'" + flexCheckT31 + "'," +
+                    "'flexCheckThyroidProfile1':'" + flexCheckThyroidProfile1 + "'," +
+                    "'flexCheckBrucellaMelitensis1':'" + flexCheckBrucellaMelitensis1 + "'," +
+                    "'flexCheckCrossMatching1':'" + flexCheckCrossMatching1 + "'," +
+                    "'flexCheckCBC1':'" + flexCheckCBC1 + "'," +
+                    "'flexCheckBloodSugar1':'" + flexCheckBloodSugar1 + "'," +
+                    "'flexCheckUrea1':'" + flexCheckUrea1 + "'," +
+                    "'flexCheckUrea1':'" + flexCheckUrea1 + "'," +
+                    "'flexCheckESR1':'" + flexCheckESR1 + "'," +
+                    "'flexCheckLDL1':'" + flexCheckLDL1 + "'," +
+                    "'flexCheckHDL1':'" + flexCheckHDL1 + "'," +
+                    "'flexCheckGeneralUrineExamination1':'" + flexCheckGeneralUrineExamination1 + "'," +
+                    "'flexCheckTotalCholesterol1':'" + flexCheckTotalCholesterol1 + "'," +
+                    "'flexCheckTriglycerides1':'" + flexCheckTriglycerides1 + "'," +
+                    "'flexCheckSodium1':'" + flexCheckSodium1 + "'," +
+                    "'flexCheckPotassium1':'" + flexCheckPotassium1 + "'," +
+                    "'flexCheckChloride1':'" + flexCheckChloride1 + "'," +
+                    "'flexCheckCalcium1':'" + flexCheckCalcium1 + "'," +
+                    "'flexCheckPhosphorous1':'" + flexCheckPhosphorous1 + "'," +
+                    "'flexCheckMagnesium1':'" + flexCheckMagnesium1 + "'," +
+                    "'flexCheckCreatinine1':'" + flexCheckCreatinine1 + "'," +
+                    "'flexCheckAmylase1':'" + flexCheckAmylase1 + "'," +
+                    "'flexCheckProgesteroneFemale1':'" + flexCheckProgesteroneFemale1 + "'," +
+                    "'flexCheckFSH1':'" + flexCheckFSH1 + "'," +
+                    "'flexCheckEstradiol1':'" + flexCheckEstradiol1 + "'," +
+                    "'flexCheckLH1':'" + flexCheckLH1 + "'," +
+                    "'flexCheckTestosteroneMale1':'" + flexCheckTestosteroneMale1 + "'," +
+                    "'flexCheckProlactin1':'" + flexCheckProlactin1 + "'," +
+                    "'flexCheckSeminalFluidAnalysis1':'" + flexCheckSeminalFluidAnalysis1 + "'," +
+                    "'flexCheckBHCG1':'" + flexCheckBHCG1 + "'," +
+                    "'flexCheckUrineExamination1':'" + flexCheckUrineExamination1 + "'," +
+                    "'flexCheckStoolExamination1':'" + flexCheckStoolExamination1 + "'," +
+                    "'flexCheckTyphoid1':'" + flexCheckTyphoid1 + "'," +
+                    "'flexCheckHpyloriAntibody1':'" + flexCheckHpyloriAntibody1 + "'," +
+                    "'flexCheckStoolOccultBlood1':'" + flexCheckStoolOccultBlood1 + "'," +
+                    "'flexCheckGeneralStoolExamination1':'" + flexCheckGeneralStoolExamination1 + "'," +
+                    "'flexCheckCalciumBlood1':'" + flexCheckCalcium1 + "'," +
+                    "'flexCheckG6PD':'" + flexCheckG6PD + "'," +
+                    "'flexCheckAlkalinePhosphatesALP1':'" + flexCheckAlkalinePhosphatesALP1 + "'," +
+                    "'flexCheckSGOTAST1':'" + flexCheckSGOTAST1 + "'," +
+                    "'flexCheckSGPTALT1':'" + flexCheckSGPTALT1 + "'," +
+                    "'flexCheckGammaGlutamylTransferase':'" + flexCheckGammaGlutamylTransferase + "'," +
+                    "'flexCheckTotalProtein':'" + flexCheckTotalProtein + "'," +
+                    "'flexCheckAlbumin1':'" + flexCheckAlbumin1 + "'," +
+                    "'flexCheckJGlobulin1':'" + flexCheckJGlobulin1 + "'," +
+                    "'flexCheckTotalBilirubin1':'" + flexCheckTotalBilirubin1 + "'," +
+                    "'flexCheckDirectBilirubin1':'" + flexCheckDirectBilirubin1 + "'," +
+                    "'flexCheckCreatineKinaseTotal':'" + flexCheckCreatineKinaseTotal + "'," +
+                    "'flexCheckCKMB':'" + flexCheckCKMB + "'," +
+                    "'flexCheckLactateDehydrogenase':'" + flexCheckLactateDehydrogenase + "'," +
+                    "'flexCheckLipase':'" + flexCheckLipase + "'," +
+                    "'flexCheckPhosphataseAcid':'" + flexCheckPhosphataseAcid + "'," +
+                    "'flexCheckTroponinI':'" + flexCheckTroponinI + "'," +
+                    "'flexCheckTroponinT':'" + flexCheckTroponinT + "'," +
+                    "'flexCheckUricAcid1':'" + flexCheckUricAcid1 + "'," +
+                    "'flexCheckBrucellaAbortus1':'" + flexCheckBrucellaAbortus1 + "'," +
+                    "'flexCheckCRP1':'" + flexCheckCRP1 + "'," +
+                    "'flexCheckRF1':'" + flexCheckRF1 + "'," +
+                    "'flexCheckASO1':'" + flexCheckASO1 + "'," +
+                    "'flexCheckToxoplasmosis1':'" + flexCheckToxoplasmosis1 + "'," +
+                    "'flexCheckHBV1':'" + flexCheckHBV1 + "'," +
+                    "'flexCheckHCV1':'" + flexCheckHCV1 + "'," +
+                    "'flexCheckHIVAb1and2':'" + flexCheckHIV1 + "'," +
+                    "'flexCheckCMV':'" + flexCheckCMV + "'," +
+                    "'flexCheckEBVIgM':'" + flexCheckEBVIgM + "'," +
+                    "'flexCheckRubella':'" + flexCheckRubella + "'," +
+                    "'flexCheckAntiHAVIgMandIgG':'" + flexCheckAntiHAVIgMandIgG + "'," +
+                    "'flexCheckSalmonellaParatyphiAH':'" + flexCheckSalmonellaParatyphiAH + "'," +
+                    "'flexCheckSalmonellaParatyphiBH':'" + flexCheckSalmonellaParatyphiBH + "'," +
+                    "'flexCheckSalmonellaTyphiOH':'" + flexCheckSalmonellaTyphiOH + "'," +
+                    "'flexCheckRPRSyphillis':'" + flexCheckRPRSyphillis + "'," +
+                    "'flexCheckTPHA1':'" + flexCheckTPHA1 + "'," +
+                    "'flexCheckHIV1':'" + flexCheckHIV1 + "'," +
+                    "'flexCheckHIV2':'" + flexCheckHIV2 + "'}",
+                dataType: 'json',
+                type: 'POST',
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+                    console.log(response);
+                    $('#staticBackdrop').modal('hide');
+                    Swal.fire('Successfully Updated!', 'You updated a new Patient!', 'success');
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                    console.log(response);
+                }
+            });
+        }
+
+
         function callAjaxFunction() {
-
-
+     
+      
             
             var flexCheckHCV1 = $("#Hepatitis_C_virus_HCV1").val();
             var flexCheckGeneralUrineExamination1 = $("#flexCheckGeneralUrineExamination1").val();
@@ -1149,8 +1330,8 @@
             var search = parseInt($("#label2").html());
       
             $("#id111").val(prescid);
-            $("#id6").val(prescid);
-
+         
+     
    
             $.ajax({
                 type: "POST",
@@ -1275,6 +1456,8 @@
                 }
             }
 
+            document.getElementById('update').style.display = 'none';
+            document.getElementById('submit').style.display = 'inline-block';
 
 
             // Show the modal
@@ -1293,11 +1476,15 @@
             event.preventDefault(); // Prevent default behavior
             var row = $(this).closest("tr");
             var prescid = $(this).data("id");
-            alert(prescid);
+         
             var search = parseInt($("#label2").html());
 
             $("#id111").val(prescid);
-            $("#id6").val(prescid);
+         
+            var lab_result_id = row.find("td:nth-child(10)").text().trim();
+      
+
+            $("#id67").val(lab_result_id);
 
 
             $.ajax({
@@ -1425,8 +1612,6 @@
 
 
 
-            // Show the modal
-            $('#staticBackdrop').modal('show');
             $.ajax({
                 url: 'test_details.aspx/editlabmedic',
                 data: "{'prescid':'" + prescid + "'}",
@@ -1521,7 +1706,8 @@
                     alert(response.responseText);
                 }
             });
-
+            document.getElementById('update').style.display = 'inline-block';
+            document.getElementById('submit').style.display = 'none';
             // Show the modal
             $('#staticBackdrop').modal('show');
 
@@ -1621,6 +1807,8 @@
                             + "<td>" + response.d[i].dob + "</td>"
                             + "<td>" + response.d[i].date_registered + "</td>"
                             + "<td style='display:none'>" + response.d[i].prescid + "</td>"
+                            + "<td style='display:none'>" + response.d[i].lab_result_id + "</td>"
+                            
                             + "<td><button style='background-color:red; curser:off;   color:white; border:none; padding:5px 10px;  border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
                             + "<td>"
                             + "<button type='button' class='edit-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit Task'><i class='fa fa-edit'></i></button>"

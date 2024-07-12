@@ -173,6 +173,7 @@ namespace juba_hospital
             {
                 // Handle exceptions
                 throw new Exception("Error updating job information", ex);
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -463,7 +464,7 @@ WHERE TestValue IS NOT NULL AND TestValue != '';
      
      
 
-       SELECT 
+	SELECT 
     patient.patientid,
     patient.full_name, 
     patient.sex,
@@ -476,31 +477,31 @@ WHERE TestValue IS NOT NULL AND TestValue != '';
     doctor.doctorid,
     doctor.doctortitle,
     patient.amount,
-	xray.xrayid,
+    xray.xrayid,
     CONVERT(date, patient.dob) AS dob,
     CASE 
         WHEN prescribtion.status = 0 THEN 'waiting'
         WHEN prescribtion.status = 1 THEN 'processed'
-    	 WHEN prescribtion.status = 4 THEN 'pending-lap'
-	     WHEN prescribtion.status = 5 THEN 'lap-processed'
+        WHEN prescribtion.status = 2 THEN 'pending-lap'
+        WHEN prescribtion.status = 3 THEN 'lap-processed'
     END AS status,
-	 CASE 
-     WHEN prescribtion.xray_status = 0 THEN 'waiting'
+    CASE 
+        WHEN prescribtion.xray_status = 0 THEN 'waiting'
         WHEN prescribtion.xray_status = 1 THEN 'pending_xray'
-		    WHEN prescribtion.xray_status = 2 THEN 'xray_processed'
-       END AS status_xray
+        WHEN prescribtion.xray_status = 2 THEN 'xray_processed'
+    END AS status_xray
 FROM 
     patient
 INNER JOIN 
     prescribtion ON patient.patientid = prescribtion.patientid
 INNER JOIN 
     doctor ON prescribtion.doctorid = doctor.doctorid
-	left join  xray on prescribtion.prescid = xray.prescid
-	
+LEFT JOIN 
+    xray ON prescribtion.prescid = xray.prescid
 WHERE 
-    doctor.doctorid = @search;
-
-
+    doctor.doctorid = @search
+ORDER BY 
+    patient.date_registered DESC;
 
  ", con);
                 cmd.Parameters.AddWithValue("@search", search);

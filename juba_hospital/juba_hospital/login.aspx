@@ -27,34 +27,35 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+        <div class="card bg-white text-white" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-              <p class="text-white-50 mb-5">Please enter your login !</p>
+
+                <img src="assets/img/j.png" />
+     
 
               <div data-mdb-input-init class="form-outline form-white mb-4">
                     <asp:TextBox ID="TextBoxUsername"  type="text"  class="form-control form-control-lg"  runat="server"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="TextBoxUsername" ErrorMessage="username is required." CssClass="text-danger" Display="Dynamic" />
-                <label class="form-label" for="typeEmailX">Email</label>
+                <label class="form-label text-black" for="typeEmailX">Username</label>
               </div>
 
               <div data-mdb-input-init class="form-outline form-white mb-4">
              
                   <asp:TextBox ID="TextBoxPassword"  type="password"  class="form-control form-control-lg"  runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="TextBoxPassword" ErrorMessage="Password is required." CssClass="text-danger" Display="Dynamic" />
-                <label class="form-label" for="typePasswordX">Password</label>
+                <label class="form-label  text-black" for="typePasswordX">Password</label>
               </div>
 
 
 
-                <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server"></asp:DropDownList>
                                        <br />
-                <asp:Label ID="LabelMessage" runat="server" Text="Label"></asp:Label>
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                <asp:Button ID="lognbtn" class="btn btn-outline-light btn-lg px-5" type="submit" runat="server" Text="Login" OnClick="lognbtn_Click"  />
+                <asp:Label ID="LabelMessage" CssClass=" text-danger" runat="server" Text=""></asp:Label> <br />
+                <asp:Label ID="Label1" CssClass=" text-danger" runat="server" Text=""></asp:Label><br />
+                <asp:Button ID="lognbtn" class="btn btn-outline-dark btn-lg px-5  text-black" type="submit" runat="server" Text="Login" OnClick="lognbtn_Click"  />
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="text-danger" />
               <div class="d-flex justify-content-center text-center mt-4 pt-1">
                 <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>

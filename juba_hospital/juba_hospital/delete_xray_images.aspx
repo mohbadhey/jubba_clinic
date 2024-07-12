@@ -1,9 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="delete_medic.aspx.cs" Inherits="juba_hospital.delete_medic" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="delete_xray_images.aspx.cs" Inherits="juba_hospital.delete_xray_images" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .xray-image {
+            width: 100px; /* Set the desired width */
+            height: auto; /* Maintain the aspect ratio */
+        }
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-   
+    
          <div class="row">
              <div class="col-3">
                               <select class="form-control" id="weeks">
@@ -15,44 +22,17 @@
                    
 </select>
              </div>
-    <br />
-             <br />
+   <br />
              <input  id="btn" style="display:none"/>
              <button  type="button"  id="delete" style="display:none" onclick="deletejob()" class ="btn btn-danger"> Delete </button>
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Delete Medication</h4>
+                  <h4 class="card-title">Delete Xray Info</h4>
                 </div>
                 <div class="card-body">
-                  <div class="table-responsive">
-                    <table
-                      id="datatable11"
-                      class="display table table-striped table-hover"
-                    >
-                      <thead>
-                        <tr>
-                                     <th>Medication Name</th>
-        <th>Dosage</th>
-            <th>Frequency</th>
-<th>Duration</th>
-            <th>Special Instrcution</th>
-<th>Date Taken</th>
-                        </tr>
-                      </thead>
-                      <tfoot>
-                        <tr>
-                    <th>Medication Name</th>
-        <th>Dosage</th>
-            <th>Frequency</th>
-<th>Duration</th>
-            <th>Special Instrcution</th>
-<th>Date Taken</th>
-                        </tr>
-                      </tfoot>
-             <tbody></tbody>
-                    </table>
-                  </div>
+          <div id="imageContainer"></div>
+
                 </div>
               </div>
             </div>
@@ -68,16 +48,12 @@
 
 
 
-        $(document).ready(function () {
-            $("#datatable11").DataTable({});
-        });
-
         function deletejob() {
 
             var id = $("#btn").val();
             $.ajax({
                 type: "POST",
-                url: "delete_medic.aspx/deleteJob",
+                url: "delete_xray_images.aspx/deleteJob",
                 data: JSON.stringify({ id: id }),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -127,50 +103,43 @@
         $(document).ready(function () {
             // When the first dropdown changes
             $('#weeks').change(function () {
-                var search = $(this).val();
-                $("#btn").val(search);
+                var prescid = $(this).val();
+                $("#btn").val(prescid);
 
                 
-             
                 $.ajax({
-                    url: 'delete_medic.aspx/medicdata1',
-                    data: "{  'search':'" + search + "'  }",
+                    url: 'delete_xray_images.aspx/xryimage1',
+                    data: JSON.stringify({ 'prescid': prescid }),
                     dataType: "json",
                     type: 'POST',
                     contentType: "application/json",
                     success: function (response) {
                         console.log(response);
 
-                        $("#datatable11 tbody").empty();
+                        if (response.d && response.d.length > 0) {
+                            var tableHtml = '<table class="table table-bordered"><thead><tr><th>Image</th></tr></thead><tbody>';
 
-                        for (var i = 0; i < response.d.length; i++) {
-                            $("#datatable11 tbody").append(
-                                "<tr>"
+                            response.d.forEach(function (item) {
+                                var base64Data = item.image; // Assuming imageData is base64-encoded
+                                tableHtml += '<tr><td><img src="data:image/jpeg;base64,' + base64Data + '" alt="X-ray Image" class="xray-image img-thumbnail" /></td></tr>';
+                            });
 
-                                + "<td>" + response.d[i].med_name + "</td>"
-                                + "<td>" + response.d[i].dosage + "</td>"
-                                + "<td>" + response.d[i].frequency + "</td>"
-                                + "<td>" + response.d[i].duration + "</td>"
-                                + "<td>" + response.d[i].special_inst + "</td>"
-                                + "<td>" + response.d[i].date_taken + "</td>"
-
-
-
-
-                                + "</tr>"
-                            );
+                            tableHtml += '</tbody></table>';
+                            $("#imageContainer").html(tableHtml); // Assuming there is a div with id="imageContainer" to hold the table
+                        } else {
+                            console.log("No image data found for the given prescid.");
+                            // Optionally handle the case where no image data is returned
+                            $("#imageContainer").html('<p>No image data found.</p>');
                         }
-
-
                         // Show the delete button
                         $('#delete').show();
-
                     },
-                    error: function (response) {
-                        alert(response.responseText);
+                    error: function (xhr, status, error) {
+                        console.error("Error fetching image data:", error);
+                        // Handle errors more gracefully, e.g., display an error message to the user
+                        $("#imageContainer").html('<p>Error fetching image data.</p>');
                     }
                 });
-
 
 
             });
@@ -203,45 +172,37 @@
         $(document).ready(function () {
 
 
-
-
             $.ajax({
-                url: 'delete_medic.aspx/medicdata',
-                data: "{}",
+                url: 'delete_xray_images.aspx/xryimage',
                 dataType: "json",
                 type: 'POST',
                 contentType: "application/json",
                 success: function (response) {
                     console.log(response);
 
-                    $("#datatable11 tbody").empty();
+                    if (response.d && response.d.length > 0) {
+                        var tableHtml = '<table class="table table-bordered"><thead><tr><th>Image</th></tr></thead><tbody>';
 
-                    for (var i = 0; i < response.d.length; i++) {
-                        $("#datatable11 tbody").append(
-                            "<tr>"
+                        response.d.forEach(function (item) {
+                            var base64Data = item.image; // Assuming imageData is base64-encoded
+                            tableHtml += '<tr><td><img src="data:image/jpeg;base64,' + base64Data + '" alt="X-ray Image" class="xray-image img-thumbnail" /></td></tr>';
+                        });
 
-                            + "<td>" + response.d[i].med_name + "</td>"
-                            + "<td>" + response.d[i].dosage + "</td>"
-                            + "<td>" + response.d[i].frequency + "</td>"
-                            + "<td>" + response.d[i].duration + "</td>"
-                            + "<td>" + response.d[i].special_inst + "</td>"
-                            + "<td>" + response.d[i].date_taken + "</td>"
-                            
-             
-
-
-                            + "</tr>"
-                        );
+                        tableHtml += '</tbody></table>';
+                        $("#imageContainer").html(tableHtml); // Assuming there is a div with id="imageContainer" to hold the table
+                    } else {
+                        console.log("No image data found for the given prescid.");
+                        // Optionally handle the case where no image data is returned
+                        $("#imageContainer").html('<p>No image data found.</p>');
                     }
-
-
-
-
                 },
-                error: function (response) {
-                    alert(response.responseText);
+                error: function (xhr, status, error) {
+                    console.error("Error fetching image data:", error);
+                    // Handle errors more gracefully, e.g., display an error message to the user
+                    $("#imageContainer").html('<p>Error fetching image data.</p>');
                 }
             });
+
         });
 
 

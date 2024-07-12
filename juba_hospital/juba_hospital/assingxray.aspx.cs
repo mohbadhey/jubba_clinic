@@ -181,7 +181,7 @@ namespace juba_hospital
                 )";
 
                     string patientUpdateQuery = "UPDATE [prescribtion] SET " +
-                                                "[status] = 4 " +
+                                                "[status] = 2 " +
                                               "WHERE [prescid] = @presc";
 
                     using (SqlCommand cmd = new SqlCommand(medicationQuery, con))

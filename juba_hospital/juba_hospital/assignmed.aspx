@@ -285,6 +285,9 @@ body {
                <input style="display:none" id="pid" />
                 <h1>Assign Medication</h1>
           <button class="btn btn-success" onclick="showmedic()"> show medication report</button>
+          <br />
+          <br />
+          <br />
           <div class="row justify-content-between">
               <div class="col-3">
                      <div class="mb-3">
@@ -1080,8 +1083,8 @@ body {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                 <button type="button" id="updateButton" onclick="callAjaxFunction()" class="btn btn-primary">update</button>
-        <button type="button" id="submitButton" class="btn btn-primary">Submit</button>
+             <button type="button" id="updateButton" onclick="callAjaxFunction()" class="btn btn-primary">Update</button>
+            <button type="button" id="submitButton" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
@@ -3173,11 +3176,11 @@ body {
                 console.log(response);
 
 
-                $('#staticBackdrop').modal('hide');
+                $('#staticBackdrop11').modal('hide');
 
                 Swal.fire(
                     'Successfully Updated !',
-                    'You updated a new Patient!',
+                    'You have added a new lab details!',
                     'success'
                 )
 
@@ -3201,7 +3204,9 @@ body {
         document.getElementById('submitButton5').style.display = 'inline-block';
         document.getElementById('submitButton7').style.display = 'none';
 
-  
+        document.getElementById('updateButton').style.display = 'none';
+        document.getElementById('submitButton').style.display = 'inline-block';
+
         // Show the modal
         $('#staticBackdrop11').modal('show');
 
@@ -3210,7 +3215,8 @@ body {
     function sendxray() {
         document.getElementById('submitButton5').style.display = 'inline-block';
         document.getElementById('submitButton7').style.display = 'none';
-  
+
+   
 
         event.preventDefault()
 
@@ -3417,14 +3423,12 @@ body {
         // Show the update button and hide the submit button
         document.getElementById('updateButton').style.display = 'inline-block';
         document.getElementById('submitButton').style.display = 'none';
-
-     
+        
+        
         event.preventDefault();
 
         var prescid = $("#labid").val();
         var search = parseInt($("#label2").html());
-
-     
 
 
         $.ajax({
@@ -3671,6 +3675,17 @@ body {
             }
         });
 
+        document.getElementById('updateButton').style.display = 'none';
+        document.getElementById('submitButton').style.display = 'inline-block';
+
+
+
+
+
+
+
+
+
         // Show the modal
         $('#staticBackdrop1').modal('show');
 
@@ -3694,7 +3709,7 @@ body {
         var dosage = $("#dosage").val();
         var frequency = $("#frequency").val();
         var duration = $("#duration").val();
-        var special_inst = $("#inst").val();
+        var special_inst = $("#inst7").val();
         var id = $("#pid").val();
         var status = $("#status").val();
 
@@ -3737,8 +3752,7 @@ body {
             return; // Exit the function to prevent the AJAX request
         }
 
-
-
+   
         // If all validations pass, proceed with AJAX call
         if (isValid) {
 
@@ -3807,6 +3821,7 @@ body {
         var status = row.find("td:nth-child(12)").text().trim();
         var xrystatus = row.find("td:nth-child(13)").text().trim(); // Trim whitespace
         var xrayid = row.find("td:nth-child(14)").text().trim();
+
   
         if (status === 'pending-lap') {
             document.getElementById('sendlab').disabled = true;
@@ -3816,6 +3831,9 @@ body {
             document.getElementById('editlab1').disabled = true;
         } else if (status === 'processed') {
             document.getElementById('sendlab').disabled = true;
+            document.getElementById('editlab1').disabled = true;
+        } else if (status === 'lap-processed') {
+            document.getElementById('sendlab').disabled = false;
             document.getElementById('editlab1').disabled = true;
         }
 
@@ -3882,7 +3900,7 @@ body {
         $("#editl").val(prescid);
         $("#id9").val(prescid);
         $("#id99").val(xrayid);
-        
+        $("#id11").val(prescid);
 
 
         $.ajax({

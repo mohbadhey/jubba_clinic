@@ -448,7 +448,8 @@ string flexCheckFSH, string flexCheckEstradiol, string flexCheckLH,
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"
 
-	    SELECT 
+	  
+	SELECT 
     lab_test.med_id,
     lab_test.Low_density_lipoprotein_LDL,
     lab_test.High_density_lipoprotein_HDL,
@@ -512,7 +513,8 @@ string flexCheckFSH, string flexCheckEstradiol, string flexCheckLH,
     lab_test.Fasting_blood_sugar,
     lab_test.Hemoglobin_A1c,
     lab_test.General_urine_examination,
-    lab_test.prescid
+    lab_test.prescid,
+    lab_test.date_taken
 FROM 
     patient
 INNER JOIN 
@@ -523,8 +525,10 @@ LEFT JOIN
     lab_test ON prescribtion.prescid = lab_test.prescid
 WHERE 
     doctor.doctorid = @search
-   
-    AND lab_test.prescid = @prescid;
+    AND lab_test.prescid = @prescid
+ORDER BY 
+    lab_test.date_taken DESC;
+
 
 
  ", con);

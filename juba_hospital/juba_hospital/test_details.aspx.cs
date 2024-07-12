@@ -18,6 +18,178 @@ namespace juba_hospital
         {
 
         }
+        [WebMethod]
+        public static string updatetest(
+      string id,
+      string flexCheckGeneralUrineExamination1, string flexCheckProgesteroneFemale1, string flexCheckAmylase1, string flexCheckMagnesium1,
+      string flexCheckPhosphorous1, string flexCheckCalcium1, string flexCheckChloride1, string flexCheckPotassium1,
+      string flexCheckSodium1, string flexCheckUricAcid1, string flexCheckCreatinine1, string flexCheckUrea1,
+      string flexCheckJGlobulin1, string flexCheckAlbumin1, string flexCheckTotalBilirubin1, string flexCheckAlkalinePhosphatesALP1,
+      string flexCheckSGOTAST1, string flexCheckSGPTALT1, string flexCheckLiverFunctionTest1, string flexCheckTriglycerides1,
+      string flexCheckTotalCholesterol1, string flexCheckHemoglobinA1c1, string flexCheckHDL1, string flexCheckLDL1,
+      string flexCheckFSH1, string flexCheckEstradiol1, string flexCheckLH1,
+      string flexCheckTestosteroneMale1, string flexCheckProlactin1, string flexCheckSeminalFluidAnalysis1, string flexCheckBHCG1,
+      string flexCheckUrineExamination1, string flexCheckStoolExamination1, string flexCheckHemoglobin1, string flexCheckMalaria1,
+      string flexCheckESR1, string flexCheckBloodGrouping1, string flexCheckBloodSugar1, string flexCheckCBC1,
+      string flexCheckCrossMatching1, string flexCheckTPHA1, string flexCheckHIV1, string flexCheckHBV1,
+      string flexCheckHCV1, string flexCheckBrucellaMelitensis1, string flexCheckBrucellaAbortus1, string flexCheckCRP1,
+      string flexCheckRF1, string flexCheckASO1, string flexCheckToxoplasmosis1, string flexCheckTyphoid1,
+      string flexCheckHpyloriAntibody1, string flexCheckStoolOccultBlood1, string flexCheckGeneralStoolExamination1, string flexCheckThyroidProfile1,
+      string flexCheckT31, string flexCheckT41, string flexCheckTSH1, string flexCheckSpermExamination1,
+      string flexCheckVirginalSwab1, string flexCheckTrichomonasVirginals1, string flexCheckHCG1, string flexCheckHpyloriAgStool1,
+      string flexCheckFastingBloodSugar1, string flexCheckDirectBilirubin1
+  )
+        {
+            try
+            {
+                string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+                using (SqlConnection conn = new SqlConnection(cs))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("UPDATE lab_results SET " +
+                        "General_urine_examination = @flexCheckGeneralUrineExamination1, " +
+                        "Progesterone_Female = @flexCheckProgesteroneFemale1, " +
+                        "Amylase = @flexCheckAmylase1, " +
+                        "Magnesium = @flexCheckMagnesium1, " +
+                        "Phosphorous = @flexCheckPhosphorous1, " +
+                        "Calcium = @flexCheckCalcium1, " +
+                        "Chloride = @flexCheckChloride1, " +
+                        "Potassium = @flexCheckPotassium1, " +
+                        "Sodium = @flexCheckSodium1, " +
+                        "Uric_acid = @flexCheckUricAcid1, " +
+                        "Creatinine = @flexCheckCreatinine1, " +
+                        "Urea = @flexCheckUrea1, " +
+                        "JGlobulin = @flexCheckJGlobulin1, " +
+                        "Albumin = @flexCheckAlbumin1, " +
+                        "Total_bilirubin = @flexCheckTotalBilirubin1, " +
+                        "Alkaline_phosphates_ALP = @flexCheckAlkalinePhosphatesALP1, " +
+                        "SGOT_AST = @flexCheckSGOTAST1, " +
+                        "SGPT_ALT = @flexCheckSGPTALT1, " +
+                        "Liver_function_test = @flexCheckLiverFunctionTest1, " +
+                        "Triglycerides = @flexCheckTriglycerides1, " +
+                        "Total_cholesterol = @flexCheckTotalCholesterol1, " +
+                        "Hemoglobin_A1c = @flexCheckHemoglobinA1c1, " +
+                        "High_density_lipoprotein_HDL = @flexCheckHDL1, " +
+                        "Low_density_lipoprotein_LDL = @flexCheckLDL1, " +
+                        "Follicle_stimulating_hormone_FSH = @flexCheckFSH1, " +
+                        "Estradiol = @flexCheckEstradiol1, " +
+                        "Luteinizing_hormone_LH = @flexCheckLH1, " +
+                        "Testosterone_Male = @flexCheckTestosteroneMale1, " +
+                        "Prolactin = @flexCheckProlactin1, " +
+                        "Seminal_Fluid_Analysis_Male_B_HCG = @flexCheckSeminalFluidAnalysis1, " +
+                        "Clinical_path = @flexCheckBHCG1, " +
+                        "Urine_examination = @flexCheckUrineExamination1, " +
+                        "Stool_examination = @flexCheckStoolExamination1, " +
+                        "Hemoglobin = @flexCheckHemoglobin1, " +
+                        "Malaria = @flexCheckMalaria1, " +
+                        "ESR = @flexCheckESR1, " +
+                        "Blood_grouping = @flexCheckBloodGrouping1, " +
+                        "Blood_sugar = @flexCheckBloodSugar1, " +
+                        "CBC = @flexCheckCBC1, " +
+                        "Cross_matching = @flexCheckCrossMatching1, " +
+                        "TPHA = @flexCheckTPHA1, " +
+                        "Human_immune_deficiency_HIV = @flexCheckHIV1, " +
+                        "Hepatitis_B_virus_HBV = @flexCheckHBV1, " +
+                        "Hepatitis_C_virus_HCV = @flexCheckHCV1, " +
+                        "Brucella_melitensis = @flexCheckBrucellaMelitensis1, " +
+                        "Brucella_abortus = @flexCheckBrucellaAbortus1, " +
+                        "C_reactive_protein_CRP = @flexCheckCRP1, " +
+                        "Rheumatoid_factor_RF = @flexCheckRF1, " +
+                        "Antistreptolysin_O_ASO = @flexCheckASO1, " +
+                        "Toxoplasmosis = @flexCheckToxoplasmosis1, " +
+                        "Typhoid_hCG = @flexCheckTyphoid1, " +
+                        "Hpylori_antibody = @flexCheckHpyloriAntibody1, " +
+                        "Stool_occult_blood = @flexCheckStoolOccultBlood1, " +
+                        "General_stool_examination = @flexCheckGeneralStoolExamination1, " +
+                        "Thyroid_profile = @flexCheckThyroidProfile1, " +
+                        "Triiodothyronine_T3 = @flexCheckT31, " +
+                        "Thyroxine_T4 = @flexCheckT41, " +
+                        "Thyroid_stimulating_hormone_TSH = @flexCheckTSH1, " +
+                        "Sperm_examination = @flexCheckSpermExamination1, " +
+                        "Virginal_swab_trichomonas_virginals = @flexCheckVirginalSwab1, " +
+                        "Human_chorionic_gonadotropin_hCG = @flexCheckTrichomonasVirginals1, " +
+                        "Hpylori_Ag_stool = @flexCheckHpyloriAgStool1, " +
+                        "Fasting_blood_sugar = @flexCheckFastingBloodSugar1, " +
+                        "Direct_bilirubin = @flexCheckDirectBilirubin1 " +
+                        "WHERE lab_result_id = @id", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@flexCheckGeneralUrineExamination1", flexCheckGeneralUrineExamination1);
+                        cmd.Parameters.AddWithValue("@flexCheckProgesteroneFemale1", flexCheckProgesteroneFemale1);
+                        cmd.Parameters.AddWithValue("@flexCheckAmylase1", flexCheckAmylase1);
+                        cmd.Parameters.AddWithValue("@flexCheckMagnesium1", flexCheckMagnesium1);
+                        cmd.Parameters.AddWithValue("@flexCheckPhosphorous1", flexCheckPhosphorous1);
+                        cmd.Parameters.AddWithValue("@flexCheckCalcium1", flexCheckCalcium1);
+                        cmd.Parameters.AddWithValue("@flexCheckChloride1", flexCheckChloride1);
+                        cmd.Parameters.AddWithValue("@flexCheckPotassium1", flexCheckPotassium1);
+                        cmd.Parameters.AddWithValue("@flexCheckSodium1", flexCheckSodium1);
+                        cmd.Parameters.AddWithValue("@flexCheckUricAcid1", flexCheckUricAcid1);
+                        cmd.Parameters.AddWithValue("@flexCheckCreatinine1", flexCheckCreatinine1);
+                        cmd.Parameters.AddWithValue("@flexCheckUrea1", flexCheckUrea1);
+                        cmd.Parameters.AddWithValue("@flexCheckJGlobulin1", flexCheckJGlobulin1);
+                        cmd.Parameters.AddWithValue("@flexCheckAlbumin1", flexCheckAlbumin1);
+                        cmd.Parameters.AddWithValue("@flexCheckTotalBilirubin1", flexCheckTotalBilirubin1);
+                        cmd.Parameters.AddWithValue("@flexCheckAlkalinePhosphatesALP1", flexCheckAlkalinePhosphatesALP1);
+                        cmd.Parameters.AddWithValue("@flexCheckSGOTAST1", flexCheckSGOTAST1);
+                        cmd.Parameters.AddWithValue("@flexCheckSGPTALT1", flexCheckSGPTALT1);
+                        cmd.Parameters.AddWithValue("@flexCheckLiverFunctionTest1", flexCheckLiverFunctionTest1);
+                        cmd.Parameters.AddWithValue("@flexCheckTriglycerides1", flexCheckTriglycerides1);
+                        cmd.Parameters.AddWithValue("@flexCheckTotalCholesterol1", flexCheckTotalCholesterol1);
+                        cmd.Parameters.AddWithValue("@flexCheckHemoglobinA1c1", flexCheckHemoglobinA1c1);
+                        cmd.Parameters.AddWithValue("@flexCheckHDL1", flexCheckHDL1);
+                        cmd.Parameters.AddWithValue("@flexCheckLDL1", flexCheckLDL1);
+                        cmd.Parameters.AddWithValue("@flexCheckFSH1", flexCheckFSH1);
+                        cmd.Parameters.AddWithValue("@flexCheckEstradiol1", flexCheckEstradiol1);
+                        cmd.Parameters.AddWithValue("@flexCheckLH1", flexCheckLH1);
+                        cmd.Parameters.AddWithValue("@flexCheckTestosteroneMale1", flexCheckTestosteroneMale1);
+                        cmd.Parameters.AddWithValue("@flexCheckProlactin1", flexCheckProlactin1);
+                        cmd.Parameters.AddWithValue("@flexCheckSeminalFluidAnalysis1", flexCheckSeminalFluidAnalysis1);
+                        cmd.Parameters.AddWithValue("@flexCheckBHCG1", flexCheckBHCG1);
+                        cmd.Parameters.AddWithValue("@flexCheckUrineExamination1", flexCheckUrineExamination1);
+                        cmd.Parameters.AddWithValue("@flexCheckStoolExamination1", flexCheckStoolExamination1);
+                        cmd.Parameters.AddWithValue("@flexCheckHemoglobin1", flexCheckHemoglobin1);
+                        cmd.Parameters.AddWithValue("@flexCheckMalaria1", flexCheckMalaria1);
+                        cmd.Parameters.AddWithValue("@flexCheckESR1", flexCheckESR1);
+                        cmd.Parameters.AddWithValue("@flexCheckBloodGrouping1", flexCheckBloodGrouping1);
+                        cmd.Parameters.AddWithValue("@flexCheckBloodSugar1", flexCheckBloodSugar1);
+                        cmd.Parameters.AddWithValue("@flexCheckCBC1", flexCheckCBC1);
+                        cmd.Parameters.AddWithValue("@flexCheckCrossMatching1", flexCheckCrossMatching1);
+                        cmd.Parameters.AddWithValue("@flexCheckTPHA1", flexCheckTPHA1);
+                        cmd.Parameters.AddWithValue("@flexCheckHIV1", flexCheckHIV1);
+                        cmd.Parameters.AddWithValue("@flexCheckHBV1", flexCheckHBV1);
+                        cmd.Parameters.AddWithValue("@flexCheckHCV1", flexCheckHCV1);
+                        cmd.Parameters.AddWithValue("@flexCheckBrucellaMelitensis1", flexCheckBrucellaMelitensis1);
+                        cmd.Parameters.AddWithValue("@flexCheckBrucellaAbortus1", flexCheckBrucellaAbortus1);
+                        cmd.Parameters.AddWithValue("@flexCheckCRP1", flexCheckCRP1);
+                        cmd.Parameters.AddWithValue("@flexCheckRF1", flexCheckRF1);
+                        cmd.Parameters.AddWithValue("@flexCheckASO1", flexCheckASO1);
+                        cmd.Parameters.AddWithValue("@flexCheckToxoplasmosis1", flexCheckToxoplasmosis1);
+                        cmd.Parameters.AddWithValue("@flexCheckTyphoid1", flexCheckTyphoid1);
+                        cmd.Parameters.AddWithValue("@flexCheckHpyloriAntibody1", flexCheckHpyloriAntibody1);
+                        cmd.Parameters.AddWithValue("@flexCheckStoolOccultBlood1", flexCheckStoolOccultBlood1);
+                        cmd.Parameters.AddWithValue("@flexCheckGeneralStoolExamination1", flexCheckGeneralStoolExamination1);
+                        cmd.Parameters.AddWithValue("@flexCheckThyroidProfile1", flexCheckThyroidProfile1);
+                        cmd.Parameters.AddWithValue("@flexCheckT31", flexCheckT31);
+                        cmd.Parameters.AddWithValue("@flexCheckT41", flexCheckT41);
+                        cmd.Parameters.AddWithValue("@flexCheckTSH1", flexCheckTSH1);
+                        cmd.Parameters.AddWithValue("@flexCheckSpermExamination1", flexCheckSpermExamination1);
+                        cmd.Parameters.AddWithValue("@flexCheckVirginalSwab1", flexCheckVirginalSwab1);
+                        cmd.Parameters.AddWithValue("@flexCheckTrichomonasVirginals1", flexCheckTrichomonasVirginals1);
+                        cmd.Parameters.AddWithValue("@flexCheckHpyloriAgStool1", flexCheckHpyloriAgStool1);
+                        cmd.Parameters.AddWithValue("@flexCheckFastingBloodSugar1", flexCheckFastingBloodSugar1);
+                        cmd.Parameters.AddWithValue("@flexCheckDirectBilirubin1", flexCheckDirectBilirubin1);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                return "Data Updated Successfully";
+            }
+            catch (Exception ex)
+            {
+                return "An error occurred: " + ex.Message;
+            }
+        }
 
         [WebMethod]
         public static ptclass1[] editlabmedic(string prescid)
@@ -30,7 +202,7 @@ namespace juba_hospital
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"
 
- SELECT 
+  SELECT 
     lab_results.lab_result_id,
     lab_results.Low_density_lipoprotein_LDL,
     lab_results.High_density_lipoprotein_HDL,
@@ -94,7 +266,8 @@ namespace juba_hospital
     lab_results.Fasting_blood_sugar,
     lab_results.Hemoglobin_A1c,
     lab_results.General_urine_examination,
-    lab_results.prescid
+    lab_results.prescid,
+	lab_results.date_taken
 FROM 
     patient
 INNER JOIN 
@@ -104,7 +277,9 @@ INNER JOIN
 LEFT JOIN 
     lab_results ON prescribtion.prescid = lab_results.prescid
 WHERE 
-    lab_results.prescid = @search;
+    lab_results.prescid = @search
+		 ORDER BY 
+	     lab_results.date_taken DESC;
 
 
  ", con);
@@ -256,7 +431,7 @@ string flexCheckFastingBloodSugar1, string flexCheckDirectBilirubin1
                 )";
 
                     string patientUpdateQuery = "UPDATE [prescribtion] SET " +
-                                                "[status] = 5 " +
+                                                "[status] = 3 " +
                                               "WHERE [prescid] = @presc";
 
                     using (SqlCommand cmd = new SqlCommand(medicationQuery, con))
@@ -368,7 +543,8 @@ string flexCheckFastingBloodSugar1, string flexCheckDirectBilirubin1
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"
 
-	    SELECT 
+	   
+		    SELECT 
     lab_test.med_id,
     lab_test.Low_density_lipoprotein_LDL,
     lab_test.High_density_lipoprotein_HDL,
@@ -432,7 +608,8 @@ string flexCheckFastingBloodSugar1, string flexCheckDirectBilirubin1
     lab_test.Fasting_blood_sugar,
     lab_test.Hemoglobin_A1c,
     lab_test.General_urine_examination,
-    lab_test.prescid
+    lab_test.prescid,
+	    lab_test.date_taken
 FROM 
     patient
 INNER JOIN 
@@ -444,7 +621,9 @@ LEFT JOIN
 WHERE 
 
   
-     lab_test.prescid = @prescid;
+     lab_test.prescid = @prescid
+	 ORDER BY 
+    lab_test.date_taken DESC;
 
 
  ", con);

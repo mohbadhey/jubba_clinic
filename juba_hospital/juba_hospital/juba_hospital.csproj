@@ -110,6 +110,7 @@
     <Content Include="add_job_title.aspx" />
     <Content Include="add_lab.aspx" />
     <Content Include="Add_patients.aspx" />
+    <Content Include="add_patientsdoctor.aspx" />
     <Content Include="add_registre.aspx" />
     <Content Include="add_xray.aspx" />
     <Content Include="admin_dashbourd.aspx" />
@@ -417,6 +418,7 @@
     <Content Include="assets\img\flags\zm.png" />
     <Content Include="assets\img\flags\zw.png" />
     <Content Include="assets\img\img-shadow.png" />
+    <Content Include="assets\img\j.png" />
     <Content Include="assets\img\jm_denis.jpg" />
     <Content Include="assets\img\kaiadmin\demo1.png" />
     <Content Include="assets\img\kaiadmin\demo2.png" />
@@ -460,6 +462,7 @@
     <Content Include="assets\img\undraw\undraw_update_uxn2.svg" />
     <Content Include="assets\img\undraw\undraw_upgrade_06a0.svg" />
     <Content Include="assets\img\visa.svg" />
+    <Content Include="assets\j.png" />
     <Content Include="assets\js\core\bootstrap.min.js" />
     <Content Include="assets\js\core\jquery-3.7.1.min.js" />
     <Content Include="assets\js\core\popper.min.js" />
@@ -509,6 +512,8 @@
     <Content Include="Dashbourd.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="delete_medic.aspx" />
+    <Content Include="delete_xray.aspx" />
+    <Content Include="delete_xray_images.aspx" />
     <Content Include="doctor_inpatient.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -631,6 +636,13 @@
     <Compile Include="Add_patients.aspx.designer.cs">
       <DependentUpon>Add_patients.aspx</DependentUpon>
     </Compile>
+    <Compile Include="add_patientsdoctor.aspx.cs">
+      <DependentUpon>add_patientsdoctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="add_patientsdoctor.aspx.designer.cs">
+      <DependentUpon>add_patientsdoctor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="add_registre.aspx.cs">
       <DependentUpon>add_registre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -709,6 +721,20 @@
     </Compile>
     <Compile Include="delete_medic.aspx.designer.cs">
       <DependentUpon>delete_medic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="delete_xray.aspx.cs">
+      <DependentUpon>delete_xray.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="delete_xray.aspx.designer.cs">
+      <DependentUpon>delete_xray.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="delete_xray_images.aspx.cs">
+      <DependentUpon>delete_xray_images.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="delete_xray_images.aspx.designer.cs">
+      <DependentUpon>delete_xray_images.aspx</DependentUpon>
     </Compile>
     <Compile Include="doctor.Master.cs">
       <DependentUpon>doctor.Master</DependentUpon>

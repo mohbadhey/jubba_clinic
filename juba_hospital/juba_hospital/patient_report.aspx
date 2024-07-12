@@ -302,34 +302,10 @@ body {
       <div class="modal-body">
             <input style="display:none" id="id11" />
                <input style="display:none" id="pid" />
-                <h1>Assign Medication</h1>
+                <h1>Patient Report</h1>
           <button class="btn btn-success" onclick="showmedic()"> show medication report</button>
           <div class="row justify-content-between">
-              <div class="col-1">
-
-                  <h1> Amount For the Patent</h1>
-                <div class="col-sm-6 col-md-3">
-         <div class="card card-stats card-round">
-           <div class="card-body">
-             <div class="row align-items-center">
-               <div class="col-icon">
-                 <div
-                   class="icon-big text-center icon-primary bubble-shadow-small"
-                 >
-                   <i class="fas fa-users"></i>
-                 </div>
-               </div>
-               <div class="col col-stats ms-3 ms-sm-0">
-                 <div class="numbers">
-                   <p class="card-category">Amount </p>
-                   <h4 class="card-title">1,294</h4>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-              </div>
+     
               
               <div class="col-8">
                   
@@ -382,14 +358,14 @@ body {
                             </tbody>
                         </table>
                     </div>
-                    <div class="report-sign">
+                   <%-- <div class="report-sign">
                         <div class="lab-incharge-sign">
                             <figcaption>Mr. Sachin Sharma</figcaption>
                         </div>
                         <div class="lab-doctor-sign">
                             <figcaption>Dr. A.K. Asthana</figcaption>
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
                 <button id="print-button">Print Report</button>
             </div>
@@ -397,9 +373,10 @@ body {
     </div>
 </div>
     </div>
-    <div class="col-3">
+    <div class="col-4">
         <h1>X-ray Results</h1>
     <%--    <img src="assets/img/lab.png" alt="X-ray Results"/>--%>
+               <img src="" id="img"/>
     </div>
           </div>
 
@@ -601,16 +578,18 @@ body {
 
  
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" onclick="submitInfo()" class ="btn btn-primary">Submit</button>
-      </div>
+   
     </div>
   </div>
 </div>
          <script src="assets/js/plugin/datatables/datatables.min.js"></script>
    <script src="Scripts/jquery-3.4.1.min.js"></script>
 <script>
+
+
+    $(document).ready(function () {
+        $("#datatable").DataTable({});
+    });
     function toggleRow() {
         var checkbox = document.getElementById("radio2");
         var row = document.getElementById("lab-test-row");
@@ -974,7 +953,30 @@ body {
         $("#id111").val(prescid);
 
     
+        $.ajax({
+            url: 'assignmed.aspx/xryimage',
+            data: JSON.stringify({ 'prescid': prescid }),
+            dataType: "json",
+            type: 'POST',
+            contentType: "application/json",
+            success: function (response) {
+                console.log(response);
 
+                if (response.d && response.d.length > 0) {
+                    var base64Data = response.d[0].image; // Assuming imageData is base64-encoded
+
+                    // Update image source directly
+                    $("#img").attr('src', 'data:image/jpeg;base64,' + base64Data);
+                } else {
+                    console.log("No image data found for the given prescid.");
+                    // Optionally handle the case where no image data is returned
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching image data:", error);
+                // Handle errors more gracefully, e.g., display an error message to the user
+            }
+        });
 
         $.ajax({
             url: 'assignmed.aspx/lab_test',

@@ -117,6 +117,7 @@ WHERE
             public string xray_result_id { get; set; }
             public string xrayid { get; set; }
             
+                     public string lab_result_id { get; set; }
             public string xray_status { get; set; }
 
             public string patient_status { get; set; }

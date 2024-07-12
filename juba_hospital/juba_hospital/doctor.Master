@@ -106,7 +106,7 @@
 
 
                         <li class="nav-item">
-  <a href="Add_patients.aspx">
+  <a href="add_patientsdoctor.aspx">
     <span class="sub-item">Add Patient</span>
   </a>
 </li>
@@ -122,11 +122,7 @@
      <span class="sub-item">Assign Medication</span>
    </a>
  </li>
-                        <li class="nav-item">
-  <a href="medication_report.aspx">
-    <span class="sub-item"> Medication Report</span>
-  </a>
-</li>
+         
          
                                     <li class="nav-item">
   <a href="doctor_inpatient.aspx">
@@ -134,7 +130,7 @@
   </a>
 </li>
 
-                             <li class="nav-item">
+                        <%--     <li class="nav-item">
             <a data-bs-toggle="collapse" href="#base1">
               <i class="fas fa-layer-group"></i>
               <p>Laboratory</p>
@@ -170,12 +166,12 @@
               
               </ul>
             </div>
-          </li>
+          </li>--%>
 
 
 
 
-                                  <li class="nav-item">
+                            <%--      <li class="nav-item">
             <a data-bs-toggle="collapse" href="#base2">
               <i class="fas fa-layer-group"></i>
               <p>X-ray Laboratory</p>
@@ -204,7 +200,7 @@
               
               </ul>
             </div>
-          </li>
+          </li>--%>
         </ul>
       </div>
     </div>

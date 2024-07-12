@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="delete_medic.aspx.cs" Inherits="juba_hospital.delete_medic" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="delete_xray.aspx.cs" Inherits="juba_hospital.delete_xray" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-   
+    
          <div class="row">
              <div class="col-3">
                               <select class="form-control" id="weeks">
@@ -15,14 +14,13 @@
                    
 </select>
              </div>
-    <br />
-             <br />
+       <br />
              <input  id="btn" style="display:none"/>
              <button  type="button"  id="delete" style="display:none" onclick="deletejob()" class ="btn btn-danger"> Delete </button>
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Delete Medication</h4>
+                  <h4 class="card-title">Delete Xray Info</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -32,22 +30,19 @@
                     >
                       <thead>
                         <tr>
-                                     <th>Medication Name</th>
-        <th>Dosage</th>
-            <th>Frequency</th>
-<th>Duration</th>
-            <th>Special Instrcution</th>
-<th>Date Taken</th>
+                                           <th> ID</th>
+                                     <th> Name</th>
+        <th>Describtion</th>
+
+
                         </tr>
                       </thead>
                       <tfoot>
                         <tr>
-                    <th>Medication Name</th>
-        <th>Dosage</th>
-            <th>Frequency</th>
-<th>Duration</th>
-            <th>Special Instrcution</th>
-<th>Date Taken</th>
+                                              <th> ID</th>
+                             <th> Name</th>
+<th>Describtion</th>
+                            <th>Date Taken</th>
                         </tr>
                       </tfoot>
              <tbody></tbody>
@@ -66,18 +61,18 @@
     <script>
 
 
-
-
         $(document).ready(function () {
             $("#datatable11").DataTable({});
         });
+
+
 
         function deletejob() {
 
             var id = $("#btn").val();
             $.ajax({
                 type: "POST",
-                url: "delete_medic.aspx/deleteJob",
+                url: "delete_xray.aspx/deleteJob",
                 data: JSON.stringify({ id: id }),
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
@@ -133,7 +128,7 @@
                 
              
                 $.ajax({
-                    url: 'delete_medic.aspx/medicdata1',
+                    url: 'delete_xray.aspx/medicdata1',
                     data: "{  'search':'" + search + "'  }",
                     dataType: "json",
                     type: 'POST',
@@ -147,12 +142,12 @@
                             $("#datatable11 tbody").append(
                                 "<tr>"
 
-                                + "<td>" + response.d[i].med_name + "</td>"
-                                + "<td>" + response.d[i].dosage + "</td>"
-                                + "<td>" + response.d[i].frequency + "</td>"
-                                + "<td>" + response.d[i].duration + "</td>"
-                                + "<td>" + response.d[i].special_inst + "</td>"
+
+                                + "<td>" + response.d[i].xrayid + "</td>"
+                                + "<td>" + response.d[i].xryname + "</td>"
+                                + "<td>" + response.d[i].xrydescribtion + "</td>"
                                 + "<td>" + response.d[i].date_taken + "</td>"
+
 
 
 
@@ -206,7 +201,7 @@
 
 
             $.ajax({
-                url: 'delete_medic.aspx/medicdata',
+                url: 'delete_xray.aspx/medicdata',
                 data: "{}",
                 dataType: "json",
                 type: 'POST',
@@ -220,13 +215,12 @@
                         $("#datatable11 tbody").append(
                             "<tr>"
 
-                            + "<td>" + response.d[i].med_name + "</td>"
-                            + "<td>" + response.d[i].dosage + "</td>"
-                            + "<td>" + response.d[i].frequency + "</td>"
-                            + "<td>" + response.d[i].duration + "</td>"
-                            + "<td>" + response.d[i].special_inst + "</td>"
+                            + "<td>" + response.d[i].xrayid + "</td>"
+                            + "<td>" + response.d[i].xryname + "</td>"
+                            + "<td>" + response.d[i].xrydescribtion + "</td>"
                             + "<td>" + response.d[i].date_taken + "</td>"
-                            
+
+
              
 
 

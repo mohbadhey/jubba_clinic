@@ -1,5 +1,98 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/labtest.Master" AutoEventWireup="true" CodeBehind="test_details.aspx.cs" Inherits="juba_hospital.test_details" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+                <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+<style>
+    /* Custom table styling */
+    .dataTables_wrapper .dataTables_filter {
+        float: right;
+        text-align: right;
+    }
+
+    .dataTables_wrapper .dataTables_length {
+        float: left;
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        float: right;
+        text-align: right;
+    }
+
+    .dataTables_wrapper .dataTables_info {
+        float: left;
+    }
+
+    #datatable {
+        width: 100%;
+        margin: 20px 0;
+        font-size: 14px;
+    }
+
+    #datatable th,
+    #datatable td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #datatable th {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+    }
+
+    #datatable td {
+        background-color: #f8f9fa;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+
+
+    /* Custom hover styles for pagination buttons */
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0.5em 1em;
+        margin-left: 0.5em;
+        color: #007bff;
+        background-color: white;
+        border: 1px solid #ddd;
+    }
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        color: white;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+        cursor: pointer;
+    }
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        color: white;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+    }
+
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       
@@ -899,7 +992,7 @@
                 <div class="card">
                   <div class="card-header">
                     <div class="d-flex align-items-center">
-                      <h4 class="card-title"> Pending Lap Operation</h4>
+                      <h4 class="card-title"> send lap results  and edit results</h4>
                    
                     </div>
                   </div>
@@ -920,7 +1013,7 @@
                                         <th>Amount</th>
                                <th>D.O.B</th>
  <th>Date Registered</th>
- <th>Doctor Title</th>
+ <th>Status</th>
                                    <th>Actions</th>
                           </tr>
                         </thead>
@@ -934,7 +1027,7 @@
                               
                                <th>D.O.B</th>
  <th>Date Registered</th>
- <th>Doctor Title</th>
+ <th>Status</th>
                                <th>Actions</th>
                           </tr>
                         </tfoot>
@@ -946,9 +1039,28 @@
                   </div>
                 </div>
               </div>
-            <script src="assets/js/plugin/datatables/datatables.min.js"></script>
-      <script src="Scripts/jquery-3.4.1.min.js"></script>
+            <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+
     <script>
+
+        $(document).ready(function () {
+            // Initialize DataTable
+            var table = $('#datatable').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['excelHtml5'],
+                paging: true,
+                pageLength: 10,
+                lengthMenu: [10, 25, 50, 100],
+                responsive: true
+            });
+
+        });
 
         function updatekabinput() {
 
@@ -1019,7 +1131,7 @@
             var flexCheckDirectBilirubin1 = $("#flexCheckDirectBilirubin1").val();
             var id = $("#id67").val();
          
-            alert(id);
+ 
 
             $.ajax({
                 url: 'test_details.aspx/updatetest',
@@ -1117,6 +1229,7 @@
                 contentType: 'application/json; charset=utf-8',
                 success: function (response) {
                     console.log(response);
+                    datadisplay();
                     $('#staticBackdrop').modal('hide');
                     Swal.fire('Successfully Updated!', 'You updated a new Patient!', 'success');
                 },
@@ -1305,6 +1418,7 @@
                             'You added a new Patient!',
                             'success'
                         );
+                        datadisplay();
                         $('#staticBackdrop').modal('hide');
                     } else {
                         // Handle errors in the response
@@ -1769,67 +1883,61 @@
             // Show the modal
             $('#editmodal').modal('show');
         });
-        $(document).ready(function () {
-            $("#datatable").DataTable({});
-        });
+      
 
 
 
-        $(document).ready(function () {
+            function datadisplay() {
+                $.ajax({
+                    url: 'lab_waiting_list.aspx/pendlap',
+                    dataType: "json",
+                    type: 'POST',
+                    contentType: "application/json",
+                    success: function (response) {
+                        console.log(response);
 
+                        $("#datatable tbody").empty();
 
+                        for (var i = 0; i < response.d.length; i++) {
+                            // Determine if edit buttons should be disabled based on status
+                            var disableEdit = response.d[i].status === 'pending-lap' ? 'disabled' : '';
+                            var disablePlus = response.d[i].status === 'lap-processed' ? 'disabled' : '';
 
+                            $("#datatable tbody").append(
+                                "<tr style='cursor:pointer' onclick='passValue(this)'>"
+                                + "<td style='display:none'>" + response.d[i].doctorid + "</td>"
+                                + "<td>" + response.d[i].full_name + "</td>"
+                                + "<td>" + response.d[i].sex + "</td>"
+                                + "<td>" + response.d[i].location + "</td>"
+                                + "<td>" + response.d[i].phone + "</td>"
+                                + "<td>" + response.d[i].amount + "</td>"
+                                + "<td>" + response.d[i].dob + "</td>"
+                                + "<td>" + response.d[i].date_registered + "</td>"
+                                + "<td style='display:none'>" + response.d[i].prescid + "</td>"
+                                + "<td style='display:none'>" + response.d[i].lab_result_id + "</td>"
+                                + "<td><button style='background-color:red; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
+                                + "<td>"
+                                + "<button type='button' class='edit-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit Task' " + disablePlus + "><i class='fa fa-plus'></i></button>"
+                                + "<button type='button' class='edit1-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit' " + disableEdit + "><i class='fa fa-edit'></i></button>"
+                                + "</td>"
+                                + "</tr>"
+                            );
 
-
-
-       
-
-            $.ajax({
-                url: 'lab_waiting_list.aspx/pendlap',
-            
-                dataType: "json",
-                type: 'POST',
-                contentType: "application/json",
-                success: function (response) {
-                    console.log(response);
-
-                    $("#datatable tbody").empty();
-
-                    for (var i = 0; i < response.d.length; i++) {
-                        $("#datatable tbody").append(
-                            "<tr style='cursor:pointer' onclick='passValue(this)'>"
-                            + "<td style='display:none'>" + response.d[i].doctorid + "</td>"
-                            + "<td>" + response.d[i].full_name + "</td>"
-                            + "<td>" + response.d[i].sex + "</td>"
-                            + "<td>" + response.d[i].location + "</td>"
-                            + "<td>" + response.d[i].phone + "</td>"
-                            + "<td>" + response.d[i].amount + "</td>"
-                            + "<td>" + response.d[i].dob + "</td>"
-                            + "<td>" + response.d[i].date_registered + "</td>"
-                            + "<td style='display:none'>" + response.d[i].prescid + "</td>"
-                            + "<td style='display:none'>" + response.d[i].lab_result_id + "</td>"
-                            
-                            + "<td><button style='background-color:red; curser:off;   color:white; border:none; padding:5px 10px;  border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
-                            + "<td>"
-                            + "<button type='button' class='edit-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit Task'><i class='fa fa-edit'></i></button>"
-                            + "<button type='button' class='edit1-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit '><i class='fa fa-edit'></i></button>"
-
-                    
-                            + "</td>"
-
-                            + "</tr>"
-                        );
+                            // Disable the plus button if status is 'lap-processed'
+                            if (response.d[i].status === 'lap-processed') {
+                                $("#datatable tbody tr:last-child .edit-btn").prop('disabled', true);
+                            }
+                        }
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
                     }
+                });
+            }
 
+   
+        datadisplay();
 
-
-
-                },
-                error: function (response) {
-                    alert(response.responseText);
-                }
-            });
-        });
 
     </script>
 </asp:Content>

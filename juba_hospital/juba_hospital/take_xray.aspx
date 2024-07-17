@@ -1,5 +1,99 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/xray.Master" AutoEventWireup="true" CodeBehind="take_xray.aspx.cs" Inherits="juba_hospital.take_xray" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+<style>
+    /* Custom table styling */
+    .dataTables_wrapper .dataTables_filter {
+        float: right;
+        text-align: right;
+    }
+
+    .dataTables_wrapper .dataTables_length {
+        float: left;
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        float: right;
+        text-align: right;
+    }
+
+    .dataTables_wrapper .dataTables_info {
+        float: left;
+    }
+
+    #datatable {
+        width: 100%;
+        margin: 20px 0;
+        font-size: 14px;
+    }
+
+    #datatable th,
+    #datatable td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #datatable th {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+    }
+
+    #datatable td {
+        background-color: #f8f9fa;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+
+
+    /* Custom hover styles for pagination buttons */
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0.5em 1em;
+        margin-left: 0.5em;
+        color: #007bff;
+        background-color: white;
+        border: 1px solid #ddd;
+    }
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        color: white;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+        cursor: pointer;
+    }
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        color: white;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+    }
+
+</style>
          <style>
      .col-4 {
          width: 33.33%; /* Assuming col-4 means 4 columns in a 12-column layout */
@@ -140,14 +234,12 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Assign Medication</h4>
+                  <h4 class="card-title">Assign xray</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table
-                      id="datatable"
-                      class="display table table-striped table-hover"
-                    >
+                    <table class="display nowrap" style="width:100%" 
+                      id="datatable">
                       <thead>
                         <tr>
                           <th>Name</th>
@@ -159,7 +251,7 @@
                           <th>Date Registered</th>
                                   <th>Doctor Title</th>
 <th>Status</th>
-                        </tr>
+                            <th>operation</th>  </tr>
                       </thead>
                       <tfoot>
                         <tr>
@@ -172,6 +264,7 @@
  <th>Date Registered</th>
                              <th>Doctor Title</th>
  <th>Status</th>
+                             <th>operation</th>
                         </tr>
                       </tfoot>
              <tbody></tbody>
@@ -183,12 +276,27 @@
 
       
           </div>
-
-              <script src="assets/js/plugin/datatables/datatables.min.js"></script>
-<script src="Scripts/jquery-3.4.1.min.js"></script>
+        <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
 
     <script>
+        $(document).ready(function () {
+            // Initialize DataTable
+            var table = $('#datatable').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['excelHtml5'],
+                paging: true,
+                pageLength: 10,
+                lengthMenu: [10, 25, 50, 100],
+                responsive: true
+            });
 
+        });
 
         $(document).ready(function () {
             var reader = new FileReader();
@@ -279,6 +387,8 @@
 
         function editpic() {
             var prescid = $("#id11").val();
+
+         
             event.preventDefault();
             $.ajax({
                 url: 'assignmed.aspx/xryimage',
@@ -336,7 +446,7 @@
             });
             $("[id*=btnupdate]").click(function () {
                 var id = $("#id111").val(); // Fetch book ID from the span
-
+                
                 // Check if a file is selected and create a FileReader to read the file
                 var fileInput = document.getElementById('FileUpload11'); // Replace 'fileInput' with your actual file input ID
     
@@ -415,11 +525,27 @@
             var prescid = $(this).data("id");
 
             var xryid = row.find("td:nth-child(2)").text();
+            var xrystatus = row.find("td:nth-child(12)").text();
         
             $("#id111").val(xryid);
            
 
             $("#id11").val(prescid);
+     
+            
+
+            if (xrystatus === 'pending_xray') {
+           
+                document.getElementById('editpic1').disabled = true;
+            
+            } else   if (xrystatus === 'xray_processed') {
+                document.getElementById('editpic1').disabled = false;
+             
+            } 
+
+
+
+
 
 
 
@@ -484,7 +610,7 @@
                         $("#datatable tbody").append(
                             "<tr style='cursor:pointer' onclick='passValue(this)'>"
                             + "<td style='display:none'>" + response.d[i].doctorid + "</td>"
-  /*                          + "<td style='display:none'>" + response.d[i].xray_result_id + "</td>"*/
+                            + "<td style='display:none'>" + response.d[i].xray_result_id + "</td>"
                             + "<td>" + response.d[i].full_name + "</td>"
                             + "<td>" + response.d[i].sex + "</td>"
                             + "<td>" + response.d[i].location + "</td>"

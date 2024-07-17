@@ -79,7 +79,7 @@ namespace juba_hospital
                             break;
                         case 2: // Xay
                             query = @"
-                                SELECT username AS UserId, password AS UserName  , lab_id as id
+                                SELECT username AS UserId, password AS UserName  , userid as id
                                 FROM lab_user 
                                 WHERE username = @username AND password = @password";
                             userIdField = "UserId";

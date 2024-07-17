@@ -1,6 +1,91 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="patient_report.aspx.cs" Inherits="juba_hospital.patient_report" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+    <style>
+        /* Custom table styling */
+        .dataTables_wrapper .dataTables_filter {
+            float: right;
+            text-align: right;
+        }
 
+        .dataTables_wrapper .dataTables_length {
+            float: left;
+        }
+
+        .dataTables_wrapper .dataTables_paginate {
+            float: right;
+            text-align: right;
+        }
+
+        .dataTables_wrapper .dataTables_info {
+            float: left;
+        }
+
+        #datatable {
+            width: 100%;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        #datatable th,
+        #datatable td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #datatable th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        #datatable td {
+            background-color: #f8f9fa;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+        /* Custom hover styles for pagination buttons */
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 0.5em 1em;
+            margin-left: 0.5em;
+            color: #007bff;
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            color: white;
+            background-color: #007bff;
+            border: 1px solid #007bff;
+            cursor: pointer;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            color: white;
+            background-color: #007bff;
+            border: 1px solid #007bff;
+        }
+    </style>
         <style>
         .col-4 {
             width: 33.33%; /* Assuming col-4 means 4 columns in a 12-column layout */
@@ -17,9 +102,11 @@
         h1 {
             text-align: center; /* Centers the heading */
         }
-
+        .ht{
+            text-align:center;
+        }
     </style>
-<style>
+<%--<%--<style>
   .report-content {
     border: 3px solid black;
     padding: 0;
@@ -163,9 +250,9 @@
       display: none;
     }
   }
-</style>
+</style>--%>
 
-<style>
+<%--<style>
     .report-content {
   border: 3px solid black;
   padding: 0px;
@@ -175,7 +262,7 @@
 
 .report-header {
   border: 0px solid black;
-  height: 150px;
+  height: 100%;
   width: 100%; /* Ensure the div takes the full width of its container */
   overflow: hidden; /* Ensures the image doesn't overflow the div */
   display: flex; /* Center the image horizontally */
@@ -190,13 +277,22 @@
 
 
 
+
+.patient-details table {
+        font-size: 12px; /* Adjust the font size */
+    }
+ .patient-details table td {
+        padding: 2px 5px; /* Adjust the padding */
+        margin: 0; /* Remove margins */
+    }
+
 .patient-details hr {
   border: 1px solid black;
 }
 
 .report-body {
   border: 0px solid black;
-  height: 300px;
+  height: 100%;
   font-size: 16px;
   overflow: auto; /* Allow scrolling if content overflows */
   padding: 0; /* Remove padding to make full use of the space */
@@ -207,16 +303,22 @@
 
 table {
   width: 100%;
+      margin: 0; /* Remove margins */
   max-height: 100%;
+      
   border-collapse: collapse;
   table-layout: auto; /* Allows the table to adjust column widths */
+/*   font-size: 5px;*/
 }
 
 th, td {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px; /* Adjust padding for better fit */
-  box-sizing: border-box; /* Include border and padding in the element's width and height */
+  padding: 2px; /* Adjust padding for better fit */
+ /* Include border and padding in the element's width and height */
+   font-size: 9px;
+       margin: 0; /* Remove margins */
+         padding: 0;
 }
 
 th {
@@ -396,7 +498,7 @@ body {
   }
 }
 
-</style>
+</style>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -428,55 +530,48 @@ body {
         <div class="card">
             <div class="card-header"></div>
             <div class="card-body p-0">
-                <div class="report-content">
-                    <div class="report-header">
-                        <img src="assets/zfsdfg.png" />
-                    </div>
-                    <div class="patient-details ">
-                        <hr>
-                        <table border="0">
-                            <tr>
-                                <td>Patient Name:  <span class="h5" id="ptname"></span></td>
-                                <td class="align-left">Referred By:</td>
-                            </tr>
-                            <tr>
-                                <td>Sex: <span class="h5" id="sex"></span></td>
-                                <td class="align-left">Date: <span id="date" class="h5"></span></td>
-                            </tr>
-                            <tr>
-                                <td>Age: <span class="h5" id="DOB"></span> years</td>
-                                <td class="align-left">Doctor: <span class="h5" id="doctor"></span></td>
-                            </tr>
-                            <tr>
-                                <td>Phone:  <span class="h5" id="phone"></span></td>
-                                <td class="align-left">Location:  <span class="h5" id="location"></span></td>
-                            </tr>
-                        </table>
-                        <hr>
-                    </div>
-                    <div class="report-body p-0">
-                        <table id="datatable1" class="patient-details table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Result</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Table rows will be dynamically added here -->
-                            </tbody>
-                        </table>
-                    </div>
-                   <%-- <div class="report-sign">
-                        <div class="lab-incharge-sign">
-                            <figcaption>Mr. Sachin Sharma</figcaption>
-                        </div>
-                        <div class="lab-doctor-sign">
-                            <figcaption>Dr. A.K. Asthana</figcaption>
-                        </div>
-                    </div>--%>
-                </div>
-                <button id="print-button">Print Report</button>
+             <div class="report-content" style="font-family: Arial, sans-serif; width: 100%; margin: 0 auto; padding: 0;">
+    <div class="report-header" style="text-align: center; margin-bottom: 20px;">
+        <img src="assets/zfsdfg.png" style="max-width: 100%; height: auto;" />
+    </div>
+    <div class="patient-details" style="margin-bottom: 10px;">
+        <hr style="border: 0; border-top: 1px solid #000;" />
+        <table border="0" style="width: 100%; table-layout: fixed;">
+            <tr>
+                <td style="padding: 5px;">Patient Name: <span class="h5" id="ptname"></span></td>
+                <td style="padding: 5px; text-align: left;">Referred By:</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;">Sex: <span class="h5" id="sex"></span></td>
+                <td style="padding: 5px; text-align: left;">Date: <span id="date" class="h5"></span></td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;">Age: <span class="h5" id="DOB"></span> years</td>
+                <td style="padding: 5px; text-align: left;">Doctor: <span class="h5" id="doctor"></span></td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;">Phone: <span class="h5" id="phone"></span></td>
+                <td style="padding: 5px; text-align: left;">Location: <span class="h5" id="location"></span></td>
+            </tr>
+        </table>
+        <hr style="border: 0; border-top: 1px solid #000;" />
+    </div>
+    <div class="report-body" style="margin: 0;">
+        <table id="datatable1" class="patient-details" style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #000; padding: 5px;">Name</th>
+                    <th style="border: 1px solid #000; padding: 5px;">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<button id="print-button" style="display: none;" onclick="printReport()">Print Report</button>
+
             </div>
         </div>
     </div>
@@ -560,11 +655,9 @@ body {
                     <h4 class="card-title">Patient Report</h4>
                   </div>
                   <div class="card-body">
-                    <div class="table-responsive">
-                      <table
-                        id="datatable"
-                        class="display table table-striped table-hover"
-                      >
+                    <div>
+                      <table  class="display nowrap" style="width:100%"
+                        id="datatable"  >
                         <thead>
                           <tr>
                             <th>Name</th>
@@ -574,7 +667,9 @@ body {
                                 <th>Amount</th>
   <th>D.O.B</th>
                             <th>Date Registered</th>
-                            <th>Status</th>
+                            <th>lab</th>
+                                   <th>xray</th>
+                                    <th>operation</th>
                           </tr>
                         </thead>
                         <tfoot>
@@ -586,7 +681,9 @@ body {
                                 <th>Amount</th>
                                 <th>D.O.B</th>
    <th>Date Registered</th>
-   <th>Status</th>
+     <th>lab</th>
+            <th>xray</th>
+                                 <th>operation</th>
                           </tr>
                         </tfoot>
                <tbody></tbody>
@@ -617,43 +714,42 @@ body {
               
               <div class="col-12">
    
-       
-             <div class="report-content col-12" id="report">
-  <div class="report-header">
-      <img src="assets/zfsdfg.png" />
+  <div class="report-content col-12" id="report" style="font-family: Arial, sans-serif; width: 100%; margin: 0 auto; padding: 0;">
+  <div class="report-header" style="text-align: center; margin-bottom: 20px;">
+      <img src="assets/zfsdfg.png" style="max-width: 100%; height: auto;" />
   </div>
-  <div class="patient-details ">
-    <hr>
-    <table border="0">
+  <div class="patient-details" style="margin-bottom: 4px;">
+      <h3 id="ht" style="text-align: center;">Medication Report</h3>
+    <hr style="border: 0; border-top: 1px solid #000;" />
+    <table border="0" style="width: 100%; table-layout: fixed;">
       <tr>
-        <td>Patient Name:  <span class="h5" id="ptname1"></span></td>
-        <td class="align-left">Referred By:</td>
+        <td>Patient Name: <span class="h5" id="ptname1"></span></td>
+        <td>Referred By:</td>
       </tr>
       <tr>
-        <td>Sex: <span class="h5" id="sex1"></span></td>
-        <td class="align-left">Date: <span id="date1" class="h5"></span></td>
+        <td >Sex: <span class="h5" id="sex1"></span></td>
+        <td>Date: <span id="date1" class="h5"></span></td>
       </tr>
       <tr>
-        <td>Age: <span class="h5" id="DOB1"></span>years</td>
-        <td class="align-left">Doctor: <span class="h5" id="doctor1"></span> </td>
+        <td>Age: <span class="h5" id="DOB1"></span> years</td>
+        <td>Doctor: <span class="h5" id="doctor1"></span></td>
       </tr>
-            <tr>
-      <td>Phone:  <span class="h5" id="phone1"></span></td>
-      <td class="align-left">Location:  <span class="h5" id="location1"></span></td>
-    </tr>
+      <tr>
+        <td>Phone: <span class="h5" id="phone1"></span></td>
+        <td>Location: <span class="h5" id="location1"></span></td>
+      </tr>
     </table>
-    <hr>
+    <hr style="border: 0; border-top: 1px solid #000;" />
   </div>
-  <div class="report-body p-0">
-    <table id="datatable11" class="patient-details  table-bordered">
+  <div class="report-body" style="margin: 0;">
+    <table id="datatable11" class="patient-details" style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
       <thead>
         <tr>
-          <th>Medication Name</th>
-          <th>Dosage</th>
-              <th>Frequency</th>
-  <th>Duration</th>
-              <th>Special Instrcution</th>
-
+          <th style="border: 1px solid #000; padding: 5px;">Medication Name</th>
+          <th style="border: 1px solid #000; padding: 5px;">Dosage</th>
+          <th style="border: 1px solid #000; padding: 5px;">Frequency</th>
+          <th style="border: 1px solid #000; padding: 5px;">Duration</th>
+          <th style="border: 1px solid #000; padding: 5px;">Special Instruction</th>
         </tr>
       </thead>
       <tbody>
@@ -661,26 +757,20 @@ body {
       </tbody>
     </table>
   </div>
-       <br />
-                     <br />
-                     <br />
-                     <br />
-                     <br />
-                     <br />
-                     <br />
-                     <br />
-<%--  <div class="report-sign">
+  <br /><br /><br /><br /><br /><br /><br /><br />
+  <%-- 
+  <div class="report-sign">
     <div class="lab-incharge-sign">
-
       <figcaption>Mr. Sachin Sharma</figcaption>
     </div>
     <div class="lab-doctor-sign">
- 
       <figcaption>Dr. A.K. Asthana</figcaption>
     </div>
-  </div>--%>
+  </div>
+  --%>
 </div>
-<button id="print-button1">Print Report</button>
+<button id="print-button1" style="display: none;" onclick="printReport1()">Print Report</button>
+
     </div>
 
           </div>
@@ -691,8 +781,16 @@ body {
     </div>
   </div>
 </div>
-         <script src="assets/js/plugin/datatables/datatables.min.js"></script>
-   <script src="Scripts/jquery-3.4.1.min.js"></script>
+                        <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+
+     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+
+
 <script>
 
 
@@ -702,7 +800,14 @@ body {
 
 
     $(document).ready(function () {
-        $("#datatable").DataTable({});
+        var table = $('#datatable').DataTable({
+            dom: 'Bfrtip',
+            buttons: ['excelHtml5'],
+            paging: true,
+            pageLength: 10,
+            lengthMenu: [10, 25, 50, 100],
+            responsive: true
+        });
     });
     function toggleRow() {
         var checkbox = document.getElementById("radio2");
@@ -739,9 +844,31 @@ body {
         };
     });
 
-    document.getElementById('print-button').addEventListener('click', function () {
+    function printReport() {
+        const printContents = document.querySelector('.report-content').innerHTML;
+        const originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
         window.print();
-    });
+        document.body.innerHTML = originalContents;
+    }
+
+    document.getElementById('print-button').style.display = 'block';
+
+
+
+    function printReport1() {
+        const printContents = document.querySelector('#report').innerHTML;
+        const originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+
+    document.getElementById('print-button1').style.display = 'block';
+
+
 
 
     function deletejob() {
@@ -871,15 +998,11 @@ body {
                 for (var i = 0; i < response.d.length; i++) {
                     $("#datatable11 tbody").append(
                         "<tr>"
-
-                        + "<td>" + response.d[i].med_name + "</td>"
-                        + "<td>" + response.d[i].dosage + "</td>"
-                        + "<td>" + response.d[i].frequency + "</td>"
-                        + "<td>" + response.d[i].duration + "</td>"
-                        + "<td>" + response.d[i].special_inst + "</td>"
-                        + "<td><button class='edit1-btn btn btn-success' data-id='" + response.d[i].medid + "'>edit</button></td>"
-
-
+                        + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].med_name + "</td>"
+                        + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].dosage + "</td>"
+                        + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].frequency + "</td>"
+                        + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].duration + "</td>"
+                        + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].special_inst + "</td>"
                         + "</tr>"
                     );
                 }
@@ -1027,7 +1150,7 @@ body {
         var id = row.find("td:nth-child(10)").text();
 
 
-
+        $("#doctor1").text(doctor);
         $("#doctor").text(doctor);
         // Parse the DOB into a Date object
         var dob = new Date(dobText);
@@ -1048,6 +1171,7 @@ body {
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
         var formattedToday = today.toLocaleDateString('en-US', options);
         $("#date").text(formattedToday);
+        $("#date1").text(formattedToday);
         // Display the age in the input field
         $("#DOB").text(age);
 
@@ -1065,7 +1189,7 @@ body {
         $("#location1").text(location);
         $("#sex1").text(sex);
         $("#id111").val(prescid);
-
+        $("#DOB1").text(age);
     
         $.ajax({
             url: 'assignmed.aspx/xryimage',
@@ -1107,8 +1231,8 @@ body {
                     $("#datatable1 tbody").append(
                         "<tr>"
 
-                        + "<td>" + response.d[i].TestName + "</td>"
-                        + "<td>" + response.d[i].TestValue + "</td>"
+                        + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].TestName + "</td>"
+                        + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].TestValue + "</td>"
 
 
                         + "</tr>"

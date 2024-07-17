@@ -161,7 +161,8 @@ namespace juba_hospital
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"
-                              SELECT 
+
+  SELECT 
     patient.full_name, 
     patient.sex,
     patient.location,
@@ -171,14 +172,13 @@ namespace juba_hospital
     patient.patientid,
     prescribtion.prescid,
     doctor.doctorid,
-
+    xray_results.xray_result_id,
     patient.amount,
     CONVERT(date, patient.dob) AS dob,
     CASE 
         WHEN prescribtion.xray_status = 0 THEN 'waiting'
         WHEN prescribtion.xray_status = 1 THEN 'pending_xray'
-		    WHEN prescribtion.xray_status = 2 THEN 'xray_processed'
-      
+        WHEN prescribtion.xray_status = 2 THEN 'xray_processed'
     END AS status
 FROM 
     patient
@@ -186,9 +186,11 @@ INNER JOIN
     prescribtion ON patient.patientid = prescribtion.patientid
 INNER JOIN 
     doctor ON prescribtion.doctorid = doctor.doctorid
-
+FULL JOIN 
+    xray_results ON prescribtion.prescid = xray_results.prescid
 WHERE 
- prescribtion.xray_status = 1;
+    prescribtion.xray_status IN (1, 2);
+
  ", con);
 
 
@@ -212,7 +214,7 @@ WHERE
                         field.amount = dr["amount"].ToString();
                         field.dob = Convert.ToDateTime(dr["dob"]).ToString("yyyy-MM-dd");
                         field.status = dr["status"].ToString();
-                        //field.xray_result_id = dr["xray_result_id"].ToString();
+                        field.xray_result_id = dr["xray_result_id"].ToString();
 
                         details.Add(field);
                     }

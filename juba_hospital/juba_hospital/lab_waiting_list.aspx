@@ -1,5 +1,98 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/labtest.Master" AutoEventWireup="true" CodeBehind="lab_waiting_list.aspx.cs" Inherits="juba_hospital.lab_waiting_list" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+                <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+<style>
+    /* Custom table styling */
+    .dataTables_wrapper .dataTables_filter {
+        float: right;
+        text-align: right;
+    }
+
+    .dataTables_wrapper .dataTables_length {
+        float: left;
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+        float: right;
+        text-align: right;
+    }
+
+    .dataTables_wrapper .dataTables_info {
+        float: left;
+    }
+
+    #datatable {
+        width: 100%;
+        margin: 20px 0;
+        font-size: 14px;
+    }
+
+    #datatable th,
+    #datatable td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #datatable th {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+    }
+
+    #datatable td {
+        background-color: #f8f9fa;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+
+
+    /* Custom hover styles for pagination buttons */
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0.5em 1em;
+        margin-left: 0.5em;
+        color: #007bff;
+        background-color: white;
+        border: 1px solid #ddd;
+    }
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        color: white;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+        cursor: pointer;
+    }
+
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        color: white;
+        background-color: #007bff;
+        border: 1px solid #007bff;
+    }
+
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <label id="label2">1</label>
@@ -11,10 +104,8 @@
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table
-                      id="datatable"
-                      class="display table table-striped table-hover"
-                    >
+                    <table class="display nowrap" style="width:100%" 
+                      id="datatable">
                       <thead>
                         <tr>
                           <th>Name</th>
@@ -51,10 +142,28 @@
       
           </div>
 
-          <script src="assets/js/plugin/datatables/datatables.min.js"></script>
-<script src="Scripts/jquery-3.4.1.min.js"></script>
+         <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
 
     <script>
+        $(document).ready(function () {
+            // Initialize DataTable
+            var table = $('#datatable').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['excelHtml5'],
+                paging: true,
+                pageLength: 10,
+                lengthMenu: [10, 25, 50, 100],
+                responsive: true
+            });
+
+        });
+
         // Delegate click events for edit and delete buttons to the table
         $("#datatable").on("click", ".edit-btn", function (event) {
             event.preventDefault(); // Prevent default behavior

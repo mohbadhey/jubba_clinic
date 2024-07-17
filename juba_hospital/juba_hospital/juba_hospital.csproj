@@ -505,12 +505,14 @@
     <Content Include="assets\zfsdfg.png" />
     <Content Include="assignmed.aspx" />
     <Content Include="assingxray.aspx" />
+    <Content Include="c.css" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="d.js" />
     <Content Include="Dashbourd.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="delete_medic.aspx" />

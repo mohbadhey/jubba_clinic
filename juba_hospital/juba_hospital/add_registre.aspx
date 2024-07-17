@@ -1,5 +1,78 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="add_registre.aspx.cs" Inherits="juba_hospital.add_registre" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+          <style>
+        /* Custom table styling */
+        .dataTables_wrapper .dataTables_filter {
+            float: right;
+            text-align: right;
+        }
+        
+        .dataTables_wrapper .dataTables_length {
+            float: left;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate {
+            float: right;
+            text-align: right;
+        }
+
+        .dataTables_wrapper .dataTables_info {
+            float: left;
+        }
+
+        #datatable {
+            width: 100%;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        #datatable th, #datatable td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        #datatable th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+
+        #datatable td {
+            background-color: #f8f9fa;
+        }
+
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div class="row">
@@ -32,19 +105,19 @@
     <div class="mb-3">
         <label for="dosage" class="form-label">Phone</label>
         <input type="number" class="form-control" id="phone" placeholder="number ">
-        <small id="dosageError" class="text-danger"></small>
+        <small id="phoneerror" class="text-danger"></small>
     </div>
 
     <div class="mb-3">
         <label for="frequency" class="form-label">Username</label>
         <input type="text" class="form-control" id="username" placeholder="Enter username">
-        <small id="frequencyError" class="text-danger"></small>
+        <small id="usererror" class="text-danger"></small>
     </div>
 
     <div class="mb-3">
         <label for="duration" class="form-label">Password</label>
         <input type="text" class="form-control" id="pass" placeholder="Enter Pasword">
-        <small id="durationError" class="text-danger"></small>
+        <small id="passerror" class="text-danger"></small>
     </div>
 
   
@@ -83,19 +156,19 @@
     <div class="mb-3">
         <label for="dosage" class="form-label">Phone</label>
         <input type="number" class="form-control" id="phone1" placeholder="number ">
-        <small id="dosageError1" class="text-danger"></small>
+        <small id="phonerror1" class="text-danger"></small>
     </div>
 
     <div class="mb-3">
         <label for="frequency" class="form-label">Username</label>
         <input type="text" class="form-control" id="username1" placeholder="Enter username">
-        <small id="frequencyError1" class="text-danger"></small>
+        <small id="usererror1" class="text-danger"></small>
     </div>
 
     <div class="mb-3">
         <label for="duration" class="form-label">Password</label>
         <input type="text" class="form-control" id="pass1" placeholder="Enter Pasword">
-        <small id="durationError1" class="text-danger"></small>
+        <small id="passerror1" class="text-danger"></small>
     </div>
 
   
@@ -120,11 +193,9 @@
                     <h4 class="card-title"> Regsitre Section</h4>
                   </div>
                   <div class="card-body">
-                    <div class="table-responsive">
-                      <table
-                        id="datatable"
-                        class="display table table-striped table-hover"
-                      >
+                    <div >
+                      <table class="display nowrap" style="width:100%"
+                        id="datatable" >
                         <thead>
                           <tr>
                                              <th>Name</th>
@@ -132,6 +203,7 @@
 <th>Number</th>
 <th>Username</th>
     <th>Password</th>
+                               <th>operation</th>
                           </tr>
                         </thead>
                         <tfoot>
@@ -141,6 +213,7 @@
 <th>Number</th>
 <th>Username</th>
     <th>Password</th>
+                                 <th>operation</th>
                           </tr>
                         </tfoot>
                <tbody></tbody>
@@ -153,9 +226,31 @@
         
             </div>
 
-          <script src="assets/js/plugin/datatables/datatables.min.js"></script>
-<script src="Scripts/jquery-3.4.1.min.js"></script>
+
+
+
+                   <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+
+
+
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+
+
     <script>
+        $(document).ready(function () {
+            $('#datatable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'excelHtml5'
+                ]
+            });
+        });
+
 
 
 
@@ -199,9 +294,9 @@
         function update() {
 
             document.getElementById('nameError1').textContent = "";
-            document.getElementById('dosageError1').textContent = "";
-            document.getElementById('frequencyError1').textContent = "";
-            document.getElementById('durationError1').textContent = "";
+            document.getElementById('phonerror1').textContent = "";
+            document.getElementById('usererror1').textContent = "";
+            document.getElementById('passerror1').textContent = "";
           
             var id = $("#id111").val();
             var name = $("#name1").val();
@@ -215,23 +310,23 @@
             let isValid = true;
 
             if (name.trim() === "") {
-                document.getElementById('nameError1').textContent = "Please enter the medication name.";
+                document.getElementById('nameError1').textContent = "Please enter the  name.";
                 isValid = false;
             }
 
            
             if (phone.trim() === "") {
-                document.getElementById('frequencyError1').textContent = "Please enter the frequency.";
+                document.getElementById('phonerror1').textContent = "Please enter the phone.";
                 isValid = false;
             }
 
             if (username.trim() === "") {
-                document.getElementById('durationError1').textContent = "Please enter the duration.";
+                document.getElementById('usererror1').textContent = "Please enter the username.";
                 isValid = false;
             }
 
             if (pass.trim() === "") {
-                document.getElementById('instError1').textContent = "Please enter the special instruction.";
+                document.getElementById('passerror1').textContent = "Please enter the password.";
                 isValid = false;
             }
 
@@ -256,7 +351,7 @@
                         $('#medmodal1').modal('hide');
                         Swal.fire(
                             'Successfully Updated !',
-                            'You Updated a new Customer!',
+                            'You Updated a new Registre!',
                             'success'
                         )
                         datadisplay();
@@ -297,8 +392,8 @@
                     $('#medmodal1').modal('hide');
                     if (response.d === 'true') {
                         Swal.fire(
-                            'Successfully updated !',
-                            'You Added a new job title!',
+                            'Successfully Deleted !',
+                            'You Deleted  registre!',
                             'success'
                         )
 
@@ -323,10 +418,6 @@
 
 
 
-
-        $(document).ready(function () {
-            $("#datatable").DataTable({});
-        });
 
         datadisplay();
         function datadisplay() {
@@ -371,9 +462,9 @@
         function submitInfo() {
             // Clear previous error messages
             document.getElementById('nameError').textContent = "";
-            document.getElementById('dosageError').textContent = "";
-            document.getElementById('frequencyError').textContent = "";
-            document.getElementById('durationError').textContent = "";
+            document.getElementById('phoneerror').textContent = "";
+            document.getElementById('usererror').textContent = "";
+            document.getElementById('passerror').textContent = "";
     
 
       
@@ -387,24 +478,24 @@
             let isValid = true;
 
             if (name.trim() === "") {
-                document.getElementById('nameError').textContent = "Please enter the medication name.";
+                document.getElementById('nameError').textContent = "Please enter the  name.";
                 isValid = false;
             }
 
         
 
             if (phone.trim() === "") {
-                document.getElementById('frequencyError').textContent = "Please enter the frequency.";
+                document.getElementById('phoneerror').textContent = "Please enter the phone.";
                 isValid = false;
             }
 
             if (username.trim() === "") {
-                document.getElementById('durationError').textContent = "Please enter the duration.";
+                document.getElementById('usererror').textContent = "Please enter the username.";
                 isValid = false;
             }
 
             if (pass.trim() === "") {
-                document.getElementById('instError').textContent = "Please enter the special instruction.";
+                document.getElementById('passerror').textContent = "Please enter the special password.";
                 isValid = false;
             }
 
@@ -424,7 +515,7 @@
                         if (response.d === 'true') {
                             Swal.fire(
                                 'Successfully Saved!',
-                                'You added a new Patient!',
+                                'You added a new registre!',
                                 'success'
                             );
 

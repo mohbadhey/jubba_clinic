@@ -436,6 +436,8 @@
     <Content Include="assets\img\kaiadmin\favicon.svg" />
     <Content Include="assets\img\kaiadmin\icon.png" />
     <Content Include="assets\img\kaiadmin\icon.svg" />
+    <Content Include="assets\img\kaiadmin\j.ico" />
+    <Content Include="assets\img\kaiadmin\j.svg" />
     <Content Include="assets\img\kaiadmin\logo_dark.png" />
     <Content Include="assets\img\kaiadmin\logo_dark.svg" />
     <Content Include="assets\img\kaiadmin\logo_documentation.png" />

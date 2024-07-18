@@ -4,7 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Login</title>
+     
+          <link
+      rel="icon"
+      href="assets/img/kaiadmin/j.ico"
+      type="image/x-icon"
+    />
         <style>
         .gradient-custom {
 /* fallback for old browsers */

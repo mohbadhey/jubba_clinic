@@ -7,6 +7,11 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+        <style>
+        body {
+            font-size: 25px; /* Adjust the value as needed */
+        }
+    </style>
           <link
   rel="icon"
   href="assets/img/kaiadmin/favicon.ico"
@@ -56,9 +61,9 @@
   <div class="sidebar" data-background-color="dark">
     <div class="sidebar-logo">
       <!-- Logo Header -->
-      <div class="logo-header" data-background-color="dark">
-        <a href="index.html" class="logo">
-            <h2>jubba</h2>
+      <div class="logo-header" data-background-color="white">
+        <a href="#" class="logo">
+            <h2>Admin Section</h2>
        <%--   <img
             src="assets/img/kaiadmin/logo_light.svg"
             alt="navbar brand"
@@ -134,7 +139,7 @@
 </li>
                                     <li class="nav-item">
   <a href="addxrayuser.aspx">
-    <span class="sub-item">Add Xray user</span>
+    <span class="sub-item">Add scan user</span>
   </a>
 </li>
                                                 <li class="nav-item">
@@ -184,7 +189,7 @@
 </li>
                                                   <li class="nav-item">
   <a href="delete_xray.aspx">
-    <span class="sub-item"> Delete Xray Info</span>
+    <span class="sub-item"> Delete scan Info</span>
   </a>
 </li>
                                                               <li class="nav-item">

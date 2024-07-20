@@ -58,7 +58,8 @@ namespace juba_hospital
             INNER JOIN 
                 prescribtion ON patient.patientid = prescribtion.patientid
             INNER JOIN 
-                doctor ON prescribtion.doctorid = doctor.doctorid;
+                doctor ON prescribtion.doctorid = doctor.doctorid
+order by patient.date_registered;
         ", con);
 
                 SqlDataReader dr = cmd.ExecuteReader();

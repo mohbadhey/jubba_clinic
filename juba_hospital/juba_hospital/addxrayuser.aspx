@@ -142,7 +142,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel11">Update And Delete xray user </h5>
+        <h5 class="modal-title" id="staticBackdropLabel11">Update And Delete scan user </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 <div class="modal-body">
@@ -191,7 +191,7 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4 class="card-title"> xray Section</h4>
+                    <h4 class="card-title"> scan Section</h4>
                   </div>
                   <div class="card-body">
                     <div >

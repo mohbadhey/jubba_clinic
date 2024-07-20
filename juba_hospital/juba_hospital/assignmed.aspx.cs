@@ -487,8 +487,8 @@ WHERE TestValue IS NOT NULL AND TestValue != '';
     END AS status,
     CASE 
         WHEN prescribtion.xray_status = 0 THEN 'waiting'
-        WHEN prescribtion.xray_status = 1 THEN 'pending_xray'
-        WHEN prescribtion.xray_status = 2 THEN 'xray_processed'
+        WHEN prescribtion.xray_status = 1 THEN 'pending_scan'
+        WHEN prescribtion.xray_status = 2 THEN 'scan_processed'
     END AS status_xray
 FROM 
     patient
@@ -546,6 +546,8 @@ ORDER BY
         public class xrimg
         {
             public string image;
+            public string type;
+            
         }
 
         [WebMethod]
@@ -558,7 +560,7 @@ ORDER BY
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(@"
-            SELECT xryimage FROM xray_results WHERE prescid = @search;
+            SELECT xryimage , type FROM xray_results WHERE prescid = @search;
         ", con);
                 cmd.Parameters.AddWithValue("@search", prescid);
 
@@ -573,7 +575,7 @@ ORDER BY
 
                         // Convert byte array to base64 string
                         field.image = Convert.ToBase64String(imageData);
-
+                        field.type = dr["type"].ToString();
                         details.Add(field);
                     }
                 }

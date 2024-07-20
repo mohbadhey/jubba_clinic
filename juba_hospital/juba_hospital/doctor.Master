@@ -59,15 +59,15 @@
     <div class="sidebar-logo">
       <!-- Logo Header -->
       <div class="logo-header" style="background-color:aliceblue" id="ll">
-        <a href="index.html" class="logo">
+        <a href="#" class="logo">
          
           <img
             src="assets/img/j.png"
             alt="navbar brand"
             class="navbar-brand"
             height="90"
-          />
-        </a>
+          />  
+        </a>Doctor Section
         <div class="nav-toggle">
           <button class="btn btn-toggle toggle-sidebar">
             <i class="gg-menu-right"></i>

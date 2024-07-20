@@ -53,8 +53,8 @@ namespace juba_hospital
     END AS status,
     CASE 
         WHEN prescribtion.xray_status = 0 THEN 'waiting'
-        WHEN prescribtion.xray_status = 1 THEN 'pending_xray'
-        WHEN prescribtion.xray_status = 2 THEN 'xray_processed'
+        WHEN prescribtion.xray_status = 1 THEN 'pending_scan'
+        WHEN prescribtion.xray_status = 2 THEN 'scan_processed'
     END AS status_xray
 FROM 
     patient

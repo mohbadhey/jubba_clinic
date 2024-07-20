@@ -31,11 +31,13 @@ namespace juba_hospital
                 string constr = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(constr))
                 {
-                    string sql = "UPDATE xray_results SET xryimage = @xryimage WHERE xray_result_id = @id";
+                    string sql = "UPDATE xray_results SET xryimage = @xryimage , type= @typeimg WHERE xray_result_id = @id";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@id", data1.id);
+                        cmd.Parameters.AddWithValue("@typeimg", data1.typeimg);
                         cmd.Parameters.AddWithValue("@xryimage", bytes);
+                        
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
@@ -53,6 +55,8 @@ namespace juba_hospital
             public string id { get; set; }
             public string Data { get; set; }
             public string Name { get; set; }
+            public string typeimg { get; set; }
+            
         }
         [WebMethod]
         public static string SaveImage(FileData data)
@@ -72,7 +76,7 @@ namespace juba_hospital
             string constr = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(constr))
             {
-                string sql = "INSERT INTO xray_results (xryimage, prescid) VALUES (@bookImage, @prescid)";
+                string sql = "INSERT INTO xray_results (xryimage, prescid, type) VALUES (@bookImage, @prescid ,@type)";
                 string patientUpdateQuery = "UPDATE [prescribtion] SET " +
                                               "[xray_status] = 2" +
                                             "WHERE [prescid] = @id";
@@ -81,7 +85,10 @@ namespace juba_hospital
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@bookImage", File.ReadAllBytes(imageFilePath));
-                    cmd.Parameters.AddWithValue("@prescid", data.PrescID); // Use data.PrescID to get the prescid value
+                    cmd.Parameters.AddWithValue("@prescid", data.PrescID);
+                    cmd.Parameters.AddWithValue("@type", data.typeimg);
+
+                    // Use data.PrescID to get the prescid value
                     conn.Open();
                     cmd.ExecuteNonQuery();
                 }
@@ -105,7 +112,8 @@ namespace juba_hospital
             public string Data { get; set; }
             public string ContentType { get; set; }
             public string Name { get; set; }
-            public string PrescID { get; set; } // Add PrescID property
+            public string PrescID { get; set; }
+            public string typeimg { get; set; }// Add PrescID property
         }
 
 
@@ -177,8 +185,8 @@ namespace juba_hospital
     CONVERT(date, patient.dob) AS dob,
     CASE 
         WHEN prescribtion.xray_status = 0 THEN 'waiting'
-        WHEN prescribtion.xray_status = 1 THEN 'pending_xray'
-        WHEN prescribtion.xray_status = 2 THEN 'xray_processed'
+        WHEN prescribtion.xray_status = 1 THEN 'pending_scan'
+        WHEN prescribtion.xray_status = 2 THEN 'scan_processed'
     END AS status
 FROM 
     patient
@@ -189,7 +197,7 @@ INNER JOIN
 FULL JOIN 
     xray_results ON prescribtion.prescid = xray_results.prescid
 WHERE 
-    prescribtion.xray_status IN (1, 2);
+    prescribtion.xray_status IN (1, 2) order by patient.date_registered desc;
 
  ", con);
 

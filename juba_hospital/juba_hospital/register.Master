@@ -8,11 +8,11 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-          <link
-      rel="icon"
-      href="assets/img/kaiadmin/favicon.ico"
-      type="image/x-icon"
-    />
+       <link
+   rel="icon"
+   href="assets/img/kaiadmin/j.ico"
+   type="image/x-icon"
+ />
     <script src="assets/sweetalert2.min.js"></script>
     <link href="assets/sweetalert2.css" rel="stylesheet" />
     <!-- Fonts and icons -->
@@ -42,6 +42,11 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="assets/css/demo.css" />
+        <style>
+    body {
+        font-size: 25px; /* Adjust the value as needed */
+    }
+</style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -94,6 +99,11 @@
                     <span class="sub-item">Add Patients</span>
                   </a>
                 </li>
+                    <li>
+    <a href="patient_amount.aspx">
+      <span class="sub-item">Patient Payment Status</span>
+    </a>
+  </li>
                 <li>
                   <a href="Patient_details.aspx">
                     <span class="sub-item">Patient Details</span>

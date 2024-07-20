@@ -151,19 +151,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
 
     <script>
-        $(document).ready(function () {
-            // Initialize DataTable
-            var table = $('#datatable').DataTable({
-                dom: 'Bfrtip',
-                buttons: ['excelHtml5'],
-                paging: true,
-                pageLength: 10,
-                lengthMenu: [10, 25, 50, 100],
-                responsive: true
-            });
-
-        });
-
+  
         // Delegate click events for edit and delete buttons to the table
         $("#datatable").on("click", ".edit-btn", function (event) {
             event.preventDefault(); // Prevent default behavior
@@ -181,17 +169,18 @@
             // Show the modal
             $('#staticBackdrop').modal('show');
         });
-
-
-
         $(document).ready(function () {
+            // Initialize DataTable with empty data
+            var table = $('#datatable').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['excelHtml5'],
+                paging: true,
+                pageLength: 10,
+                lengthMenu: [10, 25, 50, 100],
+                responsive: true
+            });
 
-
-
-
-
-
-
+            // Fetch and populate the table with data
             $.ajax({
                 url: 'lab_waiting_list.aspx/pendlap',
                 dataType: "json",
@@ -200,35 +189,30 @@
                 success: function (response) {
                     console.log(response);
 
-                    $("#datatable tbody").empty();
+                    // Clear the table body before appending new data
+                    table.clear().draw();
 
+                    // Append new rows to the table
                     for (var i = 0; i < response.d.length; i++) {
-                        $("#datatable tbody").append(
-                            "<tr style='cursor:pointer' onclick='passValue(this)'>"
-                            + "<td style='display:none'>" + response.d[i].doctorid + "</td>"
-                            + "<td>" + response.d[i].full_name + "</td>"
-                            + "<td>" + response.d[i].sex + "</td>"
-                            + "<td>" + response.d[i].location + "</td>"
-                            + "<td>" + response.d[i].phone + "</td>"
-                            + "<td>" + response.d[i].amount + "</td>"
-                            + "<td>" + response.d[i].dob + "</td>"
-                            + "<td>" + response.d[i].date_registered + "</td>"
-                            + "<td>" + response.d[i].doctortitle + "</td>"
-                            + "<td><button style='background-color:red; curser:off;   color:white; border:none; padding:5px 10px;  border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
-                            + "</tr>"
-                        );
+                        table.row.add([
+                
+                            response.d[i].full_name,
+                            response.d[i].sex,
+                            response.d[i].location,
+                            response.d[i].phone,
+                            response.d[i].amount,
+                            response.d[i].dob,
+                            response.d[i].date_registered,
+                            response.d[i].doctortitle,
+                            "<button style='background-color:red; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + response.d[i].status + "</button>"
+                        ]).draw();
                     }
-
-
-
-
                 },
                 error: function (response) {
                     alert(response.responseText);
                 }
             });
         });
-
 
 
     </script>

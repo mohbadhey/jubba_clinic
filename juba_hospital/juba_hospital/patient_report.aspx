@@ -794,21 +794,9 @@ body {
 <script>
 
 
-    document.getElementById('print-button1').addEventListener('click', function () {
-        window.print();
-    });
 
 
-    $(document).ready(function () {
-        var table = $('#datatable').DataTable({
-            dom: 'Bfrtip',
-            buttons: ['excelHtml5'],
-            paging: true,
-            pageLength: 10,
-            lengthMenu: [10, 25, 50, 100],
-            responsive: true
-        });
-    });
+
     function toggleRow() {
         var checkbox = document.getElementById("radio2");
         var row = document.getElementById("lab-test-row");
@@ -825,24 +813,24 @@ body {
     });
 
 
-    document.getElementById('print-button1').addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent the default button behavior
+    //document.getElementById('print-button1').addEventListener('click', function (event) {
+    //    event.preventDefault(); // Prevent the default button behavior
 
-        var reportContent = document.getElementById('report').innerHTML;
-        var printWindow = window.open('', '_blank', 'height=600,width=800');
-        printWindow.document.write('<html><head><title>Print Report</title>');
-        // Add styles here if needed
-        printWindow.document.write('<style>body{font-family: Arial, sans-serif;} .report-content{width: 100%;} .patient-details{width: 100%;} table{width: 100%; border-collapse: collapse;} table, th, td{border: 1px solid black;} th, td{padding: 8px; text-align: left;} @media print {body, html {width: 100%; margin: 0; padding: 0; overflow: hidden;} .report-content{width: 100%; margin: 0; padding: 0;} .report-header, .patient-details, .report-body{width: 100%;}} </style>');
-        printWindow.document.write('</head><body>');
-        printWindow.document.write(reportContent);
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-        printWindow.focus();
-        printWindow.onload = function () {
-            printWindow.print();
-            printWindow.close();
-        };
-    });
+    //    var reportContent = document.getElementById('report').innerHTML;
+    //    var printWindow = window.open('', '_blank', 'height=600,width=800');
+    //    printWindow.document.write('<html><head><title>Print Report</title>');
+    //    // Add styles here if needed
+    //    printWindow.document.write('<style>body{font-family: Arial, sans-serif;} .report-content{width: 100%;} .patient-details{width: 100%;} table{width: 100%; border-collapse: collapse;} table, th, td{border: 1px solid black;} th, td{padding: 8px; text-align: left;} @media print {body, html {width: 100%; margin: 0; padding: 0; overflow: hidden;} .report-content{width: 100%; margin: 0; padding: 0;} .report-header, .patient-details, .report-body{width: 100%;}} </style>');
+    //    printWindow.document.write('</head><body>');
+    //    printWindow.document.write(reportContent);
+    //    printWindow.document.write('</body></html>');
+    //    printWindow.document.close();
+    //    printWindow.focus();
+    //    printWindow.onload = function () {
+    //        printWindow.print();
+    //        printWindow.close();
+    //    };
+    //});
 
     function printReport() {
         const printContents = document.querySelector('.report-content').innerHTML;
@@ -1299,6 +1287,18 @@ body {
                         "</tr>"
                     );
                 }
+
+
+     
+                    var table = $('#datatable').DataTable({
+                        dom: 'Bfrtip',
+                        buttons: ['excelHtml5'],
+                        paging: true,
+                        pageLength: 10,
+                        lengthMenu: [10, 25, 50, 100],
+                        responsive: true
+                    });
+            
             },
             error: function (response) {
                 alert(response.responseText);

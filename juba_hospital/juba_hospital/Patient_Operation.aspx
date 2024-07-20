@@ -465,8 +465,8 @@
                             + "<td style='display:none'>" + response.d[i].patientid + "</td>"
                             + "<td style='display:none'>" + response.d[i].prescid + "</td>"
                             + "<td>"
-                            + "<button type='button' class='edit-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].doctorid + "' data-bs-toggle='tooltip' title='Edit Task'><i class='fa fa-edit'></i></button>"
-                            + "<button type='button' class='delete-btn btn btn-link btn-danger btn-lg' data-id='" + response.d[i].doctorid + "' data-bs-toggle='tooltip' title='Delete Task'><i class='fa fa-times'></i></button>"
+                            + "<button type='button' class='edit-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].doctorid + "' data-bs-toggle='tooltip' title='Edit patient'><i class='fa fa-edit'></i></button>"
+                 /*           + "<button type='button' class='delete-btn btn btn-link btn-danger btn-lg' data-id='" + response.d[i].doctorid + "' data-bs-toggle='tooltip' title='Delete Task'><i class='fa fa-times'></i></button>"*/
                             + "</td>"
                             + "</tr>"
                         );

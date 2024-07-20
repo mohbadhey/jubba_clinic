@@ -561,6 +561,7 @@
     <Content Include="lap_processed.aspx" />
     <Content Include="login.aspx" />
     <Content Include="medication_report.aspx" />
+    <Content Include="patient_amount.aspx" />
     <Content Include="Patient_details.aspx" />
     <Content Include="patient_in.aspx" />
     <Content Include="Patient_Operation.aspx" />
@@ -822,6 +823,13 @@
     </Compile>
     <Compile Include="medication_report.aspx.designer.cs">
       <DependentUpon>medication_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="patient_amount.aspx.cs">
+      <DependentUpon>patient_amount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="patient_amount.aspx.designer.cs">
+      <DependentUpon>patient_amount.aspx</DependentUpon>
     </Compile>
     <Compile Include="Patient_details.aspx.cs">
       <DependentUpon>Patient_details.aspx</DependentUpon>

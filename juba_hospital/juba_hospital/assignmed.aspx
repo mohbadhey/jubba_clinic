@@ -336,8 +336,8 @@
     <label class="form-check-label" for="radio2">Show Lab Tests</label>
                   <button class="btn btn-success" id="sendlab" onclick="showlab()"> send to lab</button>
           <button class="btn btn-success" id="editlab1" onclick="editlab()"> edit lab</button>
-          <button class="btn btn-success" id="sendxry" onclick="sendxray()"> send to xray</button>
-                  <button class="btn btn-success" id="editxry" onclick="updatexry()"> edit xray</button>
+          <button class="btn btn-success" id="sendxry" onclick="sendxray()"> send to scan</button>
+                  <button class="btn btn-success" id="editxry" onclick="updatexry()"> edit scan</button>
 
    
 
@@ -398,7 +398,8 @@
     </div>
     <div class="col-3">
       
-        <h1>X-ray Results</h1>
+        <h1>Scan  Results</h1>
+        <label class="h3" id="imgtype"></label>
     <%--    <img src="assets/img/lab.png" alt="X-ray Results"/>--%>
 
         <img src="" id="img"/>
@@ -493,7 +494,7 @@
   <th>D.O.B</th>
                             <th>Date Registered</th>
                              <th>Lap  Status</th>
-                                <th>X-ray Status</th>
+                                <th>Scan Status</th>
                                          <th>Operation</th>
                           </tr>
                         </thead>
@@ -507,7 +508,7 @@
                                 <th>D.O.B</th>
    <th>Date Registered</th>
    <th>Lap  Status</th>
-                                 <th>X-ray Status</th>
+                                 <th>Scan Status</th>
                                       <th>Operation</th>
                           </tr>
                         </tfoot>
@@ -3848,7 +3849,7 @@
             document.getElementById('sendlab').disabled = true;
             document.getElementById('editlab1').disabled = true;
         } else if (status === 'lap-processed') {
-            document.getElementById('sendlab').disabled = false;
+            document.getElementById('sendlab').disabled = true;
             document.getElementById('editlab1').disabled = true;
         }
 
@@ -3856,13 +3857,13 @@
 
 
 
-        if (xrystatus === 'pending_xray') {
+        if (xrystatus === 'pending_scan') {
             document.getElementById('sendxry').disabled = true;
             document.getElementById('editxry').disabled = false;
         } else if (xrystatus === 'waiting') {
             document.getElementById('sendxry').disabled = false;
             document.getElementById('editxry').disabled = true;
-        } else if (xrystatus === 'xray_processed') {
+        } else if (xrystatus === 'scan_processed') {
             document.getElementById('sendxry').disabled = true;
             document.getElementById('editxry').disabled = true;
         }
@@ -3920,6 +3921,9 @@
         $("#id11").val(prescid);
 
 
+
+
+
         $.ajax({
             url: 'assignmed.aspx/xryimage',
             data: JSON.stringify({ 'prescid': prescid }),
@@ -3929,9 +3933,11 @@
             success: function (response) {
                 console.log(response);
 
+
                 if (response.d && response.d.length > 0) {
                     var base64Data = response.d[0].image; // Assuming imageData is base64-encoded
-
+                    var image = response.d[0].type;
+                    $("#imgtype").text(image);
                     // Update image source directly
                     $("#img").attr('src', 'data:image/jpeg;base64,' + base64Data);
                 } else {
@@ -3961,9 +3967,7 @@
                     $("#datatable1 tbody").append(
                         "<tr>"
 
-                        + "<td>" + response.d[i].TestName + "</td>"
-                        + "<td>" + response.d[i].TestValue + "</td>"
-
+                   
                         + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].TestName + "</td>"
                         + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].TestValue + "</td>"
                      

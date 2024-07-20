@@ -132,7 +132,13 @@
     <input style="display:none" id="id11" />
     <div class="row">
               <div class="col-5">
+   
     <h1>Upload Lab Image</h1>
+                                    <select class="form-control" id="typeimg" >
+    <option value="0"> please select type</option>
+                                            <option value="Xray">Xray</option>
+                                            <option value="CT scan">CT scan</option>
+</select>
      <input type="file" id="FileUpload1" accept="image/*">
 
  <img id="selectedImage22" src="" alt="Selected Image" />
@@ -174,7 +180,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="btnSave" class="btn btn-primary">Update</button>
+        <button type="button" id="btnSave" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
@@ -196,6 +202,13 @@
     <input style="display:none" id="id111" />
     <div class="row">
               <div class="col-5">
+                                                      <select class="form-control" id="typeimg1" >
+    <option value="0"> please select type</option>
+                                            <option value="Xray">Xray</option>
+                                            <option value="CT scan">CT scan</option>
+</select>
+
+                
     <h1>Upload New Image</h1>
      <input type="file" id="FileUpload11" accept="image/*">
 
@@ -223,7 +236,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" id="btnupdate" class="btn btn-primary">Update</button>
+        <button type="button" id="btnupdate" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
@@ -285,18 +298,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
 
     <script>
-        $(document).ready(function () {
-            // Initialize DataTable
-            var table = $('#datatable').DataTable({
-                dom: 'Bfrtip',
-                buttons: ['excelHtml5'],
-                paging: true,
-                pageLength: 10,
-                lengthMenu: [10, 25, 50, 100],
-                responsive: true
-            });
+        //$(document).ready(function () {
+        //    // Initialize DataTable
+        //    var table = $('#datatable').DataTable({
+        //        dom: 'Bfrtip',
+        //        buttons: ['excelHtml5'],
+        //        paging: true,
+        //        pageLength: 10,
+        //        lengthMenu: [10, 25, 50, 100],
+        //        responsive: true
+        //    });
 
-        });
+        //});
 
         $(document).ready(function () {
             var reader = new FileReader();
@@ -330,7 +343,17 @@
 
             $("[id*=btnSave]").click(function () {
                 var prescid = $("#id11").val();
+                var typeimg = $("#typeimg").val();
+                
                 var im = $("#FileUpload1").val();
+                if (typeimg == 0) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'No Type Selected',
+                        text: 'Please select a Type before saving.'
+                    });
+                    return false; // Prevent further execution
+                }
 
                 if (!im) {
                     Swal.fire({
@@ -347,7 +370,8 @@
                     Data: byteData,
                     Name: fileName,
                     ContentType: contentType,
-                    PrescID: prescid // Add the prescid to the object
+                    PrescID: prescid, // Add the prescid to the object
+                    typeimg: typeimg
                 };
 
                 $.ajax({
@@ -387,7 +411,7 @@
 
         function editpic() {
             var prescid = $("#id11").val();
-
+           
          
             event.preventDefault();
             $.ajax({
@@ -446,11 +470,18 @@
             });
             $("[id*=btnupdate]").click(function () {
                 var id = $("#id111").val(); // Fetch book ID from the span
-                
+                var typeimg = $("#typeimg1").val();
                 // Check if a file is selected and create a FileReader to read the file
                 var fileInput = document.getElementById('FileUpload11'); // Replace 'fileInput' with your actual file input ID
     
-                   
+                if (typeimg == 0) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'No Type Selected',
+                        text: 'Please select a Type before saving.'
+                    });
+                    return false; // Prevent further execution
+                }
              
                 var file = fileInput.files[0];
                 var byteData = "";
@@ -465,7 +496,8 @@
                         var jsonData = {
                             id: id, // Include the book ID in the data
                             Data: byteData,
-                            Name: fileName
+                            Name: fileName,
+                            typeimg: typeimg
                         };
 
                         // Send data to server using AJAX
@@ -540,6 +572,7 @@
             
             } else   if (xrystatus === 'xray_processed') {
                 document.getElementById('editpic1').disabled = false;
+                document.getElementById('btnSave').disabled = true;
              
             } 
 

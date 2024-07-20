@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/doctor.Master" AutoEventWireup="true" CodeBehind="waitingpatients.aspx.cs" Inherits="juba_hospital.waitingpatients" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.Master" AutoEventWireup="true" CodeBehind="patient_amount.aspx.cs" Inherits="juba_hospital.patient_amount" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
     <style>
         /* Custom table styling */
@@ -88,14 +88,54 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <!-- Modal -->
+<div class="modal fade" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add Amount  </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+<div class="modal-body">
+    <input style="display:none" id="patientid" />
 
 
+    <div class="mb-3">
+        <label for="name" class="form-label">Full Name</label>
+        <input type="text" disabled class="form-control" id="name" placeholder="Enter Name">
+        <small id="nameError" class="text-danger"></small>
+    </div>
+
+
+
+    <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="number" class="form-control" id="amount" placeholder="Enter Amount">
+        <small id="amountError" class="text-danger"></small>
+    </div>
+
+
+
+
+
+    
+</div>
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" onclick="updateinfo()" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
 
        <div class="row">
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4 class="card-title">Patient waiting list</h4>
+                    <h4 class="card-title">Patient Payment List list</h4>
                   </div>
                   <div class="card-body">
                     <div class="table-responsive">
@@ -112,6 +152,7 @@
                           <th>Date Registered</th>
                            <th>Lap  Status</th>
                               <th>Scan Status</th>
+                                   <th>operation</th>
                           </tr>
                         </thead>
                         <tfoot>
@@ -125,6 +166,7 @@
                           <th>Date Registered</th>
                            <th>Lap  Status</th>
                               <th>Scan Status</th>
+                                       <th>operation</th>
                           </tr>
                         </tfoot>
                <tbody></tbody>
@@ -158,11 +200,8 @@
 
         // Function to fetch and display data
         function fetchData() {
-            var search = parseInt($("#label2").html());
-
             $.ajax({
-                url: 'assignmed.aspx/medic',
-                data: JSON.stringify({ 'search': search }),
+                url: 'patient_amount.aspx/medic',
                 dataType: "json",
                 type: 'POST',
                 contentType: "application/json",
@@ -175,7 +214,6 @@
                     // Populate table rows
                     for (var i = 0; i < response.d.length; i++) {
                         table.row.add([
-                      
                             response.d[i].full_name,
                             response.d[i].sex,
                             response.d[i].location,
@@ -183,12 +221,9 @@
                             response.d[i].amount,
                             response.d[i].dob,
                             response.d[i].date_registered,
-   
-                       
-                      
                             response.d[i].status,
                             response.d[i].xray_status,
-                        
+                            "<button type='button' class='edit-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].patientid + "' data-bs-toggle='tooltip' title='Edit patient'><i class='fa fa-edit'></i></button>"
                         ]).draw(false);
                     }
                 },
@@ -198,13 +233,88 @@
             });
         }
 
+
         // Call fetchData initially
         fetchData();
     });
 
 
+    // Delegate click events for edit and delete buttons to the table
+    $("#datatable").on("click", ".edit-btn", function (event) {
+        event.preventDefault(); // Prevent default behavior
+        var row = $(this).closest("tr");
+        var patientid = $(this).data("id");
+
+        var name = row.find("td:nth-child(1)").text();
+    
+        var amount = row.find("td:nth-child(5)").text();
+        $("#name").val(name);
+
+        $("#patientid").val(patientid);
+
+        $("#amount").val(amount);
 
 
+        // Show the modal
+        $('#editmodal').modal('show');
+    });
+
+
+    function updateinfo() {
+        // Clear previous error messages
+ 
+        document.getElementById('amountError').textContent = "";
+
+
+
+        // Get the form values
+        var id = $("#patientid").val();
+     
+        var amount = $("#amount").val();
+ 
+
+        // Validate the form values
+        let isValid = true;
+
+      
+
+       
+
+
+        if (amount.trim() === "" || isNaN(amount)) {
+            document.getElementById('amountError').textContent = "Please enter a valid amount.";
+            isValid = false;
+        }
+
+        
+
+        // If all validations pass, proceed with AJAX call
+        if (isValid) {
+            $.ajax({
+                url: 'patient_amount.aspx/updatepatient',
+                data: JSON.stringify({
+                    id: id,
+                amount: amount
+                }),
+                dataType: "json",
+                type: 'POST',
+                contentType: "application/json",
+                success: function (response) {
+                    console.log(response);
+                    $("#editmodal").modal("hide");
+                    Swal.fire(
+                        'Successfully Updated !',
+                        'You updated a new Patient!',
+                        'success'
+                    )
+                    fetchData();
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+    }
 
 </script>
 </asp:Content>

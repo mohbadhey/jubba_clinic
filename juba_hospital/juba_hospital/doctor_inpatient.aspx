@@ -111,384 +111,7 @@
         }
 
     </style>
-<style>
-  .report-content {
-    border: 3px solid black;
-    padding: 0;
-    box-shadow: 10px 10px 10px #888888;
-    margin: 5px;
-    width: 100%;
-  }
 
-  .report-header {
-    border: 0;
-    height: 150px;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .report-header img {
-    max-height: 100%;
-    width: auto;
-  }
-
-  .patient-details hr {
-    border: 1px solid black;
-  }
-
-  .report-body {
-    border: 0;
-    font-size: 16px;
-    overflow: auto;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: auto;
-  }
-
-  th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    box-sizing: border-box;
-  }
-
-  th {
-    background-color: #f2f2f2;
-    text-transform: uppercase;
-  }
-
-  .report-sign {
-    border: 0;
-    height: 100px;
-    margin: 30px 30px;
-  }
-
-  .report-footer {
-    border: 0;
-    height: 150px;
-  }
-
-  .lab-doctor-sign {
-    float: right;
-  }
-
-  .report-sign img {
-    height: 50px;
-    width: 100px;
-    display: inline-block;
-  }
-
-  .lab-incharge-sign {
-    display: inline-block;
-  }
-
-  .align-left {
-    text-align: left;
-    padding: 10px;
-  }
-
-  /* Global styles */
-  body {
-    font-size: 16px;
-  }
-
-  .report-content {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
-  }
-
-  @media print {
-    @page {
-      size: A4;
-      margin: 10mm;
-    }
-    
-    body * {
-      visibility: hidden;
-    }
-
-    .report-content, .report-content * {
-      visibility: visible;
-    }
-
-    .report-content {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      padding: 1rem;
-      font-size: 1.2rem;
-    }
-
-    .report-body {
-      margin-top: 1rem;
-    }
-
-    table {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    th, td {
-      padding: 0.5rem;
-    }
-
-    .report-header img, .report-sign img {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-    }
-
-    #print-button1 {
-      display: none;
-    }
-  }
-</style>
-
-<style>
-    .report-content {
-  border: 3px solid black;
-  padding: 0px;
-  box-shadow: 10px 10px 10px #888888;
-  margin: 5px;
-}
-
-.report-header {
-  border: 0px solid black;
-  height: 150px;
-  width: 100%; /* Ensure the div takes the full width of its container */
-  overflow: hidden; /* Ensures the image doesn't overflow the div */
-  display: flex; /* Center the image horizontally */
-  justify-content: center;
-  align-items: center; /* Center the image vertically */
-}
-
-.report-header img {
-  max-height: 100%;
-  width: auto; /* Maintain aspect ratio */
-}
-
-
-
-.patient-details hr {
-  border: 1px solid black;
-}
-
-.report-body {
-  border: 0px solid black;
-  height: 300px;
-  font-size: 16px;
-  overflow: auto; /* Allow scrolling if content overflows */
-  padding: 0; /* Remove padding to make full use of the space */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-table {
-  width: 100%;
-  max-height: 100%;
-  border-collapse: collapse;
-  table-layout: auto; /* Allows the table to adjust column widths */
-}
-
-th, td {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px; /* Adjust padding for better fit */
-  box-sizing: border-box; /* Include border and padding in the element's width and height */
-}
-
-th {
-  background-color: #f2f2f2;
-  text-transform: uppercase; /* Ensure headers are uppercase */
-}
-
-.report-sign {
-  border: 0px solid black;
-  height: 100px;
-  margin: 30px 30px;
-}
-
-.report-footer {
-  border: 0px solid black;
-  height: 150px;
-}
-
-img {
-  height: 100%;
-  width: 100%;
-}
-
-.lab-doctor-sign {
-  float: right;
-}
-
-.report-sign img {
-  height: 50px;
-  width: 100px;
-  display: inline-block;
-}
-
-.lab-incharge-sign {
-  display: inline-block;
-}
-
-.align-left {
-  text-align: left;
-  padding: 10px;
-}
-
-/* Print styles */
-
-
-
-/*@media print {
-  body * {
-    visibility: hidden;
-  }
-  .report-content, .report-content * {
-    visibility: visible;
-  }
-  .report-content {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-shadow: none;
-  }
-
-  img {
-    width: auto;
-    max-width: 100%;
-
-    height: auto;
-
-  }
-  .report-header , .report-sign img {
-    width: auto;
-    max-width: 100%;
-    height: auto;
-  }
-  .report-body {
-    height: auto;
-    max-height: 100%;
-    overflow: visible;
-  }
-  .col-4 {
-    width: 100%;
-  }
-  #print-button {
-    display: none;
-  }
-}*/
-
-
-
-/* Global print styles */
-/*@media print {
-  body * {
-    visibility: hidden;
-  }
-  .report-content, .report-content * {
-    visibility: visible;
-  }
-  .report-content {
-    position: relative;*/ /* Change to relative to allow normal flow */
-    /*width: 100%;
-    padding: 1rem;*/ /* Add padding for better appearance */
-    /*font-size: 1.5rem;*/ /* Increase font size for all elements */
-  /*}
-  .report-header img, .report-sign img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-  .report-body {
-    margin-top: 1rem;*/ /* Add margin-top to separate from header */
-  /*}
-  table {
-    width: 100%;
-    margin-bottom: 1rem;*/ /* Add some space between tables */
-    /*font-size: 1.5rem;*/ /* Increase font size for tables */
-  /*}
-  th, td {
-    padding: 1rem;*/ /* Increase padding for better readability */
-  /*}
-  #print-button {
-    display: none;
-  }
-}*/
-
-
-
-
-
-
-
-  /* Global styles */
-body {
-  font-size: 16px; /* Base font size */
-}
-
-.report-content {
-  width: 100%; /* Full width */
-  padding: 1rem; /* Add padding for spacing */
-  font-size: 1rem; /* Base font size for screen display */
-}
-
-@media print {
-  body * {
-    visibility: hidden;
-  }
-  .report-content, .report-content * {
-    visibility: visible;
-  }
-  .report-content {
-    position: relative; /* Normal flow for printing */
-    width: 100%;
-    padding: 1rem; /* Padding for better appearance */
-    font-size: 1.5rem; /* Increase font size for print */
-  }
-  .report-body {
-    margin-top: 1rem; /* Margin to separate from header */
-  }
-  table {
-    width: 100%;
-    margin-bottom: 1rem; /* Add space between tables */
-  }
-  th, td {
-    padding: 1rem; /* Padding for readability */
-  }
-  .report-header img, .report-sign img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-  #print-button {
-    display: none; /* Hide print button when printing */
-  }
-}
-
-</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -512,7 +135,7 @@ body {
 <th>D.O.B</th>
                           <th>Date Registered</th>
                            <th>Lap  Status</th>
-                              <th>X-ray Status</th>
+                              <th>Scan Status</th>
                                <th>patient_status </th>
                                            <th>operation </th>
                         </tr>
@@ -527,7 +150,7 @@ body {
 <th>D.O.B</th>
                           <th>Date Registered</th>
                            <th>Lap  Status</th>
-                              <th>X-ray Status</th>
+                              <th>Scan Status</th>
                              <th>patient_status </th>
                                   <th>operation </th>
                         </tr>
@@ -572,62 +195,56 @@ body {
         <div class="card">
             <div class="card-header"></div>
             <div class="card-body p-0">
-                <div class="report-content">
-                    <div class="report-header">
-                        <img src="assets/zfsdfg.png" />
-                    </div>
-                    <div class="patient-details ">
-                        <hr>
-                        <table border="0">
-                            <tr>
-                                <td>Patient Name:  <span class="h5" id="ptname"></span></td>
-                                <td class="align-left">Referred By:</td>
-                            </tr>
-                            <tr>
-                                <td>Sex: <span class="h5" id="sex"></span></td>
-                                <td class="align-left">Date: <span id="date" class="h5"></span></td>
-                            </tr>
-                            <tr>
-                                <td>Age: <span class="h5" id="DOB"></span> years</td>
-                                <td class="align-left">Doctor: <span class="h5" id="doctor"></span></td>
-                            </tr>
-                            <tr>
-                                <td>Phone:  <span class="h5" id="phone"></span></td>
-                                <td class="align-left">Location:  <span class="h5" id="location"></span></td>
-                            </tr>
-                        </table>
-                        <hr>
-                    </div>
-                    <div class="report-body p-0">
-                        <table id="datatable1" class="patient-details table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Result</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Table rows will be dynamically added here -->
-                            </tbody>
-                        </table>
-                    </div>
-                   <%-- <div class="report-sign">
-                        <div class="lab-incharge-sign">
-                            <figcaption>Mr. Sachin Sharma</figcaption>
-                        </div>
-                        <div class="lab-doctor-sign">
-                            <figcaption>Dr. A.K. Asthana</figcaption>
-                        </div>
-                    </div>--%>
-                </div>
-                <button id="print-button">Print Report</button>
+                      <div class="report-content" style="font-family: Arial, sans-serif; width: 100%; margin: 0 auto; padding: 0;">
+    <div class="report-header" style="text-align: center; margin-bottom: 20px;">
+        <img src="assets/zfsdfg.png" style="max-width: 100%; height: auto;" />
+    </div>
+    <div class="patient-details" style="margin-bottom: 10px;">
+             <h3 id="ht" style="text-align: center;">Laboratory Test Report</h3>
+        <hr style="border: 0; border-top: 1px solid #000;" />
+        <table border="0" style="width: 100%; table-layout: fixed;">
+            <tr>
+                <td style="padding: 5px;">Patient Name: <span class="h5" id="ptname"></span></td>
+                <td style="padding: 5px; text-align: left;">Referred By:</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;">Sex: <span class="h5" id="sex"></span></td>
+                <td style="padding: 5px; text-align: left;">Date: <span id="date" class="h5"></span></td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;">Age: <span class="h5" id="DOB"></span> years</td>
+                <td style="padding: 5px; text-align: left;">Doctor: <span class="h5" id="doctor"></span></td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;">Phone: <span class="h5" id="phone"></span></td>
+                <td style="padding: 5px; text-align: left;">Location: <span class="h5" id="location"></span></td>
+            </tr>
+        </table>
+        <hr style="border: 0; border-top: 1px solid #000;" />
+    </div>
+    <div class="report-body" style="margin: 0;">
+        <table id="datatable1" class="patient-details" style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #000; padding: 5px;">Name</th>
+                    <th style="border: 1px solid #000; padding: 5px;">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<button id="print-button" style="display: none;" onclick="printReport()">Print Report</button>
             </div>
         </div>
     </div>
 </div>
     </div>
     <div class="col-4">
-        <h1>X-ray Results</h1>
+        <h1>Scan Results</h1>
+            <label class="h3" id="imgtype"></label>
     <%--    <img src="assets/img/lab.png" alt="X-ray Results"/>--%>
                <img src="" id="img"/>
     </div>
@@ -715,42 +332,42 @@ body {
               <div class="col-12">
    
        
-             <div class="report-content col-12" id="report">
-  <div class="report-header">
-      <img src="assets/zfsdfg.png" />
+   <div class="report-content col-12" id="report" style="font-family: Arial, sans-serif; width: 100%; margin: 0 auto; padding: 0;">
+  <div class="report-header" style="text-align: center; margin-bottom: 20px;">
+      <img src="assets/zfsdfg.png" style="max-width: 100%; height: auto;" />
   </div>
-  <div class="patient-details ">
-    <hr>
-    <table border="0">
+  <div class="patient-details" style="margin-bottom: 4px;">
+      <h3 id="ht" style="text-align: center;">Medication Report</h3>
+    <hr style="border: 0; border-top: 1px solid #000;" />
+    <table border="0" style="width: 100%; table-layout: fixed;">
       <tr>
-        <td>Patient Name:  <span class="h5" id="ptname1"></span></td>
-        <td class="align-left">Referred By:</td>
+        <td>Patient Name: <span class="h5" id="ptname1"></span></td>
+        <td>Referred By:</td>
       </tr>
       <tr>
-        <td>Sex: <span class="h5" id="sex1"></span></td>
-        <td class="align-left">Date: <span id="date1" class="h5"></span></td>
+        <td >Sex: <span class="h5" id="sex1"></span></td>
+        <td>Date: <span id="date1" class="h5"></span></td>
       </tr>
       <tr>
-        <td>Age: <span class="h5" id="DOB1"></span>years</td>
-        <td class="align-left">Doctor: <span class="h5" id="doctor1"></span> </td>
+        <td>Age: <span class="h5" id="DOB1"></span> years</td>
+        <td>Doctor: <span class="h5" id="doctor1"></span></td>
       </tr>
-            <tr>
-      <td>Phone:  <span class="h5" id="phone1"></span></td>
-      <td class="align-left">Location:  <span class="h5" id="location1"></span></td>
-    </tr>
+      <tr>
+        <td>Phone: <span class="h5" id="phone1"></span></td>
+        <td>Location: <span class="h5" id="location1"></span></td>
+      </tr>
     </table>
-    <hr>
+    <hr style="border: 0; border-top: 1px solid #000;" />
   </div>
-  <div class="report-body p-0">
-    <table id="datatable11" class="patient-details  table-bordered">
+  <div class="report-body" style="margin: 0;">
+    <table id="datatable11" class="patient-details" style="width: 100%; border-collapse: collapse; border: 1px solid #000;">
       <thead>
         <tr>
-          <th>Medication Name</th>
-          <th>Dosage</th>
-              <th>Frequency</th>
-  <th>Duration</th>
-              <th>Special Instrcution</th>
-
+          <th style="border: 1px solid #000; padding: 5px;">Medication Name</th>
+          <th style="border: 1px solid #000; padding: 5px;">Dosage</th>
+          <th style="border: 1px solid #000; padding: 5px;">Frequency</th>
+          <th style="border: 1px solid #000; padding: 5px;">Duration</th>
+          <th style="border: 1px solid #000; padding: 5px;">Special Instruction</th>
         </tr>
       </thead>
       <tbody>
@@ -758,26 +375,19 @@ body {
       </tbody>
     </table>
   </div>
-       <br />
-                     <br />
-                     <br />
-                     <br />
-                     <br />
-                     <br />
-                     <br />
-                     <br />
-<%--  <div class="report-sign">
+  <br /><br /><br /><br /><br /><br /><br /><br />
+  <%-- 
+  <div class="report-sign">
     <div class="lab-incharge-sign">
-
       <figcaption>Mr. Sachin Sharma</figcaption>
     </div>
     <div class="lab-doctor-sign">
- 
       <figcaption>Dr. A.K. Asthana</figcaption>
     </div>
-  </div>--%>
+  </div>
+  --%>
 </div>
-<button id="print-button1">Print Report</button>
+<button id="print-button1" style="display: none;" onclick="printReport1()">Print Report</button>
     </div>
 
           </div>
@@ -797,24 +407,43 @@ body {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
   <script>
-      $(document).ready(function () {
-          // Initialize DataTable
-          var table = $('#datatable').DataTable({
-              dom: 'Bfrtip',
-              buttons: ['excelHtml5'],
-              paging: true,
-              pageLength: 10,
-              lengthMenu: [10, 25, 50, 100],
-              responsive: true
-          });
+      //$(document).ready(function () {
+      //    // Initialize DataTable
+      //    var table = $('#datatable').DataTable({
+      //        dom: 'Bfrtip',
+      //        buttons: ['excelHtml5'],
+      //        paging: true,
+      //        pageLength: 10,
+      //        lengthMenu: [10, 25, 50, 100],
+      //        responsive: true
+      //    });
 
-      });
+      //});
+      function printReport() {
+          const printContents = document.querySelector('.report-content').innerHTML;
+          const originalContents = document.body.innerHTML;
 
-
-      document.getElementById('print-button1').addEventListener('click', function () {
+          document.body.innerHTML = printContents;
           window.print();
-      });
+          document.body.innerHTML = originalContents;
+      }
 
+      document.getElementById('print-button').style.display = 'block';
+
+
+
+      function printReport1() {
+          const printContents = document.querySelector('#report').innerHTML;
+          const originalContents = document.body.innerHTML;
+
+          document.body.innerHTML = printContents;
+          window.print();
+          document.body.innerHTML = originalContents;
+      }
+
+      document.getElementById('print-button1').style.display = 'block';
+
+ 
 
       function toggleRow() {
           var checkbox = document.getElementById("radio2");
@@ -849,10 +478,6 @@ body {
               printWindow.print();
               printWindow.close();
           };
-      });
-
-      document.getElementById('print-button').addEventListener('click', function () {
-          window.print();
       });
 
 
@@ -983,13 +608,11 @@ body {
                   for (var i = 0; i < response.d.length; i++) {
                       $("#datatable11 tbody").append(
                           "<tr>"
-
-                          + "<td>" + response.d[i].med_name + "</td>"
-                          + "<td>" + response.d[i].dosage + "</td>"
-                          + "<td>" + response.d[i].frequency + "</td>"
-                          + "<td>" + response.d[i].duration + "</td>"
-                          + "<td>" + response.d[i].special_inst + "</td>"
-                          + "<td><button class='edit1-btn btn btn-success' data-id='" + response.d[i].medid + "'>edit</button></td>"
+                          + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].med_name + "</td>"
+                          + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].dosage + "</td>"
+                          + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].frequency + "</td>"
+                          + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].duration + "</td>"
+                          + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].special_inst + "</td>"
 
 
                           + "</tr>"
@@ -1175,7 +798,7 @@ body {
 
           var id = row.find("td:nth-child(10)").text();
 
-
+          $("#doctor1").text(doctor);
 
           $("#doctor").text(doctor);
           // Parse the DOB into a Date object
@@ -1197,6 +820,7 @@ body {
           var options = { year: 'numeric', month: 'long', day: 'numeric' };
           var formattedToday = today.toLocaleDateString('en-US', options);
           $("#date").text(formattedToday);
+          $("#date1").text(formattedToday);
           // Display the age in the input field
           $("#DOB").text(age);
 
@@ -1227,7 +851,8 @@ body {
 
                   if (response.d && response.d.length > 0) {
                       var base64Data = response.d[0].image; // Assuming imageData is base64-encoded
-
+                      var image = response.d[0].type;
+                      $("#imgtype").text(image);
                       // Update image source directly
                       $("#img").attr('src', 'data:image/jpeg;base64,' + base64Data);
                   } else {
@@ -1256,9 +881,8 @@ body {
                       $("#datatable1 tbody").append(
                           "<tr>"
 
-                          + "<td>" + response.d[i].TestName + "</td>"
-                          + "<td>" + response.d[i].TestValue + "</td>"
-
+                          + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].TestName + "</td>"
+                          + "<td style='border: 1px solid #000; padding: 5px;'>" + response.d[i].TestValue + "</td>"
 
                           + "</tr>"
                       );

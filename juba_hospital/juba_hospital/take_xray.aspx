@@ -26,7 +26,8 @@
     #datatable {
         width: 100%;
         margin: 20px 0;
-        font-size: 14px;
+         font-size: 19px;
+   font-weight:bold;
     }
 
     #datatable th,
@@ -134,11 +135,7 @@
               <div class="col-5">
    
     <h1>Upload Lab Image</h1>
-                                    <select class="form-control" id="typeimg" >
-    <option value="0"> please select type</option>
-                                            <option value="Xray">Xray</option>
-                                            <option value="CT scan">CT scan</option>
-</select>
+           
      <input type="file" id="FileUpload1" accept="image/*">
 
  <img id="selectedImage22" src="" alt="Selected Image" />
@@ -151,6 +148,7 @@
                          <table id="datatable11" class="display table table-striped table-hover">
   <thead>
     <tr>
+            <th> Type</th>
       <th> Name</th>
       <th>describtion</th>
    
@@ -202,12 +200,7 @@
     <input style="display:none" id="id111" />
     <div class="row">
               <div class="col-5">
-                                                      <select class="form-control" id="typeimg1" >
-    <option value="0"> please select type</option>
-                                            <option value="Xray">Xray</option>
-                                            <option value="CT scan">CT scan</option>
-</select>
-
+            
                 
     <h1>Upload New Image</h1>
      <input type="file" id="FileUpload11" accept="image/*">
@@ -247,7 +240,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Assign xray</h4>
+                  <h4 class="card-title">Assign Image</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -343,17 +336,10 @@
 
             $("[id*=btnSave]").click(function () {
                 var prescid = $("#id11").val();
-                var typeimg = $("#typeimg").val();
+
                 
                 var im = $("#FileUpload1").val();
-                if (typeimg == 0) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'No Type Selected',
-                        text: 'Please select a Type before saving.'
-                    });
-                    return false; // Prevent further execution
-                }
+           
 
                 if (!im) {
                     Swal.fire({
@@ -371,7 +357,7 @@
                     Name: fileName,
                     ContentType: contentType,
                     PrescID: prescid, // Add the prescid to the object
-                    typeimg: typeimg
+                 
                 };
 
                 $.ajax({
@@ -470,18 +456,11 @@
             });
             $("[id*=btnupdate]").click(function () {
                 var id = $("#id111").val(); // Fetch book ID from the span
-                var typeimg = $("#typeimg1").val();
+     
                 // Check if a file is selected and create a FileReader to read the file
                 var fileInput = document.getElementById('FileUpload11'); // Replace 'fileInput' with your actual file input ID
     
-                if (typeimg == 0) {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'No Type Selected',
-                        text: 'Please select a Type before saving.'
-                    });
-                    return false; // Prevent further execution
-                }
+          
              
                 var file = fileInput.files[0];
                 var byteData = "";
@@ -497,7 +476,7 @@
                             id: id, // Include the book ID in the data
                             Data: byteData,
                             Name: fileName,
-                            typeimg: typeimg
+               
                         };
 
                         // Send data to server using AJAX
@@ -566,11 +545,11 @@
      
             
 
-            if (xrystatus === 'pending_xray') {
+            if (xrystatus === 'pending_image') {
            
                 document.getElementById('editpic1').disabled = true;
             
-            } else   if (xrystatus === 'xray_processed') {
+            } else   if (xrystatus === 'image_processed') {
                 document.getElementById('editpic1').disabled = false;
                 document.getElementById('btnSave').disabled = true;
              
@@ -596,9 +575,10 @@
                     for (var i = 0; i < response.d.length; i++) {
                         $("#datatable11 tbody").append(
                             "<tr style='cursor:pointer' onclick='passValue(this)'>"
+                            + "<td>" + response.d[i].type + "</td>"
                             + "<td>" + response.d[i].xryname + "</td>"
                             + "<td>" + response.d[i].xrydescribtion + "</td>"
-                     
+              
                   
 
                             + "</tr>"
@@ -638,8 +618,34 @@
                     console.log(response);
 
                     $("#datatable tbody").empty();
+                    // Function to determine button style based on status
+                    function getStatusButton(status) {
+                        var color;
+                        switch (status) {
+                            case 'waiting':
+                                color = 'red';
+                                break;
+                            case 'pending-lap':
+                                color = 'orange';
+                                break;
+                            case 'lap_processed':
+                                color = 'green';
+                                break;
+                            case 'pending_image':
+                                color = 'orange';
+                                break;
+                            case 'image_processed':
+                                color = 'green';
+                                break;
+                            default:
+                                color = 'initial';
+                        }
+                        return "<button style='background-color:" + color + "; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + status + "</button>";
+                    }
 
                     for (var i = 0; i < response.d.length; i++) {
+                        var statusButton = getStatusButton(response.d[i].status);
+                        var xrayStatusButton = getStatusButton(response.d[i].xray_status);
                         $("#datatable tbody").append(
                             "<tr style='cursor:pointer' onclick='passValue(this)'>"
                             + "<td style='display:none'>" + response.d[i].doctorid + "</td>"
@@ -654,7 +660,7 @@
                             + "<td>" + response.d[i].doctortitle + "</td>"
                             
                             + "<td style='display:none'>" + response.d[i].prescid + "</td>"
-                            + "<td><button style='background-color:red; curser:off;   color:white; border:none; padding:5px 10px;  border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
+                           + "<td>" + statusButton + "</td>" 
                             + "<td><button class='edit-btn btn btn-success' data-id='" + response.d[i].prescid + "'>Take Test</button></td>"
 
                             + "</tr>"

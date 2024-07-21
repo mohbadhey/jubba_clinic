@@ -25,7 +25,8 @@
     #datatable {
         width: 100%;
         margin: 20px 0;
-        font-size: 14px;
+          font-size: 19px;
+      font-weight:bold;
     }
 
     #datatable th,
@@ -1897,11 +1898,31 @@
                         console.log(response);
 
                         $("#datatable tbody").empty();
+                        // Function to determine button style based on status
+                        function getStatusButton(status) {
+                            var color;
+                            switch (status) {
+                                case 'waiting':
+                                    color = 'red';
+                                    break;
+                                case 'pending-lap':
+                                    color = 'orange';
+                                    break;
+                                case 'lap-processed':
+                                    color = 'green';
+                                    break;
+                                default:
+                                    color = 'initial';
+                            }
+                            return "<button style='background-color:" + color + "; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + status + "</button>";
+                        }
 
                         for (var i = 0; i < response.d.length; i++) {
                             // Determine if edit buttons should be disabled based on status
                             var disableEdit = response.d[i].status === 'pending-lap' ? 'disabled' : '';
                             var disablePlus = response.d[i].status === 'lap-processed' ? 'disabled' : '';
+                            var statusButton = getStatusButton(response.d[i].status);
+                    
 
                             $("#datatable tbody").append(
                                 "<tr style='cursor:pointer' onclick='passValue(this)'>"
@@ -1915,7 +1936,7 @@
                                 + "<td>" + response.d[i].date_registered + "</td>"
                                 + "<td style='display:none'>" + response.d[i].prescid + "</td>"
                                 + "<td style='display:none'>" + response.d[i].lab_result_id + "</td>"
-                                + "<td><button style='background-color:red; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + response.d[i].status + "</button></td>"
+                                +   "<td>" + statusButton + "</td>" 
                                 + "<td>"
                                 + "<button type='button' class='edit-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit Task' " + disablePlus + "><i class='fa fa-plus'></i></button>"
                                 + "<button type='button' class='edit1-btn btn btn-link btn-primary btn-lg' data-id='" + response.d[i].prescid + "' data-bs-toggle='tooltip' title='Edit' " + disableEdit + "><i class='fa fa-edit'></i></button>"

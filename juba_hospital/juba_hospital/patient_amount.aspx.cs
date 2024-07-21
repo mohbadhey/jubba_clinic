@@ -71,14 +71,13 @@ namespace juba_hospital
                 SqlCommand cmd = new SqlCommand(@"
      
      
-
 	SELECT 
     patient.patientid,
     patient.full_name, 
     patient.sex,
     patient.location,
     patient.phone,
-    CONVERT(date, patient.date_registered) AS date_registered,
+    patient.date_registered,
     doctor.doctortitle,
     patient.patientid,
     prescribtion.prescid,
@@ -93,10 +92,15 @@ namespace juba_hospital
         WHEN prescribtion.status = 2 THEN 'pending-lap'
         WHEN prescribtion.status = 3 THEN 'lap-processed'
     END AS status,
+	    CASE 
+    WHEN patient.patient_status = 0 THEN 'Out Patient'
+       WHEN patient.patient_status = 1 THEN 'In Patient'
+	     WHEN patient.patient_status = 3 THEN 'Discharged'
+END AS patient_status,
     CASE 
         WHEN prescribtion.xray_status = 0 THEN 'waiting'
-        WHEN prescribtion.xray_status = 1 THEN 'pending_scan'
-        WHEN prescribtion.xray_status = 2 THEN 'scan_processed'
+        WHEN prescribtion.xray_status = 1 THEN 'pending_image'
+        WHEN prescribtion.xray_status = 2 THEN 'image_processed'
     END AS status_xray
 FROM 
     patient
@@ -104,6 +108,7 @@ INNER JOIN
     prescribtion ON patient.patientid = prescribtion.patientid
 INNER JOIN 
     doctor ON prescribtion.doctorid = doctor.doctorid
+	
 LEFT JOIN 
     xray ON prescribtion.prescid = xray.prescid
 
@@ -124,7 +129,7 @@ ORDER BY
                         field.sex = dr["sex"].ToString();
                         field.location = dr["location"].ToString();
                         field.phone = dr["phone"].ToString();
-                        field.date_registered = Convert.ToDateTime(dr["date_registered"]).ToString("yyyy-MM-dd");
+                        field.date_registered = dr["date_registered"].ToString();
                         field.doctortitle = dr["doctortitle"].ToString();
                         field.doctorid = dr["doctorid"].ToString();
                         field.patientid = dr["patientid"].ToString();
@@ -135,6 +140,8 @@ ORDER BY
                         field.status = dr["status"].ToString();
                         field.xray_status = dr["status_xray"].ToString();
                         field.xrayid = dr["xrayid"].ToString();
+                        field.patient_status = dr["patient_status"].ToString();
+                        
 
                         details.Add(field);
                     }

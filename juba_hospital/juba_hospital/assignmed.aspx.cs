@@ -43,7 +43,8 @@ namespace juba_hospital
 
                         field.xryname = dr["xryname"].ToString();
                         field.xrydescribtion = dr["xrydescribtion"].ToString();
-                    
+                        field.type = dr["type"].ToString();
+                   
 
                         details.Add(field);
                     }
@@ -57,6 +58,7 @@ namespace juba_hospital
         {
             public string xryname;
             public string xrydescribtion;
+            public string type;
         }
         [WebMethod]
         public static string deleteJob(string medid)
@@ -139,7 +141,7 @@ namespace juba_hospital
 
 
         [WebMethod]
-        public static string realxryupdate( string xryid, string xrayname, string inst)
+        public static string realxryupdate( string xryid, string xrayname, string inst, string typeimg)
         {
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
 
@@ -152,6 +154,7 @@ namespace juba_hospital
                     // Update jobs table
                     string jobQuery = "UPDATE [xray] SET " +
                           "[xryname] = @xryname," +
+                               "[type] = @typeimg," +
                             "[xrydescribtion] = @xrydescribtion" +
                               " WHERE [xrayid] = @xrayid";
 
@@ -161,8 +164,10 @@ namespace juba_hospital
                         cmd.Parameters.AddWithValue("@xryname", xrayname);
                         cmd.Parameters.AddWithValue("@xrydescribtion", inst);
                         cmd.Parameters.AddWithValue("@xrayid", xryid);
-                      
-             
+                        cmd.Parameters.AddWithValue("@typeimg", typeimg);
+                        
+
+
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -470,7 +475,7 @@ WHERE TestValue IS NOT NULL AND TestValue != '';
     patient.sex,
     patient.location,
     patient.phone,
-    CONVERT(date, patient.date_registered) AS date_registered,
+     date_registered,
     doctor.doctortitle,
     patient.patientid,
     prescribtion.prescid,
@@ -487,8 +492,8 @@ WHERE TestValue IS NOT NULL AND TestValue != '';
     END AS status,
     CASE 
         WHEN prescribtion.xray_status = 0 THEN 'waiting'
-        WHEN prescribtion.xray_status = 1 THEN 'pending_scan'
-        WHEN prescribtion.xray_status = 2 THEN 'scan_processed'
+        WHEN prescribtion.xray_status = 1 THEN 'pending_image'
+        WHEN prescribtion.xray_status = 2 THEN 'image_processed'
     END AS status_xray
 FROM 
     patient
@@ -518,7 +523,8 @@ ORDER BY
                         field.sex = dr["sex"].ToString();
                         field.location = dr["location"].ToString();
                         field.phone = dr["phone"].ToString();
-                        field.date_registered = Convert.ToDateTime(dr["date_registered"]).ToString("yyyy-MM-dd");
+                        field.date_registered = dr["date_registered"].ToString();
+                        
                         field.doctortitle = dr["doctortitle"].ToString();
                         field.doctorid = dr["doctorid"].ToString();
                         field.patientid = dr["patientid"].ToString();

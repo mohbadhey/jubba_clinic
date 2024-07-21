@@ -12,11 +12,12 @@
             font-size: 25px; /* Adjust the value as needed */
         }
     </style>
-          <link
-  rel="icon"
-  href="assets/img/kaiadmin/favicon.ico"
-  type="image/x-icon"
-/>
+           <link
+      rel="icon"
+      href="assets/img/kaiadmin/j.ico"
+      type="image/x-icon"
+    />
+       
 <script src="assets/sweetalert2.min.js"></script>
 <link href="assets/sweetalert2.css" rel="stylesheet" />
 <!-- Fonts and icons -->
@@ -62,15 +63,15 @@
     <div class="sidebar-logo">
       <!-- Logo Header -->
       <div class="logo-header" data-background-color="white">
-        <a href="#" class="logo">
-            <h2>Admin Section</h2>
-       <%--   <img
-            src="assets/img/kaiadmin/logo_light.svg"
-            alt="navbar brand"
-            class="navbar-brand"
-            height="20"
-          />--%>
-        </a>
+      <a href="#" class="logo">
+ 
+  <img
+    src="assets/img/j.png"
+    alt="navbar brand"
+    class="navbar-brand"
+    height="80"
+  />  
+</a>Admin Section
         <div class="nav-toggle">
           <button class="btn btn-toggle toggle-sidebar">
             <i class="gg-menu-right"></i>
@@ -251,7 +252,7 @@
              
                 <span class="profile-username">
                   <span class="op-7">Hi,</span>
-                  <span class="fw-bold"><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></span>
+                  <span class="h3" class="fw-bold"><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></span>
                 </span>
               </a>
               <ul class="dropdown-menu dropdown-user animated fadeIn">

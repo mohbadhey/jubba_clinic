@@ -43,8 +43,8 @@ background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 
      
 
               <div data-mdb-input-init class="form-outline form-white mb-4">
-                    <asp:TextBox ID="TextBoxUsername"  type="text"  class="form-control form-control-lg"  runat="server"></asp:TextBox>
-                  <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="TextBoxUsername" ErrorMessage="username is required." CssClass="text-danger" Display="Dynamic" />
+                    <asp:TextBox ID="TextBoxUsername"  type="text"  class="form-control form-control-lg"  runat="server" autocomplete="off" ></asp:TextBox>
+                  <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="TextBoxUsername" ErrorMessage="username is required." CssClass="text-danger" Display="Dynamic"  />
                 <label class="form-label text-black" for="typeEmailX">Username</label>
               </div>
 

@@ -19,7 +19,7 @@ namespace juba_hospital
 
         }
         [WebMethod]
-        public static string submitxray(string xrname, string xrydescribtion, string id)
+        public static string submitxray(string xrname, string xrydescribtion, string id, string typeimg)
         {
             string cs = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
 
@@ -33,9 +33,9 @@ namespace juba_hospital
                     // Insert into medication table
                     string medicationQuery = @"
                 INSERT INTO xray (
-                    xryname, xrydescribtion,prescid
+                    xryname, xrydescribtion,prescid,type
                 ) VALUES (
-                    @xryname, @xrydescribtion, @prescid
+                    @xryname, @xrydescribtion, @prescid, @typeimg
                 )";
 
                     string patientUpdateQuery = "UPDATE [prescribtion] SET " +
@@ -48,6 +48,8 @@ namespace juba_hospital
 
                         cmd.Parameters.AddWithValue("@xryname", xrname);
                         cmd.Parameters.AddWithValue("@xrydescribtion", xrydescribtion);
+                        
+                                     cmd.Parameters.AddWithValue("@typeimg", typeimg);
 
                         cmd.Parameters.AddWithValue("@prescid", id);
                 

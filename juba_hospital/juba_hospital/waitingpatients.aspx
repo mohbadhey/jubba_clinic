@@ -25,7 +25,10 @@
         #datatable {
             width: 100%;
             margin: 20px 0;
-            font-size: 14px;
+           font-size: 19px;
+           font-weight:bold;
+          
+
         }
 
         #datatable th,
@@ -111,7 +114,7 @@
 <th>D.O.B</th>
                           <th>Date Registered</th>
                            <th>Lap  Status</th>
-                              <th>Scan Status</th>
+                              <th>image Status</th>
                           </tr>
                         </thead>
                         <tfoot>
@@ -124,7 +127,7 @@
 <th>D.O.B</th>
                           <th>Date Registered</th>
                            <th>Lap  Status</th>
-                              <th>Scan Status</th>
+                              <th>image Status</th>
                           </tr>
                         </tfoot>
                <tbody></tbody>
@@ -172,8 +175,36 @@
                     // Clear existing tbody content
                     table.clear().draw();
 
+                    // Function to determine button style based on status
+                    function getStatusButton(status) {
+                        var color;
+                        switch (status) {
+                            case 'waiting':
+                                color = 'red';
+                                break;
+                            case 'pending-lap':
+                                color = 'orange';
+                                break;
+                            case 'lap_processed':
+                                color = 'green';
+                                break;
+                            case 'pending_image':
+                                color = 'orange';
+                                break;
+                            case 'image_processed':
+                                color = 'green';
+                                break;
+                            default:
+                                color = 'initial';
+                        }
+                        return "<button style='background-color:" + color + "; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + status + "</button>";
+                    }
+
                     // Populate table rows
                     for (var i = 0; i < response.d.length; i++) {
+                        var statusButton = getStatusButton(response.d[i].status);
+                        var xrayStatusButton = getStatusButton(response.d[i].xray_status);
+
                         table.row.add([
                       
                             response.d[i].full_name,
@@ -185,9 +216,8 @@
                             response.d[i].date_registered,
    
                        
-                      
-                            response.d[i].status,
-                            response.d[i].xray_status,
+                            statusButton,
+                            xrayStatusButton,
                         
                         ]).draw(false);
                     }

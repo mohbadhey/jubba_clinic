@@ -25,7 +25,8 @@
     #datatable {
         width: 100%;
         margin: 20px 0;
-        font-size: 14px;
+      font-size: 19px;
+    font-weight:bold;
     }
 
     #datatable th,
@@ -192,8 +193,35 @@
                     // Clear the table body before appending new data
                     table.clear().draw();
 
+                    // Function to determine button style based on status
+                    function getStatusButton(status) {
+                        var color;
+                        switch (status) {
+                            case 'waiting':
+                                color = 'red';
+                                break;
+                            case 'pending-lap':
+                                color = 'orange';
+                                break;
+                            case 'lap_processed':
+                                color = 'green';
+                                break;
+                            case 'pending_scan':
+                                color = 'orange';
+                                break;
+                            case 'scan_processed':
+                                color = 'green';
+                                break;
+                            default:
+                                color = 'initial';
+                        }
+                        return "<button style='background-color:" + color + "; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + status + "</button>";
+                    }
+
                     // Append new rows to the table
                     for (var i = 0; i < response.d.length; i++) {
+                        var statusButton = getStatusButton(response.d[i].status);
+                        var xrayStatusButton = getStatusButton(response.d[i].xray_status);
                         table.row.add([
                 
                             response.d[i].full_name,
@@ -204,7 +232,7 @@
                             response.d[i].dob,
                             response.d[i].date_registered,
                             response.d[i].doctortitle,
-                            "<button style='background-color:red; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + response.d[i].status + "</button>"
+                            statusButton,
                         ]).draw();
                     }
                 },

@@ -31,11 +31,10 @@ namespace juba_hospital
                 string constr = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(constr))
                 {
-                    string sql = "UPDATE xray_results SET xryimage = @xryimage , type= @typeimg WHERE xray_result_id = @id";
+                    string sql = "UPDATE xray_results SET xryimage = @xryimage  WHERE xray_result_id = @id";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@id", data1.id);
-                        cmd.Parameters.AddWithValue("@typeimg", data1.typeimg);
                         cmd.Parameters.AddWithValue("@xryimage", bytes);
                         
                         conn.Open();
@@ -55,7 +54,7 @@ namespace juba_hospital
             public string id { get; set; }
             public string Data { get; set; }
             public string Name { get; set; }
-            public string typeimg { get; set; }
+ 
             
         }
         [WebMethod]
@@ -76,7 +75,7 @@ namespace juba_hospital
             string constr = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(constr))
             {
-                string sql = "INSERT INTO xray_results (xryimage, prescid, type) VALUES (@bookImage, @prescid ,@type)";
+                string sql = "INSERT INTO xray_results (xryimage, prescid) VALUES (@bookImage, @prescid)";
                 string patientUpdateQuery = "UPDATE [prescribtion] SET " +
                                               "[xray_status] = 2" +
                                             "WHERE [prescid] = @id";
@@ -86,7 +85,7 @@ namespace juba_hospital
                 {
                     cmd.Parameters.AddWithValue("@bookImage", File.ReadAllBytes(imageFilePath));
                     cmd.Parameters.AddWithValue("@prescid", data.PrescID);
-                    cmd.Parameters.AddWithValue("@type", data.typeimg);
+              
 
                     // Use data.PrescID to get the prescid value
                     conn.Open();
@@ -113,7 +112,7 @@ namespace juba_hospital
             public string ContentType { get; set; }
             public string Name { get; set; }
             public string PrescID { get; set; }
-            public string typeimg { get; set; }// Add PrescID property
+       
         }
 
 
@@ -143,8 +142,9 @@ namespace juba_hospital
 
                         field.xryname = dr["xryname"].ToString();
                         field.xrydescribtion = dr["xrydescribtion"].ToString();
-          
-                    
+                        field.type = dr["type"].ToString();
+
+
 
                         details.Add(field);
                     }
@@ -158,6 +158,8 @@ namespace juba_hospital
         {
             public string xryname;
             public string xrydescribtion;
+            public string type;
+
         }
         [WebMethod]
         public static ptclass[] pendlap()
@@ -185,8 +187,8 @@ namespace juba_hospital
     CONVERT(date, patient.dob) AS dob,
     CASE 
         WHEN prescribtion.xray_status = 0 THEN 'waiting'
-        WHEN prescribtion.xray_status = 1 THEN 'pending_scan'
-        WHEN prescribtion.xray_status = 2 THEN 'scan_processed'
+        WHEN prescribtion.xray_status = 1 THEN 'pending_image'
+        WHEN prescribtion.xray_status = 2 THEN 'image_processed'
     END AS status
 FROM 
     patient

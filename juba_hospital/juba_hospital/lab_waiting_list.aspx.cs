@@ -36,7 +36,7 @@ namespace juba_hospital
     patient.sex,
     patient.location,
     patient.phone,
-    CONVERT(date, patient.date_registered) AS date_registered,
+    date_registered,
     doctor.doctortitle,
     patient.patientid,
     prescribtion.prescid,
@@ -78,7 +78,8 @@ WHERE
                         field.sex = dr["sex"].ToString();
                         field.location = dr["location"].ToString();
                         field.phone = dr["phone"].ToString();
-                        field.date_registered = Convert.ToDateTime(dr["date_registered"]).ToString("yyyy-MM-dd");
+                        field.date_registered = dr["date_registered"].ToString();
+                        
                         field.doctortitle = dr["doctortitle"].ToString();
                         field.doctorid = dr["doctorid"].ToString();
                         field.patientid = dr["patientid"].ToString();

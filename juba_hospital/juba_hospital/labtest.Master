@@ -8,10 +8,11 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
           <link
-  rel="icon"
-  href="assets/img/kaiadmin/favicon.ico"
-  type="image/x-icon"
-/>
+      rel="icon"
+      href="assets/img/kaiadmin/j.ico"
+      type="image/x-icon"
+    />
+        
 <script src="assets/sweetalert2.min.js"></script>
 <link href="assets/sweetalert2.css" rel="stylesheet" />
 <!-- Fonts and icons -->
@@ -51,16 +52,16 @@
   <div class="sidebar" data-background-color="dark">
     <div class="sidebar-logo">
       <!-- Logo Header -->
-      <div class="logo-header" data-background-color="dark">
-        <a href="index.html" class="logo">
-            <h2>jubba</h2>
-       <%--   <img
-            src="assets/img/kaiadmin/logo_light.svg"
-            alt="navbar brand"
-            class="navbar-brand"
-            height="20"
-          />--%>
-        </a>
+      <div class="logo-header" style="background-color:lightgoldenrodyellow">
+           <a href="#" class="logo">
+ 
+  <img
+    src="assets/img/j.png"
+    alt="navbar brand"
+    class="navbar-brand"
+    height="90"
+  />  
+</a>Lap Section
         <div class="nav-toggle">
           <button class="btn btn-toggle toggle-sidebar">
             <i class="gg-menu-right"></i>
@@ -78,20 +79,7 @@
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
       <div class="sidebar-content">
         <ul class="nav nav-secondary">
-          <li class="nav-item active">
-            <a
-           
-              href="#dashboard"
-         
-            >
-              <i class="fas fa-home"></i>
-              <p>Dashboard</p>
-           
-            </a>
-            <div class="collapse" id="dashboard">
-             
-            </div>
-          </li>
+       
          
           <li class="nav-item">
             <a data-bs-toggle="collapse" href="#base">

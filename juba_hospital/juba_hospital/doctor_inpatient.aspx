@@ -25,7 +25,8 @@
         #datatable {
             width: 100%;
             margin: 20px 0;
-            font-size: 14px;
+            font-size: 19px;
+            font-weight:bold;
         }
 
         #datatable th,
@@ -135,7 +136,7 @@
 <th>D.O.B</th>
                           <th>Date Registered</th>
                            <th>Lap  Status</th>
-                              <th>Scan Status</th>
+                              <th>image Status</th>
                                <th>patient_status </th>
                                            <th>operation </th>
                         </tr>
@@ -150,7 +151,7 @@
 <th>D.O.B</th>
                           <th>Date Registered</th>
                            <th>Lap  Status</th>
-                              <th>Scan Status</th>
+                              <th>image Status</th>
                              <th>patient_status </th>
                                   <th>operation </th>
                         </tr>
@@ -243,7 +244,7 @@
 </div>
     </div>
     <div class="col-4">
-        <h1>Scan Results</h1>
+        <h1>Image Results</h1>
             <label class="h3" id="imgtype"></label>
     <%--    <img src="assets/img/lab.png" alt="X-ray Results"/>--%>
                <img src="" id="img"/>
@@ -922,8 +923,35 @@
                   $("#datatable tbody").empty();
 
 
+                  // Function to determine button style based on status
+                  function getStatusButton(status) {
+                      var color;
+                      switch (status) {
+                          case 'waiting':
+                              color = 'red';
+                              break;
+                          case 'pending-lap':
+                              color = 'orange';
+                              break;
+                          case 'lap_processed':
+                              color = 'green';
+                              break;
+                          case 'pending_image':
+                              color = 'orange';
+                              break;
+                          case 'image_processed':
+                              color = 'green';
+                              break;
+                          default:
+                              color = 'initial';
+                      }
+                      return "<button style='background-color:" + color + "; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + status + "</button>";
+                  }
+
 
                   for (var i = 0; i < response.d.length; i++) {
+                      var statusButton = getStatusButton(response.d[i].status);
+                      var xrayStatusButton = getStatusButton(response.d[i].xray_status);
 
 
                       $("#datatable tbody").append(
@@ -939,8 +967,8 @@
                           "<td style='display:none'>" + response.d[i].doctortitle + "</td>" +
                           "<td style='display:none'>" + response.d[i].prescid + "</td>" +
                           "<td style='display:none'>" + response.d[i].patientid + "</td>" +
-                          "<td>" + response.d[i].status + "</td>" +
-                          "<td>" + response.d[i].xray_status + "</td>" +
+                          "<td>" + statusButton + "</td>" +
+                          "<td>" + xrayStatusButton + "</td>" +
                           "<td>" + response.d[i].patient_status + "</td>" +
                           
                           "<td style='display:none'>" + response.d[i].xrayid + "</td>" +

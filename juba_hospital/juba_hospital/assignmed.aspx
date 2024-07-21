@@ -25,7 +25,8 @@
         #datatable {
             width: 100%;
             margin: 20px 0;
-            font-size: 14px;
+            font-size: 19px;
+            font-weight:bold;
         }
 
         #datatable th,
@@ -336,8 +337,8 @@
     <label class="form-check-label" for="radio2">Show Lab Tests</label>
                   <button class="btn btn-success" id="sendlab" onclick="showlab()"> send to lab</button>
           <button class="btn btn-success" id="editlab1" onclick="editlab()"> edit lab</button>
-          <button class="btn btn-success" id="sendxry" onclick="sendxray()"> send to scan</button>
-                  <button class="btn btn-success" id="editxry" onclick="updatexry()"> edit scan</button>
+          <button class="btn btn-success" id="sendxry" onclick="sendxray()"> send to image</button>
+                  <button class="btn btn-success" id="editxry" onclick="updatexry()"> edit image</button>
 
    
 
@@ -398,7 +399,7 @@
     </div>
     <div class="col-3">
       
-        <h1>Scan  Results</h1>
+        <h1>image  Results</h1>
         <label class="h3" id="imgtype"></label>
     <%--    <img src="assets/img/lab.png" alt="X-ray Results"/>--%>
 
@@ -494,7 +495,7 @@
   <th>D.O.B</th>
                             <th>Date Registered</th>
                              <th>Lap  Status</th>
-                                <th>Scan Status</th>
+                                <th>image Status</th>
                                          <th>Operation</th>
                           </tr>
                         </thead>
@@ -508,7 +509,7 @@
                                 <th>D.O.B</th>
    <th>Date Registered</th>
    <th>Lap  Status</th>
-                                 <th>Scan Status</th>
+                                 <th>image Status</th>
                                       <th>Operation</th>
                           </tr>
                         </tfoot>
@@ -1112,8 +1113,18 @@
      <textarea class="form-control" id="inst" rows="3"></textarea>
      <small id="instError" class="text-danger"></small>
  </div>
+                      <div class="mb-3 hidden" id="xraySpecial5">
 
-
+                                     <select class="form-control" id="typeimg" >
+    <option value="0"> please select type</option>
+                                            <option value="Xray">Xray</option>
+                                            <option value="CT scan">CT scan</option>
+                                             <option value="Ultra Sound<">Ultra Sound</option>
+                                             <option value="MRI">MRI</option>
+</select>
+    <small id="imgtype5" class="text-danger"></small>
+</div>
+                     
 
 
               </div>
@@ -1739,13 +1750,14 @@
         var inst = $("#inst").val();
       
 
+        var typeimg = $("#typeimg").val();
 
 
 
 
         $.ajax({
             url: 'assignmed.aspx/realxryupdate',
-            data: "{  'xryid':'" + xryid + "','xrayname':'" + xrayname + "', 'inst':'" + inst + "' }",
+            data: "{  'xryid':'" + xryid + "','xrayname':'" + xrayname + "', 'inst':'" + inst + "', 'typeimg':'" + typeimg + "' }",
 
             dataType: "json",
             type: 'POST',
@@ -3265,16 +3277,19 @@
                 if (response.d && response.d.length > 0) {
                     var data = response.d[0];
                     var xrynameInput = document.getElementById('xrayname');
-                    var xrydescribtionInput = document.getElementById('inst'); // Updated to use the textarea's ID
+                    var xrydescribtionInput = document.getElementById('inst');
+                    var xrytype = document.getElementById('typeimg');// Updated to use the textarea's ID
 
                     // Ensure elements exist
-                    if (xrynameInput && xrydescribtionInput) {
+                    if (xrynameInput && xrydescribtionInput && xrytype) {
                         // Show the hidden elements
                         $('#xrayDetails').removeClass('hidden');
                         $('#xraySpecial').removeClass('hidden');
+                        $('#xraySpecial5').removeClass('hidden');
 
                         // Set their values
                         xrynameInput.value = data.xryname;
+                        xrytype.value = data.type;
                         xrydescribtionInput.value = data.xrydescribtion;
                     } else {
                         console.log("Elements not found");
@@ -3361,12 +3376,12 @@
             const xrname = document.getElementById('xrayname').value;
             const xrydescribtion = document.getElementById('inst').value;
 
-
+            var typeimg = $("#typeimg").val();
             var id = $("#id9").val();
 
             $.ajax({
                 url: 'assingxray.aspx/submitxray',
-                data: "{'xrname':'" + xrname + "','xrydescribtion':'" + xrydescribtion + "','id':'" + id + "'}",
+                data: "{'xrname':'" + xrname + "','xrydescribtion':'" + xrydescribtion + "','id':'" + id + "','typeimg':'" + typeimg + "'}",
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 type: 'POST',
@@ -3375,7 +3390,7 @@
                     if (response.d === 'true') {
                         Swal.fire(
                             'Successfully Saved!',
-                            'You added a new Patient!',
+                            'You added a new image details!',
                             'success'
                         );
                         // Uncheck radio2 and other checkboxes
@@ -3857,13 +3872,13 @@
 
 
 
-        if (xrystatus === 'pending_scan') {
+        if (xrystatus === 'pending_image') {
             document.getElementById('sendxry').disabled = true;
             document.getElementById('editxry').disabled = false;
         } else if (xrystatus === 'waiting') {
             document.getElementById('sendxry').disabled = false;
             document.getElementById('editxry').disabled = true;
-        } else if (xrystatus === 'scan_processed') {
+        } else if (xrystatus === 'image_processed') {
             document.getElementById('sendxry').disabled = true;
             document.getElementById('editxry').disabled = true;
         }
@@ -4075,8 +4090,36 @@
                 // Clear existing tbody content
                 $("#datatable tbody").empty();
 
+                // Function to determine button style based on status
+                function getStatusButton(status) {
+                    var color;
+                    switch (status) {
+                        case 'waiting':
+                            color = 'red';
+                            break;
+                        case 'pending-lap':
+                            color = 'orange';
+                            break;
+                        case 'lap_processed':
+                            color = 'green';
+                            break;
+                        case 'pending_image':
+                            color = 'orange';
+                            break;
+                        case 'image_processed':
+                            color = 'green';
+                            break;
+                        default:
+                            color = 'initial';
+                    }
+                    return "<button style='background-color:" + color + "; cursor:default; color:white; border:none; padding:5px 10px; border-radius:30%;' disabled>" + status + "</button>";
+                }
+
                 // Populate table rows
                 for (var i = 0; i < response.d.length; i++) {
+                    var statusButton = getStatusButton(response.d[i].status);
+                    var xrayStatusButton = getStatusButton(response.d[i].xray_status);
+
                     $("#datatable tbody").append(
                         "<tr style='cursor:pointer' onclick='passValue(this)'>" +
                         "<td style='display:none;'>" + response.d[i].doctorid + "</td>" +
@@ -4090,8 +4133,8 @@
                         "<td style='display:none;'>" + response.d[i].doctortitle + "</td>" +
                         "<td style='display:none;'>" + response.d[i].prescid + "</td>" +
                         "<td style='display:none;'>" + response.d[i].patientid + "</td>" +
-                        "<td>" + response.d[i].status + "</td>" +
-                        "<td>" + response.d[i].xray_status + "</td>" +
+                        "<td>" + statusButton + "</td>" +
+                        "<td>" + xrayStatusButton + "</td>" +
                         "<td style='display:none;'>" + response.d[i].xrayid + "</td>" +
                         "<td><button class='edit-btn btn btn-success' data-id='" + response.d[i].prescid + "'>Assign Medication</button></td>" +
                         "</tr>"
@@ -4105,6 +4148,7 @@
                 alert(response.responseText);
             }
         });
+
     });
 
 

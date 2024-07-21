@@ -38,7 +38,7 @@ namespace juba_hospital
 
                     // Delete job from jobs table
                     string jobQuery = @"
-                DELETE FROM [juba_clinick].[dbo].[medication]
+                DELETE FROM [medication]
                 WHERE date_taken < DATEADD(WEEK, @Weeks, GETDATE());";
 
                     using (SqlCommand cmd = new SqlCommand(jobQuery, con))
@@ -79,7 +79,7 @@ namespace juba_hospital
 
                 SqlCommand cmd = new SqlCommand(@"
             SELECT medid, med_name, dosage, frequency, duration, special_inst, prescid, date_taken
-            FROM [juba_clinick].[dbo].[medication]
+            FROM [medication]
             WHERE date_taken < DATEADD(WEEK, @Weeks, GETDATE());
         ", con);
                 cmd.Parameters.AddWithValue("@Weeks", -weeks);

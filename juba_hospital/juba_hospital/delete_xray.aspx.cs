@@ -107,7 +107,7 @@ namespace juba_hospital
             public string xrayid;
             public string xryname;
             public string xrydescribtion;
-       
+            public string type;
                public string date_taken;
         }
         [WebMethod]
@@ -135,6 +135,7 @@ namespace juba_hospital
                         field.xrayid = dr["xrayid"].ToString();
                         field.xryname = dr["xryname"].ToString();
                         field.xrydescribtion = dr["xrydescribtion"].ToString();
+                        field.type = dr["type"].ToString();
                         field.date_taken = dr["date_taken"].ToString();
 
 

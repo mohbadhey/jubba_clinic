@@ -348,7 +348,7 @@ FROM
           ,[Fasting_blood_sugar]
           ,[Hemoglobin_A1c]
           ,[General_urine_examination]
-    FROM [juba_clinick].[dbo].[lab_results]
+    FROM [lab_results]
     WHERE prescid = @search
 ) src
 UNPIVOT

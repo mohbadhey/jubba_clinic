@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.Master" AutoEventWireup="true" CodeBehind="Patient_Operation.aspx.cs" Inherits="juba_hospital.Patient_Operation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         
@@ -183,10 +184,12 @@
                   </div>
                 </div>
               </div>
-            <script src="assets/js/plugin/datatables/datatables.min.js"></script>
-      <script src="Scripts/jquery-3.4.1.min.js"></script>
+   <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+ <script src="Scripts/jquery-3.4.1.min.js"></script>
     <script>
-
+        $(document).ready(function () {
+            $("#datatable").DataTable({});
+        });
         function deletepatient() {
             var pid = $("#pid1").val();
             var id = $("#id11").val();
@@ -433,9 +436,7 @@
             // Show the modal
             $('#editmodal').modal('show');
         });
-        $(document).ready(function () {
-            $("#datatable").DataTable({});
-        });
+    
 
         datadisplay();
         function datadisplay() {

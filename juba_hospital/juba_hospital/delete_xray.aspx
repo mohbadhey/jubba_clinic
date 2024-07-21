@@ -20,7 +20,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Delete scan Info</h4>
+                  <h4 class="card-title">Delete image Info</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -31,6 +31,7 @@
                       <thead>
                         <tr>
                                            <th> ID</th>
+                                             <th> Type</th>
                                      <th> Name</th>
         <th>Describtion</th>
 
@@ -40,6 +41,7 @@
                       <tfoot>
                         <tr>
                                               <th> ID</th>
+                              <th> Type</th>
                              <th> Name</th>
 <th>Describtion</th>
                             <th>Date Taken</th>
@@ -144,6 +146,7 @@
 
 
                                 + "<td>" + response.d[i].xrayid + "</td>"
+                                + "<td>" + response.d[i].type + "</td>"
                                 + "<td>" + response.d[i].xryname + "</td>"
                                 + "<td>" + response.d[i].xrydescribtion + "</td>"
                                 + "<td>" + response.d[i].date_taken + "</td>"

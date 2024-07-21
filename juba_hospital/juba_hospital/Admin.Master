@@ -140,7 +140,7 @@
 </li>
                                     <li class="nav-item">
   <a href="addxrayuser.aspx">
-    <span class="sub-item">Add scan user</span>
+    <span class="sub-item">Add Image user</span>
   </a>
 </li>
                                                 <li class="nav-item">
@@ -190,12 +190,12 @@
 </li>
                                                   <li class="nav-item">
   <a href="delete_xray.aspx">
-    <span class="sub-item"> Delete scan Info</span>
+    <span class="sub-item"> Delete image Info</span>
   </a>
 </li>
                                                               <li class="nav-item">
   <a href="delete_xray_images.aspx">
-    <span class="sub-item"> Delete Xray Images</span>
+    <span class="sub-item"> Delete  Images</span>
   </a>
 </li>
             

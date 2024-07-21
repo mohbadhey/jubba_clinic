@@ -57,16 +57,16 @@
   <div class="sidebar" data-background-color="dark">
     <div class="sidebar-logo">
       <!-- Logo Header -->
-      <div class="logo-header" data-background-color="dark">
-        <a href="index.html" class="logo">
-            <h2>jubba</h2>
-       <%--   <img
-            src="assets/img/kaiadmin/logo_light.svg"
-            alt="navbar brand"
-            class="navbar-brand"
-            height="20"
-          />--%>
-        </a>
+      <div class="logo-header" style="background-color:aliceblue" >
+               <a href="#" class="logo">
+ 
+  <img
+    src="assets/img/j.png"
+    alt="navbar brand"
+    class="navbar-brand"
+    height="80"
+  />  
+</a>Registre 
         <div class="nav-toggle">
           <button class="btn btn-toggle toggle-sidebar">
             <i class="gg-menu-right"></i>

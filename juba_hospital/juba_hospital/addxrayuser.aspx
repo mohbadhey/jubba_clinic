@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="addxrayuser.aspx.cs" Inherits="juba_hospital.addxrayuser" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
-      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
+    <link href="datatables/datatables.min.css" rel="stylesheet" />
           <style>
         /* Custom table styling */
         .dataTables_wrapper .dataTables_filter {
@@ -91,7 +90,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel1">Add xray user </h5>
+        <h5 class="modal-title" id="staticBackdropLabel1">Add image user </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 <div class="modal-body">
@@ -142,7 +141,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel11">Update And Delete scan user </h5>
+        <h5 class="modal-title" id="staticBackdropLabel11">Update And Delete image user </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 <div class="modal-body">
@@ -191,7 +190,7 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4 class="card-title"> scan Section</h4>
+                    <h4 class="card-title"> Image User Section</h4>
                   </div>
                   <div class="card-body">
                     <div >
@@ -230,14 +229,7 @@
     
                    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
 
-
-
-<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+    <script src="datatables/datatables.min.js"></script>
 
     <script>
         $(document).ready(function () {

@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/register.Master" AutoEventWireup="true" CodeBehind="Patient_details.aspx.cs" Inherits="juba_hospital.Patient_details" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="datatables/datatables.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -48,13 +49,21 @@
 
         
             </div>
-         <script src="assets/js/plugin/datatables/datatables.min.js"></script>
-       <script src="Scripts/jquery-3.4.1.min.js"></script>
+
+    <script src="datatables/datatables.min.js"></script>
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#datatable").DataTable({});
+            // Initialize DataTable
+            var table = $('#datatable').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['excelHtml5'],
+                paging: true,
+                pageLength: 10,
+                lengthMenu: [10, 25, 50, 100],
+                responsive: true
+            });
         });
-
         datadisplay();
         function datadisplay() {
             $.ajax({

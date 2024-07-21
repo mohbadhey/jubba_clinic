@@ -4100,7 +4100,7 @@
                         case 'pending-lap':
                             color = 'orange';
                             break;
-                        case 'lap_processed':
+                        case 'lap-processed':
                             color = 'green';
                             break;
                         case 'pending_image':
